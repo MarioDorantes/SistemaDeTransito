@@ -10,30 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SistemaDeTransitoMunicipal
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para RegistrarConductor.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegistrarConductor : Window
     {
-        public MainWindow()
+        public RegistrarConductor()
         {
             InitializeComponent();
         }
 
-        private void btn_IniciarSesion_Click(object sender, RoutedEventArgs e)
+        private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void btn_registrarConductor_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrarConductor ventanaRegistrar = new RegistrarConductor();
-            ventanaRegistrar.Show();
+            MainWindow ventanaInicioDeSesion = new MainWindow();
+            ventanaInicioDeSesion.Show();
             this.Close();
         }
     }
