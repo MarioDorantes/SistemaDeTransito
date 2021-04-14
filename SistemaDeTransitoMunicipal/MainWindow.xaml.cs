@@ -24,5 +24,15 @@ namespace SistemaDeTransitoMunicipal
         {
             InitializeComponent();
         }
+
+        private void btn_IniciarSesion_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_registrarConductor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
