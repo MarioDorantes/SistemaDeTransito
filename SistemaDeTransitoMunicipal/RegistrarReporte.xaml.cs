@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace SistemaDeTransitoMunicipal
 {
     /// <summary>
-    /// Lógica de interacción para RegistrarVehiculo.xaml
+    /// Lógica de interacción para RegistrarReporte.xaml
     /// </summary>
-    public partial class RegistrarVehiculo : Window
+    public partial class RegistrarReporte : Window
     {
-        public RegistrarVehiculo()
+        public RegistrarReporte()
         {
             InitializeComponent();
         }

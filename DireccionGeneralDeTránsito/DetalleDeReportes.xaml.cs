@@ -12,21 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SistemaDeTransitoMunicipal
+namespace DireccionGeneralDeTránsito
 {
     /// <summary>
-    /// Lógica de interacción para RegistrarVehiculo.xaml
+    /// Lógica de interacción para DetalleDeReportes.xaml
     /// </summary>
-    public partial class RegistrarVehiculo : Window
+    public partial class DetalleDeReportes : Window
     {
-        public RegistrarVehiculo()
+        public DetalleDeReportes()
         {
             InitializeComponent();
         }
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalMunicipal inicio = new VentanaPrincipalMunicipal();
+            VentanaPrincipalAdministrativo inicio = new VentanaPrincipalAdministrativo();
             inicio.Show();
             this.Close();
         }

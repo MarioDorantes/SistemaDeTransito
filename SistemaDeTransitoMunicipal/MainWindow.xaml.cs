@@ -27,7 +27,9 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_IniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-
+            VentanaPrincipalMunicipal ventanaInicio = new VentanaPrincipalMunicipal();
+            ventanaInicio.Show();
+            this.Close();
         }
 
         private void btn_registrarConductor_Click(object sender, RoutedEventArgs e)

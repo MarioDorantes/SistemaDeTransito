@@ -30,5 +30,12 @@ namespace DireccionGeneralDeTránsito
             ventanaVerReportes.Show();
             this.Close();
         }
+
+        private void btn_DetalleDeReportes_Click(object sender, RoutedEventArgs e)
+        {
+            DetalleDeReportes detalleDeReportes = new DetalleDeReportes();
+            detalleDeReportes.Show();
+            this.Close();
+        }
     }
 }

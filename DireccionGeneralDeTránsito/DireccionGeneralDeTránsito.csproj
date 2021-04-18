@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DetalleDeReportes.xaml.cs">
+      <DependentUpon>DetalleDeReportes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DictaminarReporte.xaml.cs">
       <DependentUpon>DictaminarReporte.xaml</DependentUpon>
     </Compile>
@@ -64,6 +67,10 @@
     <Compile Include="VerReportes.xaml.cs">
       <DependentUpon>VerReportes.xaml</DependentUpon>
     </Compile>
+    <Page Include="DetalleDeReportes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DictaminarReporte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

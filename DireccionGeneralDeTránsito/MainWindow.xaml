@@ -5,12 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito"
         mc:Ignorable="d"
-        Title="Inicio de sesión - Dirección General De Tránsito" Height="450" Width="800">
+        Title="Inicio de sesión - Dirección General De Tránsito" Height="497" Width="389">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+        <Label Content="Sistema de Dirección General" HorizontalAlignment="Left" Margin="45,65,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="45" Width="290"/>
+        <Label Content="Correo:" HorizontalAlignment="Left" Margin="45,164,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="45,239,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="txt_correo" HorizontalAlignment="Left" Height="23" Margin="50,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289"/>
+        <PasswordBox x:Name="pswd_contraseña" HorizontalAlignment="Left" Margin="50,280,0,0" VerticalAlignment="Top" Width="289" Height="25"/>
+        <Button x:Name="btn_inicio_sesion" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="130,350,0,0" VerticalAlignment="Top" Width="130" Background="#FF4DD938" FontWeight="Bold" Height="40" Click="btn_InicioSesion_Click"/>
+
 
     </Grid>
 </Window>

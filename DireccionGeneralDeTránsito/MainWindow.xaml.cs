@@ -24,5 +24,12 @@ namespace DireccionGeneralDeTránsito
         {
             InitializeComponent();
         }
+
+        private void btn_InicioSesion_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaPrincipalAdministrativo ventanaPrincipalAdministrativo = new VentanaPrincipalAdministrativo();
+            ventanaPrincipalAdministrativo.Show();
+            this.Close();
+        }
     }
 }

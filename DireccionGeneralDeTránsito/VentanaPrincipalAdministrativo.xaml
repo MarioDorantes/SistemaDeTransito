@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Ventana Principal de Administrativo" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btn_verReportes" Content="Ver Reportes Pendientes" HorizontalAlignment="Left" Margin="50,44,0,0" VerticalAlignment="Top" Width="172" Height="59" FontFamily="Arial" FontWeight="Bold" FontSize="14" BorderBrush="#FF1B4306" Background="#FF12F7EB" Click="btn_verReportes_Click"/>
+        <Button x:Name="btn_verReportes" Content="Ver Reportes Pendientes" HorizontalAlignment="Left" Margin="50,75,0,0" VerticalAlignment="Top" Width="195" Height="46" FontFamily="Arial" FontWeight="Bold" FontSize="14" BorderBrush="#FF1B4306" Background="#FF12F7EB" Click="btn_verReportes_Click"/>
+        <Button x:Name="btn_detalle_reportes" Content="Ver Detalle de Reportes" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" Width="195" Height="46" FontWeight="Bold" Background="#FF12F7EB" Click="btn_DetalleDeReportes_Click"/>
 
     </Grid>
 </Window>

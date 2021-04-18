@@ -55,12 +55,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="HistorialDeReportes.xaml.cs">
+      <DependentUpon>HistorialDeReportes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarConductor.xaml.cs">
       <DependentUpon>RegistrarConductor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarReporte.xaml.cs">
+      <DependentUpon>RegistrarReporte.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistrarVehiculo.xaml.cs">
       <DependentUpon>RegistrarVehiculo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VentanaPrincipalMunicipal.xaml.cs">
+      <DependentUpon>VentanaPrincipalMunicipal.xaml</DependentUpon>
+    </Compile>
+    <Page Include="HistorialDeReportes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,7 +90,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RegistrarReporte.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegistrarVehiculo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaPrincipalMunicipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
