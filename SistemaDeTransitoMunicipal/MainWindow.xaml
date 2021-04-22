@@ -12,7 +12,6 @@
         <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="57,210,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
         <PasswordBox x:Name="txt_pswd_Contraseña" HorizontalAlignment="Left" Margin="57,241,0,0" VerticalAlignment="Top" Width="325" Height="26"/>
         <TextBox x:Name="txt_Correo" HorizontalAlignment="Left" Height="23" Margin="57,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="325"/>
-        <Button x:Name="btn_IniciarSesion" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="147,295,0,0" VerticalAlignment="Top" Width="139" Height="36" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#FF4DD938" Click="btn_IniciarSesion_Click"/>
-        <Button x:Name="btn_registrarConductor"  Content="Registrarse" HorizontalAlignment="Left" Margin="165,356,0,0" VerticalAlignment="Top" Width="99" Height="29" FontFamily="Arial" FontSize="14" FontWeight="Bold" Background="#FF1BC2BF" Click="btn_registrarConductor_Click" />
+        <Button x:Name="btn_IniciarSesion" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="146,325,0,0" VerticalAlignment="Top" Width="139" Height="36" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#FF4DD938" Click="btn_IniciarSesion_Click" RenderTransformOrigin="0.478,1.133"/>
     </Grid>
 </Window>

@@ -26,8 +26,8 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow ventanaInicioDeSesion = new MainWindow();
-            ventanaInicioDeSesion.Show();
+            VentanaPrincipalMunicipal ventanaMunicipal = new VentanaPrincipalMunicipal();
+            ventanaMunicipal.Show();
             this.Close();
         }
     }

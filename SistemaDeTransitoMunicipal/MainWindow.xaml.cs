@@ -31,12 +31,5 @@ namespace SistemaDeTransitoMunicipal
             ventanaInicio.Show();
             this.Close();
         }
-
-        private void btn_registrarConductor_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrarConductor ventanaRegistrar = new RegistrarConductor();
-            ventanaRegistrar.Show();
-            this.Close();
-        }
     }
 }

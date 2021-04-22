@@ -41,5 +41,17 @@ namespace SistemaDeTransitoMunicipal
             historialDeReportes.Show();
             this.Close();
         }
+
+        private void btn_registrar_conductor_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarConductor ventanaRegistrar = new RegistrarConductor();
+            ventanaRegistrar.Show();
+            this.Close();
+        }
+
+        private void btn_dictamen_reporte_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

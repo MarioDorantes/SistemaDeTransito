@@ -23,7 +23,7 @@
         <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Height="23" Margin="217,264,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
         <TextBox x:Name="txt_correo" HorizontalAlignment="Left" Height="23" Margin="217,302,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
         <TextBox x:Name="txt_coonotraseña" HorizontalAlignment="Left" Height="23" Margin="217,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
-        <Button x:Name="btn_registrar" Content="Registrarme" HorizontalAlignment="Left" Margin="24,390,0,0" VerticalAlignment="Top" Width="105" Height="34" FontFamily="Arial" FontSize="14" FontWeight="Bold" Background="#FF75F654"/>
+        <Button x:Name="btn_registrar" Content="Registrar" HorizontalAlignment="Left" Margin="24,390,0,0" VerticalAlignment="Top" Width="105" Height="34" FontFamily="Arial" FontSize="14" FontWeight="Bold" Background="#FF75F654"/>
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="661,390,0,0" VerticalAlignment="Top" Width="105" Height="34" Background="#FFF72E15" FontFamily="Arial" FontSize="14" FontWeight="Bold" Click="btn_cancelar_Click"/>
 
     </Grid>
