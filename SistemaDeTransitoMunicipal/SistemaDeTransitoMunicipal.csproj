@@ -55,26 +55,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="HistorialDeReportes.xaml.cs">
+    <Compile Include="DAO\ConductorDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Vistas\HistorialDeReportes.xaml.cs">
       <DependentUpon>HistorialDeReportes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarConductor.xaml.cs">
+    <Compile Include="Vistas\RegistrarConductor.xaml.cs">
       <DependentUpon>RegistrarConductor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarReporte.xaml.cs">
+    <Compile Include="Vistas\RegistrarReporte.xaml.cs">
       <DependentUpon>RegistrarReporte.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarVehiculo.xaml.cs">
+    <Compile Include="Vistas\RegistrarVehiculo.xaml.cs">
       <DependentUpon>RegistrarVehiculo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VentanaPrincipalMunicipal.xaml.cs">
+    <Compile Include="Vistas\VentanaPrincipalMunicipal.xaml.cs">
       <DependentUpon>VentanaPrincipalMunicipal.xaml</DependentUpon>
     </Compile>
-    <Page Include="HistorialDeReportes.xaml">
+    <Page Include="Vistas\HistorialDeReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Vistas\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -82,23 +84,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Vistas\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RegistrarConductor.xaml">
+    <Page Include="Vistas\RegistrarConductor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegistrarReporte.xaml">
+    <Page Include="Vistas\RegistrarReporte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegistrarVehiculo.xaml">
+    <Page Include="Vistas\RegistrarVehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VentanaPrincipalMunicipal.xaml">
+    <Page Include="Vistas\VentanaPrincipalMunicipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +130,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="conexionBD\" />
+    <Folder Include="pocos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
