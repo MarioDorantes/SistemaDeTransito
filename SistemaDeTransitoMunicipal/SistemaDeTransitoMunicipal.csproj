@@ -65,6 +65,9 @@
     <Compile Include="Vistas\GestionarConductores.xaml.cs">
       <DependentUpon>GestionarConductores.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\GestionarVehiculos.xaml.cs">
+      <DependentUpon>GestionarVehiculos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\HistorialDeReportes.xaml.cs">
       <DependentUpon>HistorialDeReportes.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,10 @@
       <DependentUpon>VentanaPrincipalMunicipal.xaml</DependentUpon>
     </Compile>
     <Page Include="Vistas\GestionarConductores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\GestionarVehiculos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
