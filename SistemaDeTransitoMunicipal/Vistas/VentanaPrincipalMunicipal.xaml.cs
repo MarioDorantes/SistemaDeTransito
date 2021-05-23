@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeTransitoMunicipal.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,8 +45,8 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_registrar_conductor_Click(object sender, RoutedEventArgs e)
         {
-            RegistrarConductor ventanaRegistrar = new RegistrarConductor();
-            ventanaRegistrar.Show();
+            GestionarConductores ventanaGestionar = new GestionarConductores();
+            ventanaGestionar.Show();
             this.Close();
         }
 

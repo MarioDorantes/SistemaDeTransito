@@ -55,8 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="conexionBD\ConexionBD.cs" />
     <Compile Include="DAO\ConductorDAO.cs" />
+    <Compile Include="DAO\DelegacionDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="pocos\Conductor.cs" />
+    <Compile Include="pocos\Delegacion.cs" />
+    <Compile Include="pocos\Usuario.cs" />
+    <Compile Include="Vistas\GestionarConductores.xaml.cs">
+      <DependentUpon>GestionarConductores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\HistorialDeReportes.xaml.cs">
       <DependentUpon>HistorialDeReportes.xaml</DependentUpon>
     </Compile>
@@ -72,11 +80,15 @@
     <Compile Include="Vistas\VentanaPrincipalMunicipal.xaml.cs">
       <DependentUpon>VentanaPrincipalMunicipal.xaml</DependentUpon>
     </Compile>
+    <Page Include="Vistas\GestionarConductores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\HistorialDeReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\MainWindow.xaml">
+    <Page Include="Vistas\inicioDeSesion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -84,8 +96,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Vistas\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Vistas\inicioDeSesion.xaml.cs">
+      <DependentUpon>inicioDeSesion.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Vistas\RegistrarConductor.xaml">
@@ -131,9 +143,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="conexionBD\" />
-    <Folder Include="pocos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

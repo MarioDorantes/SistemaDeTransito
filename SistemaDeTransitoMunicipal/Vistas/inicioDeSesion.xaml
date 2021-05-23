@@ -8,10 +8,10 @@
         Title="Acceso al sistema - Tránsito municipal" Height="450" Width="431.264">
     <Grid HorizontalAlignment="Left" Width="431" Margin="0,0,-6.2,0">
         <Label Content="Sistema de Tránsito Municipal"  HorizontalAlignment="Left" Margin="57,37,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" FontSize="22"/>
-        <Label Content="Correo:" HorizontalAlignment="Left" Margin="57,111,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Nombre de usuario:" HorizontalAlignment="Left" Margin="57,111,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
         <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="57,210,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
         <PasswordBox x:Name="txt_pswd_Contraseña" HorizontalAlignment="Left" Margin="57,241,0,0" VerticalAlignment="Top" Width="325" Height="26"/>
-        <TextBox x:Name="txt_Correo" HorizontalAlignment="Left" Height="23" Margin="57,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="325"/>
+        <TextBox x:Name="txt_nombreUsuario" HorizontalAlignment="Left" Height="23" Margin="57,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="325"/>
         <Button x:Name="btn_IniciarSesion" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="146,325,0,0" VerticalAlignment="Top" Width="139" Height="36" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#FF4DD938" Click="btn_IniciarSesion_Click" RenderTransformOrigin="0.478,1.133"/>
     </Grid>
 </Window>
