@@ -55,7 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ConexionBD\ConexionBD.cs" />
+    <Compile Include="conexionBD\ConexionBD.cs" />
+    <Compile Include="DAO\DelegacionDAO.cs" />
+    <Compile Include="DAO\UsuarioDAOcs.cs" />
+    <Compile Include="pocos\Delegacion.cs" />
+    <Compile Include="pocos\Usuario.cs" />
+    <Compile Include="Vistas\DelegacionesRegistradas.xaml.cs">
+      <DependentUpon>DelegacionesRegistradas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\DetalleDeReportes.xaml.cs">
       <DependentUpon>DetalleDeReportes.xaml</DependentUpon>
     </Compile>
@@ -68,12 +75,19 @@
     <Compile Include="Vistas\RegistrarUsuarios.xaml.cs">
       <DependentUpon>RegistrarUsuarios.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\UsuariosRegistrados.xaml.cs">
+      <DependentUpon>UsuariosRegistrados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\VentanaPrincipalAdministrativo.xaml.cs">
       <DependentUpon>VentanaPrincipalAdministrativo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\VerReportes.xaml.cs">
       <DependentUpon>VerReportes.xaml</DependentUpon>
     </Compile>
+    <Page Include="Vistas\DelegacionesRegistradas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\DetalleDeReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,6 +115,10 @@
     <Page Include="Vistas\RegistrarUsuarios.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\UsuariosRegistrados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\VentanaPrincipalAdministrativo.xaml">
       <SubType>Designer</SubType>
@@ -137,9 +155,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-    <Folder Include="pocos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
