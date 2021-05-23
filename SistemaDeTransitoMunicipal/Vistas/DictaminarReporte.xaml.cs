@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SistemaDeTransitoMunicipal
+namespace DireccionGeneralDeTránsito
 {
     /// <summary>
     /// Lógica de interacción para DictaminarReporte.xaml
@@ -24,9 +24,11 @@ namespace SistemaDeTransitoMunicipal
             InitializeComponent();
         }
 
-        private void btn_regresar_Click(object sender, RoutedEventArgs e)
+        private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
-
+            VerReportes ventanaVerReportes = new VerReportes();
+            ventanaVerReportes.Show();
+            this.Close();
         }
     }
 }

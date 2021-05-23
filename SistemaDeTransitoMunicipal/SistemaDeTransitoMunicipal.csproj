@@ -62,6 +62,9 @@
     <Compile Include="pocos\Conductor.cs" />
     <Compile Include="pocos\Delegacion.cs" />
     <Compile Include="pocos\Usuario.cs" />
+    <Compile Include="Vistas\DictaminarReporte.xaml.cs">
+      <DependentUpon>DictaminarReporte.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\GestionarConductores.xaml.cs">
       <DependentUpon>GestionarConductores.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,10 @@
     <Compile Include="Vistas\VentanaPrincipalMunicipal.xaml.cs">
       <DependentUpon>VentanaPrincipalMunicipal.xaml</DependentUpon>
     </Compile>
+    <Page Include="Vistas\DictaminarReporte.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Vistas\GestionarConductores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
