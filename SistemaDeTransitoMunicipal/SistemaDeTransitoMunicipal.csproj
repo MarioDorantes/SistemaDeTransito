@@ -59,9 +59,11 @@
     <Compile Include="DAO\ConductorDAO.cs" />
     <Compile Include="DAO\DelegacionDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="DAO\VehiculoDAO.cs" />
     <Compile Include="pocos\Conductor.cs" />
     <Compile Include="pocos\Delegacion.cs" />
     <Compile Include="pocos\Usuario.cs" />
+    <Compile Include="pocos\Vehiculo.cs" />
     <Compile Include="Vistas\DictaminarReporte.xaml.cs">
       <DependentUpon>DictaminarReporte.xaml</DependentUpon>
     </Compile>

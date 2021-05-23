@@ -1,4 +1,6 @@
-﻿using SistemaDeTransitoMunicipal.Vistas;
+﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.pocos;
+using SistemaDeTransitoMunicipal.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +22,12 @@ namespace SistemaDeTransitoMunicipal
     /// </summary>
     public partial class RegistrarVehiculo : Window
     {
+
         public RegistrarVehiculo()
         {
             InitializeComponent();
         }
+
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
         {
