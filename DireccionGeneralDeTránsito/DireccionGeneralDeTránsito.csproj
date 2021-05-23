@@ -55,33 +55,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DetalleDeReportes.xaml.cs">
+    <Compile Include="Vistas\DetalleDeReportes.xaml.cs">
       <DependentUpon>DetalleDeReportes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DictaminarReporte.xaml.cs">
+    <Compile Include="Vistas\DictaminarReporte.xaml.cs">
       <DependentUpon>DictaminarReporte.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarDelegación.xaml.cs">
+    <Compile Include="Vistas\RegistrarDelegación.xaml.cs">
       <DependentUpon>RegistrarDelegación.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarUsuarios.xaml.cs">
+    <Compile Include="Vistas\RegistrarUsuarios.xaml.cs">
       <DependentUpon>RegistrarUsuarios.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VentanaPrincipalAdministrativo.xaml.cs">
+    <Compile Include="Vistas\VentanaPrincipalAdministrativo.xaml.cs">
       <DependentUpon>VentanaPrincipalAdministrativo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VerReportes.xaml.cs">
+    <Compile Include="Vistas\VerReportes.xaml.cs">
       <DependentUpon>VerReportes.xaml</DependentUpon>
     </Compile>
-    <Page Include="DetalleDeReportes.xaml">
+    <Page Include="Vistas\DetalleDeReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DictaminarReporte.xaml">
+    <Page Include="Vistas\DictaminarReporte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Vistas\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -89,23 +89,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Vistas\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RegistrarDelegación.xaml">
+    <Page Include="Vistas\RegistrarDelegación.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="RegistrarUsuarios.xaml">
+    <Page Include="Vistas\RegistrarUsuarios.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="VentanaPrincipalAdministrativo.xaml">
+    <Page Include="Vistas\VentanaPrincipalAdministrativo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VerReportes.xaml">
+    <Page Include="Vistas\VerReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,6 +135,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAO\" />
+    <Folder Include="pocos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
