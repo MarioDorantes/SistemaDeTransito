@@ -8,7 +8,7 @@
         Title="Inicio Sistema Municipal" Height="450" Width="800">
     <Grid>
         <Button x:Name="btn_registrar_conductor" Content="Gestionar Conductores" HorizontalAlignment="Left" Margin="65,70,0,0" VerticalAlignment="Top" Width="155" Height="45" Click="btn_registrar_conductor_Click" Background="#FF1FCDF3" FontWeight="Bold"/>
-        <Button x:Name ="btn_registrar_vehiculo" Content="Registrar Vehículo" HorizontalAlignment="Left" Margin="65,175,0,0" VerticalAlignment="Top" Width="155" Height="45" Click="btn_RegistrarVehiculo_Click" Background="#FF1FCDF3" FontWeight="Bold"/>
+        <Button x:Name ="btn_gestionar_vehiculos" Content="Gestionar Vehículos" HorizontalAlignment="Left" Margin="65,175,0,0" VerticalAlignment="Top" Width="155" Height="45" Background="#FF1FCDF3" FontWeight="Bold" Click="btn_gestionar_vehiculos_Click"/>
         <Button x:Name="btn_registrar_reporte" Content="Registrar Reporte" HorizontalAlignment="Left" Margin="65,295,0,0" VerticalAlignment="Top" Width="155" Height="45" Background="#FF1FCDF3" FontWeight="Bold" Click="btn_RegistrarReporte_Click"/>
         <Button x:Name="btn_historial_reportes" Content="Historial de Reportes" HorizontalAlignment="Left" Margin="530,70,0,0" VerticalAlignment="Top" Width="155" Height="45" Background="#FF1FCDF3" FontWeight="Bold" Click="btn_HistorialDeReportes_Click"/>
         <Button x:Name="btn_dictamen_reporte" Content="Dictamen de Reporte" HorizontalAlignment="Left" Margin="530,175,0,0" VerticalAlignment="Top" Width="155" Height="45" Click="btn_dictamen_reporte_Click"/>

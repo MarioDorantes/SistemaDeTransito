@@ -25,6 +25,7 @@
         <TextBox x:Name="txt_num_placas" HorizontalAlignment="Left" Height="23" Margin="555,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
         <Button x:Name="btn_registrar" Content="Registrar" HorizontalAlignment="Left" Margin="35,355,0,0" VerticalAlignment="Top" Width="110" Height="40" Background="#FF75F654"/>
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="650,355,0,0" VerticalAlignment="Top" Width="110" Height="40" Background="#FFF72E15" Click="btn_Cancelar_Click"/>
+        <DataGrid x:Name="dg_conductores" HorizontalAlignment="Left" Height="229" Margin="35,82,0,0" VerticalAlignment="Top" Width="375"/>
 
     </Grid>
 </Window>

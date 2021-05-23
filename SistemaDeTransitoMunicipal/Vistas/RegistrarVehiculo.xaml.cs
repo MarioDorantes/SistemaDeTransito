@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeTransitoMunicipal.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,8 +27,6 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalMunicipal inicio = new VentanaPrincipalMunicipal();
-            inicio.Show();
             this.Close();
         }
     }

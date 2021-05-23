@@ -22,12 +22,6 @@ namespace SistemaDeTransitoMunicipal
             InitializeComponent();
         }
 
-        private void btn_RegistrarVehiculo_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrarVehiculo registrarVehiculo = new RegistrarVehiculo();
-            registrarVehiculo.Show();
-            this.Close();
-        }
 
         private void btn_RegistrarReporte_Click(object sender, RoutedEventArgs e)
         {
@@ -53,6 +47,13 @@ namespace SistemaDeTransitoMunicipal
         private void btn_dictamen_reporte_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btn_gestionar_vehiculos_Click(object sender, RoutedEventArgs e)
+        {
+            GestionarVehiculos gestionarVehiculos = new GestionarVehiculos();
+            gestionarVehiculos.Show();
+            this.Close();
         }
     }
 }
