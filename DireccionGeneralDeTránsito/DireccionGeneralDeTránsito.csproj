@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConexionBD\ConexionBD.cs" />
     <Compile Include="Vistas\DetalleDeReportes.xaml.cs">
       <DependentUpon>DetalleDeReportes.xaml</DependentUpon>
     </Compile>
