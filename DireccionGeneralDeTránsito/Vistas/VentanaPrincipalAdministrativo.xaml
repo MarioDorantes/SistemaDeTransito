@@ -9,6 +9,8 @@
     <Grid>
         <Button x:Name="btn_verReportes" Content="Ver Reportes Pendientes" HorizontalAlignment="Left" Margin="50,75,0,0" VerticalAlignment="Top" Width="195" Height="46" FontFamily="Arial" FontWeight="Bold" FontSize="14" BorderBrush="#FF1B4306" Background="#FF12F7EB" Click="btn_verReportes_Click"/>
         <Button x:Name="btn_detalle_reportes" Content="Ver Detalle de Reportes" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" Width="195" Height="46" FontWeight="Bold" Background="#FF12F7EB" Click="btn_DetalleDeReportes_Click"/>
+        <Button x:Name="btn_registroUsuarios" Content="Registro de usuarios" HorizontalAlignment="Left" Margin="304,75,0,0" VerticalAlignment="Top" Width="195" Height="46" FontFamily="Arial" FontSize="14" FontWeight="Bold" Background="Aqua" Click="btn_registroUsuarios_Click"/>
+        <Button x:Name="btn_delegaciones" Content="Delegaciones" Background="Aqua" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="304,200,0,0" VerticalAlignment="Top" Width="195" Height="46" Click="btn_delegaciones_Click"/>
 
     </Grid>
 </Window>

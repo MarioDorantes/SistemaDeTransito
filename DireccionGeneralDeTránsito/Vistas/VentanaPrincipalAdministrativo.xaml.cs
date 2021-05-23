@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DireccionGeneralDeTránsito.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,20 @@ namespace DireccionGeneralDeTránsito
         {
             DetalleDeReportes detalleDeReportes = new DetalleDeReportes();
             detalleDeReportes.Show();
+            this.Close();
+        }
+
+        private void btn_registroUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            UsuariosRegistrados ventanaUsuariosRegistrados = new UsuariosRegistrados();
+            ventanaUsuariosRegistrados.Show();
+            this.Close();
+        }
+
+        private void btn_delegaciones_Click(object sender, RoutedEventArgs e)
+        {
+            DelegacionesRegistradas ventanaDelegaciones = new DelegacionesRegistradas();
+            ventanaDelegaciones.Show();
             this.Close();
         }
     }

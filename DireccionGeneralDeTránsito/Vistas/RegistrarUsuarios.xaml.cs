@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DireccionGeneralDeTránsito.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,11 +27,19 @@ namespace DireccionGeneralDeTránsito
 
         private void btn_regresar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalAdministrativo ventanaPrincipalAdministrivo = new VentanaPrincipalAdministrativo();
-            ventanaPrincipalAdministrivo.Show();
+            UsuariosRegistrados ventanaUsuariosRegistrados = new UsuariosRegistrados();
+            ventanaUsuariosRegistrados.Show();
             this.Close();
         }
 
-   
+        private void btn_confirmarRegistro_Click(object sender, RoutedEventArgs e)
+        {
+            String nombreUsuario = tbx_nombreUsuario.Text;
+            String nombre = tbx_nombreRegistro.Text;
+            String apellidoPaterno = tbx_aPaternoRegistro.Text;
+            String apellidoMaterno = tbx_aMaternoRegistro.Text;
+            String contraseña = pbx_contraseña.Password;
+            String tipoUsuario = cmb_tipoUsuario.Text;
+        }
     }
 }

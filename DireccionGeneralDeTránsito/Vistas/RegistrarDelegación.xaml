@@ -11,12 +11,12 @@
         <TextBox x:Name="txb_nombreDelegacion" HorizontalAlignment="Left" Height="23" Margin="63,109,0,0" TextWrapping="Wrap" Text="Nombre o alías" VerticalAlignment="Top" Width="190" FontStyle="Italic"/>
         <TextBox x:Name="txb_coloniaDelegacion" HorizontalAlignment="Left" Height="23" Margin="302,109,0,0" TextWrapping="Wrap" Text="Colonia" VerticalAlignment="Top" Width="190" FontStyle="Italic"/>
         <Label Content="Municipio" HorizontalAlignment="Left" Margin="63,137,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox x:Name="cmb_municipio" HorizontalAlignment="Left" Margin="63,168,0,0" VerticalAlignment="Top" Width="190" Height="27"/>
+        <ComboBox x:Name="cmb_municipio" HorizontalAlignment="Left" Margin="63,168,0,0" VerticalAlignment="Top" Width="190" Height="27"></ComboBox>
         <TextBox x:Name="txb_calle" HorizontalAlignment="Left" Height="23" Margin="302,172,0,0" TextWrapping="Wrap" Text="Calle y número" VerticalAlignment="Top" Width="190" FontStyle="Italic"/>
         <TextBox x:Name="txb_codigoPostal" HorizontalAlignment="Left" Height="23" Margin="539,109,0,0" TextWrapping="Wrap" Text="Código postal" VerticalAlignment="Top" Width="190" FontStyle="Italic"/>
         <TextBox x:Name="txb_telefono" HorizontalAlignment="Left" Height="23" Margin="539,172,0,0" TextWrapping="Wrap" Text="Número telefónico" VerticalAlignment="Top" Width="190" FontStyle="Italic"/>
         <TextBox x:Name="txb_correo" HorizontalAlignment="Left" Height="23" Margin="302,233,0,0" TextWrapping="Wrap" Text="Correo electrónico" VerticalAlignment="Top" Width="190" FontStyle="Italic"/>
-        <Button x:Name="btn_confirmarRegistroDelegacion" Content="Confirmar registro" HorizontalAlignment="Left" Margin="338,290,0,0" VerticalAlignment="Top" Width="113"/>
+        <Button x:Name="btn_confirmarRegistroDelegacion" Content="Confirmar registro" HorizontalAlignment="Left" Margin="338,290,0,0" VerticalAlignment="Top" Width="113" Click="btn_confirmarRegistroDelegacion_Click"/>
         <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="63,28,0,0" VerticalAlignment="Top" Width="75" Click="btn_regresar_Click"/>
 
     </Grid>

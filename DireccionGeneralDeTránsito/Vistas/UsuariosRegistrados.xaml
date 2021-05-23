@@ -1,0 +1,24 @@
+﻿<Window x:Class="DireccionGeneralDeTránsito.Vistas.UsuariosRegistrados"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DireccionGeneralDeTránsito.Vistas"
+        mc:Ignorable="d"
+        Title="UsuariosRegistrados" Height="450" Width="800">
+    <Grid>
+        <Label Content="USUARIOS REGISTRADOS AL SISTEMA&#xD;&#xA;" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="251,22,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dg_UsuariosRegistrados" HorizontalAlignment="Left" Height="245" Margin="22,77,0,0" VerticalAlignment="Top" Width="748">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre(s)" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido paterno" Binding="{Binding ApellidoPaterno}"/>
+                <DataGridTextColumn Header="Apellido materno" Binding="{Binding ApellidoMaterno}"/>
+                <DataGridTextColumn Header="Tipo de usuario" Binding="{Binding TipoUsuario}"/>
+                <DataGridTextColumn Header="Delegacion" Binding="{Binding Delegacion}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="47,28,0,0" VerticalAlignment="Top" Width="75" Click="btn_regresar_Click"/>
+        <Button x:Name="btn_registrarUsuario" Content="Registrar usuario" Background="GreenYellow" HorizontalAlignment="Left" Margin="22,346,0,0" VerticalAlignment="Top" Width="136" Height="37" Click="btn_registrarUsuario_Click"/>
+
+    </Grid>
+</Window>
