@@ -42,6 +42,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                         conductor.Paternos = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4): "";
                         conductor.Maternos = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
                         conductor.IdDelegacion = (!dataReader.IsDBNull(6)) ? dataReader.GetInt32(6) : 0;
+                        conductor.NombreDelegacion = (!dataReader.IsDBNull(7)) ? dataReader.GetString(7) : "";
                         conductores.Add(conductor);
                     }
                     command.Dispose();
