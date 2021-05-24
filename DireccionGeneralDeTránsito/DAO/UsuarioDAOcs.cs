@@ -12,6 +12,38 @@ namespace DireccionGeneralDeTránsito.DAO
 {
     class UsuarioDAOcs
     {
+        public static int EliminarUsuario(string nombreUsuario)
+        {
+            int eliminado = 0;
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    String query = "DELETE from usuario WHERE usr_nombreUsuario=@nombreUsuario";
+                    command = new SqlCommand(query, conn);
+                    command.Parameters.Add("@nombreUsuario", System.Data.SqlDbType.VarChar,50).Value = nombreUsuario;
+                    eliminado = 1;
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return eliminado;
+        }
         public static List<Usuario> ObtenerUsuarios()
         {
             List<Usuario> usuarios = new List<Usuario>();
@@ -23,7 +55,7 @@ namespace DireccionGeneralDeTránsito.DAO
                 {
                     SqlCommand command;
                     SqlDataReader dataReader;
-                    String query = "SELECT u.Nombre, u.usr_aPaterno, u.usr_aMaterno, u.usr_rol, d.nombreAlias FROM usuario u "+
+                    String query = "SELECT u.Nombre, u.usr_aPaterno, u.usr_aMaterno, u.usr_rol, u.usr_nombreUsuario, d.nombreAlias FROM usuario u "+
                         " INNER JOIN dbo.delegacion d ON u.idDelegacion = d.idDelegacion";
                     Console.WriteLine(query);
                     command = new SqlCommand(query, conn);
@@ -35,7 +67,8 @@ namespace DireccionGeneralDeTránsito.DAO
                         usuario.ApellidoPaterno = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : " ";
                         usuario.ApellidoMaterno = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : " ";
                         usuario.TipoUsuario = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : " ";
-                        usuario.Delegacion = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : " ";
+                        usuario.NombreUsuario = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : " ";
+                        usuario.Delegacion = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : " ";
                         usuarios.Add(usuario);
                     }
                     dataReader.Close();

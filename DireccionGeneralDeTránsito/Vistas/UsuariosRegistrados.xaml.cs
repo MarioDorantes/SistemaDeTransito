@@ -49,5 +49,37 @@ namespace DireccionGeneralDeTránsito.Vistas
             ventanaRegistroUsuario.Show();
             this.Close();
         }
+
+        private void btn_eliminarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            int indiceSeleccion = dg_UsuariosRegistrados.SelectedIndex;
+            if (indiceSeleccion >= 0)
+            {
+                Usuario usuarioEliminar = usuarios[indiceSeleccion];
+                MessageBoxResult resultado = MessageBox.Show("¿Estas seguro de eliminar al usuario " + usuarioEliminar.Nombre + " " + usuarioEliminar.ApellidoMaterno
+                    + "?", "Confirmar accion", MessageBoxButton.OKCancel);
+                if (resultado==MessageBoxResult.OK)
+                {
+                    int resultadoEliminar = UsuarioDAOcs.EliminarUsuario(usuarioEliminar.NombreUsuario);
+                    if(resultadoEliminar == 1)
+                    {
+                        MessageBox.Show("Usuario eliminado correctamente");
+                    }else
+                    {
+                        MessageBox.Show("Error al eliminar el usuario");
+                    }
+                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe de seleccionar a un usuario a eliminar");
+            }
+        }
+
+        private void btn_modificarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
