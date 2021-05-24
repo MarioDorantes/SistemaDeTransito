@@ -25,7 +25,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                     SqlCommand command;
                     //ESTE LA EJECUTA
                     SqlDataReader dataReader;
-                    String query = String.Format("SELECT u.usr_nombreUsuario, u.usr_contraseña, u.usr_rol " +
+                    String query = String.Format("SELECT u.usr_nombreUsuario, u.usr_contraseña, u.usr_rol, idDelegacion " +
                                                  "FROM usuario u WHERE u.usr_nombreUsuario = '{0}' AND u.usr_contraseña = '{1}';",
                                                  nombreUsuario, contraseña);
                     Console.WriteLine(query);
@@ -38,6 +38,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                         user.NombreUsuario = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : "";
                         user.Contraseña = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
                         user.Rol = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
+                        user.IdDelegacion = (!dataReader.IsDBNull(3)) ? dataReader.GetInt32(3) : 0;
                     }
                     dataReader.Close();
                     command.Dispose();

@@ -39,8 +39,6 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
-            GestionarConductores ventanaGestion = new GestionarConductores();
-            ventanaGestion.Show();
             this.Close();
         }
 
@@ -93,7 +91,7 @@ namespace SistemaDeTransitoMunicipal
 
             if (camposLlenos)
             {
-                String delegacionSeleccionada = delegaciones[posicionSeleccion].Alias;
+                int delegacionSeleccionada = delegaciones[posicionSeleccion].IdDelegacion;
 
                 int resultado = ConductorDAO.agregarConductor(numeroLicencia, nombre, paterno, materno, telefono, fechaNacimiento, delegacionSeleccionada);
                 if(resultado > 0)

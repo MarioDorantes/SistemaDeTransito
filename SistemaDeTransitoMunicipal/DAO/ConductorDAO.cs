@@ -12,7 +12,7 @@ namespace SistemaDeTransitoMunicipal.DAO
 {
     class ConductorDAO
     {
-        public static List<Conductor> obtenerConductores()
+        public static List<Conductor> obtenerConductores(int idDelegacion)
         {
             List<Conductor> conductores = new List<Conductor>();
             SqlConnection conn = null;
@@ -24,10 +24,10 @@ namespace SistemaDeTransitoMunicipal.DAO
                     SqlCommand command;
                     SqlDataReader dataReader;
 
-                    String query = "SELECT c.*, d.dlm_nombreAlias FROM conductor c " +
-                                   "INNER JOIN delegacion d ON c.idDelegacion = d.dlm_nombreAlias " +
-                                   "INNER JOIN Usuario u ON d.dlm_nombreAlias = u.idDelegacion " +
-                                   "WHERE u.usr_rol = 'Administrador'; ";
+                    String query = String.Format("SELECT c.*, d.nombreAlias FROM conductor c " +
+                                   "INNER JOIN delegacion d ON c.idDelegacion = d.idDelegacion " +
+                                   "INNER JOIN Usuario u ON d.idDelegacion = u.idDelegacion " +
+                                   "WHERE u.usr_rol = 'Administrativo' AND u.idDelegacion = '{0}'; ", idDelegacion);
 
                     command = new SqlCommand(query, conn);
                     dataReader = command.ExecuteReader();
@@ -41,7 +41,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                         conductor.Nombre = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
                         conductor.Paternos = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4): "";
                         conductor.Maternos = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
-                        conductor.Delegacion = (!dataReader.IsDBNull(6)) ? dataReader.GetString(6) : "";
+                        conductor.IdDelegacion = (!dataReader.IsDBNull(6)) ? dataReader.GetInt32(6) : 0;
                         conductores.Add(conductor);
                     }
                     command.Dispose();
@@ -63,7 +63,7 @@ namespace SistemaDeTransitoMunicipal.DAO
         }
 
         public static int agregarConductor(String numeroLicencia, String nombre, String paterno,
-            String materno, String numeroTelefono, String fechaNacimiento, String delegacion)
+            String materno, String numeroTelefono, String fechaNacimiento, int delegacion)
         {
             SqlConnection conn = null;
             int resultado = 0;
@@ -84,7 +84,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                     command.Parameters.Add("cn_nombre", System.Data.SqlDbType.NVarChar, 100).Value = nombre;
                     command.Parameters.Add("cn_apellido_paterno", System.Data.SqlDbType.NVarChar, 100).Value = paterno;
                     command.Parameters.Add("cn_apellidoMaterno", System.Data.SqlDbType.NVarChar, 100).Value = materno;
-                    command.Parameters.Add("idDelegacion", System.Data.SqlDbType.NVarChar, 50).Value = delegacion;
+                    command.Parameters.Add("idDelegacion", System.Data.SqlDbType.Int).Value = delegacion;
                     resultado = command.ExecuteNonQuery();
                 }
             }

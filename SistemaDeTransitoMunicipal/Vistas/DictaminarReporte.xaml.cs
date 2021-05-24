@@ -24,9 +24,13 @@ namespace DireccionGeneralDeTránsito
             InitializeComponent();
         }
 
-        private void btn_cancelar_Click(object sender, RoutedEventArgs e)
+       /* private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
 
         }
+            VerReportes ventanaVerReportes = new VerReportes();
+            ventanaVerReportes.Show();
+            this.Close();
+        }*/
     }
 }

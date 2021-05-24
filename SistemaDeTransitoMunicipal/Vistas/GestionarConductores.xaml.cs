@@ -32,7 +32,8 @@ namespace SistemaDeTransitoMunicipal.Vistas
 
         private void cargarConductores()
         {
-            conductores = ConductorDAO.obtenerConductores();
+            int idDelegacionLoggeada = MainWindow.idDelegacionLoggeada;
+            conductores = ConductorDAO.obtenerConductores(idDelegacionLoggeada);
             dg_conductores.ItemsSource = conductores;
         }
 
