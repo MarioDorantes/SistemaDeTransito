@@ -12,7 +12,7 @@ namespace SistemaDeTransitoMunicipal.DAO
 {
     class ConductorDAO
     {
-        public static List<Conductor> obtenerConductores()
+        public static List<Conductor> obtenerConductores(int idDelegacion)
         {
             List<Conductor> conductores = new List<Conductor>();
             SqlConnection conn = null;
@@ -24,10 +24,10 @@ namespace SistemaDeTransitoMunicipal.DAO
                     SqlCommand command;
                     SqlDataReader dataReader;
 
-                    String query = "SELECT c.*, d.nombreAlias FROM conductor c " +
+                    String query = String.Format("SELECT c.*, d.nombreAlias FROM conductor c " +
                                    "INNER JOIN delegacion d ON c.idDelegacion = d.idDelegacion " +
                                    "INNER JOIN Usuario u ON d.idDelegacion = u.idDelegacion " +
-                                   "WHERE u.usr_rol = 'Administrador'; ";
+                                   "WHERE u.usr_rol = 'Administrativo' AND u.idDelegacion = '{0}'; ", idDelegacion);
 
                     command = new SqlCommand(query, conn);
                     dataReader = command.ExecuteReader();

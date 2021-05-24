@@ -36,12 +36,11 @@ namespace SistemaDeTransitoMunicipal.DAO
                         delegacion.CodigoPostal = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : "";
                         delegacion.Alias = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
                         delegacion.Calle = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
-                        delegacion.Numero = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
-                        delegacion.Colonia = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
-                        delegacion.Municipio = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
-                        delegacion.Correo = (!dataReader.IsDBNull(6)) ? dataReader.GetString(6) : "";
-                        delegacion.NumeroTelefono = (!dataReader.IsDBNull(7)) ? dataReader.GetString(7) : "";
-                        delegacion.IdDelegacion = (!dataReader.IsDBNull(8)) ? dataReader.GetInt32(8) : 0;
+                        delegacion.Colonia = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
+                        delegacion.Municipio = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        delegacion.Correo = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
+                        delegacion.NumeroTelefono = (!dataReader.IsDBNull(6)) ? dataReader.GetString(6) : "";
+                        delegacion.IdDelegacion = (!dataReader.IsDBNull(7)) ? dataReader.GetInt32(7) : 0;
                         delegaciones.Add(delegacion);
                     }
                     command.Dispose();

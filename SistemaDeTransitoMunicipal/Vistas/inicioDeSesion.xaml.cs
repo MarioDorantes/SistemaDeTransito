@@ -22,6 +22,8 @@ namespace SistemaDeTransitoMunicipal
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public static int idDelegacionLoggeada = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace SistemaDeTransitoMunicipal
             if (usuario.Length > 0 && contraseña.Length > 0)
             {
                 Usuario userRespuesta = UsuarioDAO.obtenerLogin(usuario, contraseña);
+                idDelegacionLoggeada = userRespuesta.IdDelegacion;
                 if (userRespuesta != null && userRespuesta.NombreUsuario != null)
                 {
                     MessageBox.Show("Bienvenido al sistema : " + userRespuesta.NombreUsuario, "Usuario encontrado");
