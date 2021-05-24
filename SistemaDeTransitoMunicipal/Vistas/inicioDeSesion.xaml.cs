@@ -37,9 +37,9 @@ namespace SistemaDeTransitoMunicipal
             if (usuario.Length > 0 && contraseña.Length > 0)
             {
                 Usuario userRespuesta = UsuarioDAO.obtenerLogin(usuario, contraseña);
-                idDelegacionLoggeada = userRespuesta.IdDelegacion;
                 if (userRespuesta != null && userRespuesta.NombreUsuario != null)
                 {
+                    idDelegacionLoggeada = userRespuesta.IdDelegacion;
                     MessageBox.Show("Bienvenido al sistema : " + userRespuesta.NombreUsuario, "Usuario encontrado");
                     irVentanaAdministrador();
                 }
