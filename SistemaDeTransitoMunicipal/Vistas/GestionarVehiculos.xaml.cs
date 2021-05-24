@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.pocos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,21 @@ namespace SistemaDeTransitoMunicipal.Vistas
     /// </summary>
     public partial class GestionarVehiculos : Window
     {
+
+        List<Vehiculo> vehiculos;
+
         public GestionarVehiculos()
         {
             InitializeComponent();
+            vehiculos = new List<Vehiculo>();
+            cargarDatosVehiculos();
+        }
+
+        public void cargarDatosVehiculos()
+        {
+            vehiculos = VehiculoDAO.obtenerVehiculos();
+            dg_vehiculosRegistrados.AutoGenerateColumns = false;
+            dg_vehiculosRegistrados.ItemsSource = vehiculos;
         }
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
