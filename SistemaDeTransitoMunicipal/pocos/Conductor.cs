@@ -14,7 +14,7 @@ namespace SistemaDeTransitoMunicipal.pocos
         private String paternos;
         private String numeroTelefono;
         private String fechaNacimiento;
-        private String delegacion;
+        private int idDelegacion;
 
         public string NumeroLicencia { get => numeroLicencia; set => numeroLicencia = value; }
         public string Nombre { get => nombre; set => nombre = value; }
@@ -22,6 +22,6 @@ namespace SistemaDeTransitoMunicipal.pocos
         public string Maternos { get => maternos; set => maternos = value; }
         public string NumeroTelefono { get => numeroTelefono; set => numeroTelefono = value; }
         public string FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
-        public string Delegacion { get => delegacion; set => delegacion = value; }
+        public int IdDelegacion { get => idDelegacion; set => idDelegacion = value; }
     }
 }

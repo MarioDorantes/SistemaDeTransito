@@ -8,6 +8,7 @@ namespace SistemaDeTransitoMunicipal.pocos
 {
     class Delegacion
     {
+        private int idDelegacion;
         private String alias;
         private String codigoPostal;
         private String calle;
@@ -17,6 +18,7 @@ namespace SistemaDeTransitoMunicipal.pocos
         private String correo;
         private String numeroTelefono;
 
+       
         public string Alias { get => alias; set => alias = value; }
         public string CodigoPostal { get => codigoPostal; set => codigoPostal = value; }
         public string Calle { get => calle; set => calle = value; }
@@ -25,6 +27,7 @@ namespace SistemaDeTransitoMunicipal.pocos
         public string Municipio { get => municipio; set => municipio = value; }
         public string Correo { get => correo; set => correo = value; }
         public string NumeroTelefono { get => numeroTelefono; set => numeroTelefono = value; }
+        public int IdDelegacion { get => idDelegacion; set => idDelegacion = value; }
 
         public override string ToString()
         {

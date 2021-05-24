@@ -32,7 +32,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                     while (dataReader.Read())
                     {
                         Delegacion delegacion = new Delegacion();
-                        
+                       
                         delegacion.CodigoPostal = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : "";
                         delegacion.Alias = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
                         delegacion.Calle = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
@@ -41,6 +41,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                         delegacion.Municipio = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
                         delegacion.Correo = (!dataReader.IsDBNull(6)) ? dataReader.GetString(6) : "";
                         delegacion.NumeroTelefono = (!dataReader.IsDBNull(7)) ? dataReader.GetString(7) : "";
+                        delegacion.IdDelegacion = (!dataReader.IsDBNull(8)) ? dataReader.GetInt32(8) : 0;
                         delegaciones.Add(delegacion);
                     }
                     command.Dispose();

@@ -12,7 +12,7 @@
             <ColumnDefinition Width="299*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="btn_dictaminar" Content="Dictaminar" HorizontalAlignment="Left" Margin="47,591,0,0" VerticalAlignment="Top" Width="116" Height="30" FontFamily="Arial" FontSize="14" FontWeight="Bold" Background="#FF7FF66D"/>
-        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="144,591,0,0" VerticalAlignment="Top" Width="113" Height="30" Background="#FFFD6969" FontFamily="Arial" FontSize="14" FontWeight="Bold" Grid.Column="1" Click="btn_cancelar_Click"/>
+        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="144,591,0,0" VerticalAlignment="Top" Width="113" Height="30" Background="#FFFD6969" FontFamily="Arial" FontSize="14" FontWeight="Bold" Grid.Column="1"/>
         <Label Content="Conductor:" HorizontalAlignment="Left" Margin="88,35,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Width="89" Height="26"/>
         <Label Content="Vehículo involucrado: " HorizontalAlignment="Left" Margin="18,80,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Width="159" Height="26"/>
         <Label Content="Lugar del siniestro:" HorizontalAlignment="Left" Margin="487,35,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Grid.ColumnSpan="2" Height="26" Width="139"/>
