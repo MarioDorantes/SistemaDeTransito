@@ -1,4 +1,5 @@
 ﻿using DireccionGeneralDeTránsito.DAO;
+using DireccionGeneralDeTránsito.pocos;
 using DireccionGeneralDeTránsito.Vistas;
 using System;
 using System.Collections.Generic;

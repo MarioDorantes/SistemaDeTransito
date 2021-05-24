@@ -49,7 +49,7 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             catch (SqlException e)
             {
-                MessageBox.Show("No se estableció conexión con la BD", "Ocurrió un error");
+                MessageBox.Show(e.Message + "No se estableció conexión con la BD", "Ocurrió un error");
             }
             finally
             {
