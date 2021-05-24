@@ -55,9 +55,85 @@ namespace DireccionGeneralDeTránsito.DAO
             }
             return delegaciones;
         }
+        public static List<string> ObtenerDelegacionesNombre()
+        {
+            List<string> delegaciones = new List<string>();
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+                    String query = "SELECT nombreAlias FROM delegacion;";
+                    Console.WriteLine(query);
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        Delegacion delegacion = new Delegacion();
+                        delegacion.NombreAlias = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : " ";
+                        delegaciones.Add(delegacion.NombreAlias);
+                    }
+                    dataReader.Close();
+                    command.Dispose();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return delegaciones;
+        }
+
+        public static int cargarIdDelecacion(string nombreDelegacion)
+        {
+            int idDelegacion = -1;
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+                    String query = String.Format("SELECT idDelegacion FROM delegacion WHERE nombreAlias = '{0}'", nombreDelegacion);
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        idDelegacion = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
+                    }
+                    dataReader.Close();
+                    command.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return idDelegacion;
+        }
+
         public static int RegistrarDelegacion(String nombreDel, String codigoPostal, String ColoniaDel, String municipio, String calleNum, String correo, String telefono)
         {
-            int usuarioRegistrado = 0;
+            int delegacionRegistrada = 0;
             SqlConnection conn = null;
 
             try
@@ -78,7 +154,7 @@ namespace DireccionGeneralDeTránsito.DAO
                     command.Parameters.Add("telefono", System.Data.SqlDbType.VarChar,50).Value = telefono;
                     command.ExecuteNonQuery();
                     command.Dispose();
-                    usuarioRegistrado = 1;
+                    delegacionRegistrada = 1;
                 }
 
             }
@@ -93,7 +169,7 @@ namespace DireccionGeneralDeTránsito.DAO
                     conn.Close();
                 }
             }
-            return usuarioRegistrado;
+            return delegacionRegistrada;
         }
     }
 }

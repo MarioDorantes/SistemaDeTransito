@@ -23,5 +23,11 @@ namespace DireccionGeneralDeTránsito.pocos
         public string NumeroTelefono { get => numeroTelefono; set => numeroTelefono = value; }
         public string Email { get => email; set => email = value; }
         public string Municipio { get => municipio; set => municipio = value; }
+
+
+        public override string ToString()
+        {
+            return nombreAlias;
+        }
     }
 }

@@ -8,7 +8,7 @@
         Title="UsuariosRegistrados" Height="450" Width="800">
     <Grid>
         <Label Content="USUARIOS REGISTRADOS AL SISTEMA&#xD;&#xA;" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="251,22,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dg_UsuariosRegistrados" HorizontalAlignment="Left" Height="245" Margin="22,77,0,0" VerticalAlignment="Top" Width="748">
+        <DataGrid x:Name="dg_UsuariosRegistrados" IsReadOnly="True" SelectionMode="Single" HorizontalAlignment="Left" Height="245" Margin="22,77,0,0" VerticalAlignment="Top" Width="748">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre(s)" Binding="{Binding Nombre}"/>
                 <DataGridTextColumn Header="Apellido paterno" Binding="{Binding ApellidoPaterno}"/>

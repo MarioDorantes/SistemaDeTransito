@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito"
         mc:Ignorable="d"
-        Title="RegistrarUsuarios" Height="378" Width="741">
+        Title="RegistrarUsuarios" Height="449.333" Width="524.333">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="756*"/>
@@ -13,21 +13,26 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Registro de usuarios" HorizontalAlignment="Left" Margin="274,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="37" Width="201"/>
-        <TextBox x:Name="tbx_nombreRegistro" HorizontalAlignment="Left" Height="23" Margin="47,119,0,0" TextWrapping="Wrap"  Text="Nombre" VerticalAlignment="Top" Width="183" FontStyle="Italic"/>
-        <TextBox x:Name="tbx_aPaternoRegistro" HorizontalAlignment="Left" Height="23" Margin="47,153,0,0" TextWrapping="Wrap" Text="Apellido paterno" VerticalAlignment="Top" Width="183" FontStyle="Italic"/>
-        <TextBox x:Name="tbx_aMaternoRegistro" HorizontalAlignment="Left" Height="23" Margin="47,187,0,0" TextWrapping="Wrap" Text="Apellido materno" VerticalAlignment="Top" Width="183" FontStyle="Italic"/>
-        <TextBox x:Name="tbx_nombreUsuario" HorizontalAlignment="Left" Height="23" Margin="47,223,0,0" TextWrapping="Wrap" Text="Nombre de usuario" VerticalAlignment="Top" Width="183" FontStyle="Italic"/>
-        <PasswordBox x:Name="pbx_contraseña"  HorizontalAlignment="Left" Margin="502,187,0,0" VerticalAlignment="Top" Width="183" Height="23"/>
-        <ComboBox x:Name="cmb_tipoUsuario" Text="Tipo usuario" HorizontalAlignment="Left" Margin="502,119,0,0" VerticalAlignment="Top" Width="183" FontStyle="Italic" Height="23"/>
-        <Label Content="Seleccione tipo de usuario:" HorizontalAlignment="Left" Margin="290,119,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="161"/>
-        <Label Content="Seleccione la delegación:" HorizontalAlignment="Left" Margin="290,149,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="150"/>
-        <ComboBox x:Name="cmb_delegacion" HorizontalAlignment="Left" Margin="502,154,0,0" VerticalAlignment="Top" Width="183" Height="22"/>
-        <Label Content="Inserte la contraseña:" HorizontalAlignment="Left" Margin="290,184,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="131"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="502,223,0,0" VerticalAlignment="Top" Width="183" Height="23"/>
-        <Label Content="Confirme su contraseña:" HorizontalAlignment="Left" Margin="290,220,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="147"/>
-        <Button x:Name="btn_confirmarRegistro" Content="Confirmar registro" HorizontalAlignment="Left" Margin="308,291,0,0" VerticalAlignment="Top" Width="113" Click="btn_confirmarRegistro_Click"/>
+        <Label Content="Registro de usuarios" HorizontalAlignment="Left" Margin="271,15,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="37" Width="201"/>
+        <TextBox x:Name="tbx_nombreRegistro" HorizontalAlignment="Left" Height="23" Margin="47,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontStyle="Italic"/>
+        <TextBox x:Name="tbx_aPaternoRegistro" HorizontalAlignment="Left" Height="23" Margin="47,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontStyle="Italic"/>
+        <TextBox x:Name="tbx_aMaternoRegistro" HorizontalAlignment="Left" Height="23" Margin="47,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontStyle="Italic"/>
+        <TextBox x:Name="tbx_nombreUsuario" HorizontalAlignment="Left" Height="23" Margin="47,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontStyle="Italic"/>
+        <PasswordBox x:Name="pbx_contraseña"  HorizontalAlignment="Left" Margin="281,236,0,0" VerticalAlignment="Top" Width="183" Height="23"/>
+        <ComboBox x:Name="cmb_tipoUsuario" Text="Tipo usuario" HorizontalAlignment="Left" Margin="281,119,0,0" VerticalAlignment="Top" Width="183" Height="23"/>
+        <Label Content="Seleccione tipo de usuario:" HorizontalAlignment="Left" Margin="281,88,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="161"/>
+        <Label Content="Seleccione la delegación:" HorizontalAlignment="Left" Margin="281,147,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="150"/>
+        <ComboBox x:Name="cmb_delegacion" HorizontalAlignment="Left" Margin="281,178,0,0" VerticalAlignment="Top" Width="183" Height="22"/>
+        <Label Content="Inserte la contraseña:" HorizontalAlignment="Left" Margin="281,205,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="131"/>
+        <PasswordBox x:Name="pbx_confirmarPass" HorizontalAlignment="Left" Margin="281,295,0,0" VerticalAlignment="Top" Width="183" Height="23"/>
+        <Label Content="Confirme su contraseña:" HorizontalAlignment="Left" Margin="281,264,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="147"/>
+        <Button x:Name="btn_confirmarRegistro" Content="Confirmar registro" HorizontalAlignment="Left" Margin="199,380,0,0" VerticalAlignment="Top" Width="113" Click="btn_confirmarRegistro_Click"/>
         <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="47,22,0,0" VerticalAlignment="Top" Width="75" Click="btn_regresar_Click"/>
+        <Label x:Name="lbl_passValidador" Content="Las contraseñas no coinciden" Foreground="Red" HorizontalAlignment="Left" Margin="281,323,0,0" VerticalAlignment="Top" Visibility="Hidden"  Width="183"/>
+        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="47,88,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="161"/>
+        <Label Content="Apellido paterno:" HorizontalAlignment="Left" Margin="47,147,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="161"/>
+        <Label Content="Apellido materno:" HorizontalAlignment="Left" Margin="47,205,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="131"/>
+        <Label Content="Nombre de usuario:" HorizontalAlignment="Left" Margin="47,264,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="147"/>
 
     </Grid>
 </Window>

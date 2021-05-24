@@ -14,7 +14,7 @@ namespace DireccionGeneralDeTránsito.pocos
         String apellidoMaterno;
         String contraseña;
         String tipoUsuario;
-        int idDelegacion;
+        string delegacion;
 
         public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
         public string Nombre { get => nombre; set => nombre = value; }
@@ -22,6 +22,6 @@ namespace DireccionGeneralDeTránsito.pocos
         public string ApellidoMaterno { get => apellidoMaterno; set => apellidoMaterno = value; }
         public string Contraseña { get => contraseña; set => contraseña = value; }
         public string TipoUsuario { get => tipoUsuario; set => tipoUsuario = value; }
-        public int IdDelegacion { get => idDelegacion; set => idDelegacion = value; }
+        public string Delegacion { get => delegacion; set => delegacion = value; }
     }
 }

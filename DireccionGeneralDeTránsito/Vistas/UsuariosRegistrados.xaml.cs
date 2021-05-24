@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DireccionGeneralDeTránsito.DAO;
+using DireccionGeneralDeTránsito.pocos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,20 @@ namespace DireccionGeneralDeTránsito.Vistas
     /// </summary>
     public partial class UsuariosRegistrados : Window
     {
+        List<Usuario> usuarios;
+
         public UsuariosRegistrados()
         {
             InitializeComponent();
+            usuarios = new List<Usuario>();
+            cargarUsuarios();
         }
 
         private void cargarUsuarios()
         {
-            
+            usuarios = UsuarioDAOcs.ObtenerUsuarios();
+            dg_UsuariosRegistrados.AutoGenerateColumns = false;
+            dg_UsuariosRegistrados.ItemsSource = usuarios;
         }
         private void btn_regresar_Click(object sender, RoutedEventArgs e)
         {

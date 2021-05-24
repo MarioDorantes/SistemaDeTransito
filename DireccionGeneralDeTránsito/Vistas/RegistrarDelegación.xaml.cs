@@ -68,12 +68,21 @@ namespace DireccionGeneralDeTránsito
             String numeroTel = txb_telefono.Text;
             String email = txb_correo.Text;
             String municipio = cmb_municipio.Text;
-            if(DelegacionDAO.RegistrarDelegacion(nombreDelegacion, codigoPostal, colonia, municipio, calleNum, email, numeroTel)==1){
-                MessageBox.Show("Delegación registrada correctamente");
+            if(txb_nombreDelegacion.Text =="" || txb_coloniaDelegacion.Text == "" || txb_codigoPostal.Text == ""
+                || txb_calle.Text == "" || txb_telefono.Text == "" || txb_correo.Text == "" || cmb_municipio.Text == "")
+            {
+                MessageBox.Show("Campos faltantes");
             }
             else
             {
-                MessageBox.Show("Error de registro en la delegación, inténtelo de nuevo");
+                if (DelegacionDAO.RegistrarDelegacion(nombreDelegacion, codigoPostal, colonia, municipio, calleNum, email, numeroTel) == 1)
+                {
+                    MessageBox.Show("Delegación registrada correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Error de registro en la delegación, inténtelo de nuevo");
+                }
             }
         }
     }
