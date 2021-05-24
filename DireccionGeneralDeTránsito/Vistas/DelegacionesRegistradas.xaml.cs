@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DireccionGeneralDeTránsito.DAO;
+using DireccionGeneralDeTránsito.pocos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +21,19 @@ namespace DireccionGeneralDeTránsito.Vistas
     /// </summary>
     public partial class DelegacionesRegistradas : Window
     {
+        List<Delegacion> delegaciones;
         public DelegacionesRegistradas()
         {
             InitializeComponent();
+            delegaciones = new List<Delegacion>();
+            CargarDelegaciones();
         }
-
+        public void CargarDelegaciones()
+        {
+            delegaciones = DelegacionDAO.ObtenerDelegaciones();
+            dg_delegaciones.AutoGenerateColumns = false;
+            dg_delegaciones.ItemsSource = delegaciones;
+        }
         private void btn_registroDelegacion_Click(object sender, RoutedEventArgs e)
         {
             RegistrarDelegación ventanaRegistro = new RegistrarDelegación();

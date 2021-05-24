@@ -8,7 +8,17 @@
         Title="DelegacionesRegistradas" Height="450" Width="800">
     <Grid>
         <Label Content="DELEGACIONES REGISTRADAS&#xD;&#xA;" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="289,23,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dg_delegaciones" HorizontalAlignment="Left" Height="259" Margin="22,97,0,0" VerticalAlignment="Top" Width="746"/>
+        <DataGrid x:Name="dg_delegaciones" IsReadOnly="True" SelectionMode="Single" HorizontalAlignment="Left" Height="259" Margin="22,97,0,0" VerticalAlignment="Top" Width="746">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding NombreAlias}"/>
+                <DataGridTextColumn Header="Municipio" Binding="{Binding Municipio}"/>
+                <DataGridTextColumn Header="Calle" Binding="{Binding CalleNumero}"/>
+                <DataGridTextColumn Header="Código postal" Binding="{Binding CodigoPostal}"/>
+                <DataGridTextColumn Header="Colonia" Binding="{Binding Colonia}"/>
+                <DataGridTextColumn Header="Correo electrónico" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Número de telefóno" Binding="{Binding NumeroTelefono}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="22,29,0,0" VerticalAlignment="Top" Width="75" Click="btn_regresar_Click"/>
         <Button x:Name="btn_registroDelegacion" Content="Registrar delegacion" HorizontalAlignment="Left" Background="GreenYellow" Margin="22,378,0,0" VerticalAlignment="Top" Width="164" Click="btn_registroDelegacion_Click"/>
 
