@@ -7,7 +7,18 @@
         mc:Ignorable="d"
         Title="GestionarConductores" Height="455" Width="800">
     <Grid Margin="0,0,3.6,-4" Height="424" VerticalAlignment="Top">
-        <DataGrid x:Name="dg_conductores" HorizontalAlignment="Left" Height="282" Margin="26,71,0,0" VerticalAlignment="Top" Width="734"/>
+        <DataGrid x:Name="dg_conductores" HorizontalAlignment="Left" Height="282" Margin="26,71,0,0" VerticalAlignment="Top" Width="734">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido Paterno" Binding="{Binding Paternos}"/>
+                <DataGridTextColumn Header="Apellido Materno" Binding="{Binding Maternos}"/>
+                <DataGridTextColumn Header="Licencia" Binding="{Binding NumeroLicencia}"/>
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding NumeroTelefono}"/>
+                <DataGridTextColumn Header="Fecha de nacimiento" Binding="{Binding FechaNacimiento}"/>
+                <DataGridTextColumn Header="Delegacion" Binding="{Binding NombreDelegacion}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+         
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="661,377,0,0" VerticalAlignment="Top" Width="99" Background="#FFF9F39B" FontFamily="Arial" FontWeight="Bold" FontSize="14" Height="33" Click="btn_cancelar_Click"/>
         <Button x:Name="btn_registrar" Content="Registrar" HorizontalAlignment="Left" Margin="422,30,0,0" VerticalAlignment="Top" Width="99" FontFamily="Arial" FontSize="14" FontWeight="Bold" Height="33" Background="#FFCEFD90" Click="btn_registrar_Click"/>
         <Button x:Name="btn_editar" Content="Editar" HorizontalAlignment="Left" Margin="543,30,0,0" VerticalAlignment="Top" Width="99" FontFamily="Arial" FontSize="14" FontWeight="Bold" Height="33" Background="#FFA8E8F1"/>

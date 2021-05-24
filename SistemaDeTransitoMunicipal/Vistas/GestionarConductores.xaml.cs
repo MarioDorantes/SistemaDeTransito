@@ -34,6 +34,7 @@ namespace SistemaDeTransitoMunicipal.Vistas
         {
             int idDelegacionLoggeada = MainWindow.idDelegacionLoggeada;
             conductores = ConductorDAO.obtenerConductores(idDelegacionLoggeada);
+            dg_conductores.AutoGenerateColumns = false;
             dg_conductores.ItemsSource = conductores;
         }
 
