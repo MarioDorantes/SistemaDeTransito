@@ -10,8 +10,51 @@ using System.Threading.Tasks;
 
 namespace DireccionGeneralDeTránsito.DAO
 {
-    class UsuarioDAOcs
+    public class UsuarioDAOcs
     {
+        public static int actualizarInformacionUsuario(String nombre, String aPaterno, String aMaterno, String nombreUsuario, String contraseña, int delegacion, 
+            String tipoUsuario, String nombresUsuarioViejo)
+        {
+            int infoActualizada = 0;
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    String query = "UPDATE dbo.Usuario SET usr_nombreUsuario=@nombreUsuario, usr_contraseña=@contraseña, usr_rol=@tipoUsuario, idDelegacion=@idDelegacion," +
+                        " Nombre=@nombre, usr_aPaterno=@aPaterno, usr_aMaterno=@aMaterno WHERE usr_nombreUsuario=@nombreUsuarioViejo;";
+                    command = new SqlCommand(query, conn);
+                    command.Parameters.Add("@nombreUsuario", System.Data.SqlDbType.VarChar, 50).Value = nombreUsuario;
+                    command.Parameters.Add("@contraseña", System.Data.SqlDbType.VarChar, 50).Value = contraseña;
+                    command.Parameters.Add("@idDelegacion", System.Data.SqlDbType.Int).Value = delegacion;
+                    command.Parameters.Add("@nombre", System.Data.SqlDbType.VarChar, 50).Value = nombre;
+                    command.Parameters.Add("@aPaterno", System.Data.SqlDbType.VarChar, 50).Value = aPaterno;
+                    command.Parameters.Add("@aMaterno", System.Data.SqlDbType.VarChar, 50).Value = aMaterno;
+                    command.Parameters.Add("@tipoUsuario", System.Data.SqlDbType.VarChar,50).Value = tipoUsuario;
+                    command.Parameters.Add("@nombreUsuarioViejo", System.Data.SqlDbType.VarChar, 50).Value = nombresUsuarioViejo;
+                    infoActualizada = 1;
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                infoActualizada = 0;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return infoActualizada;
+        }
         public static int EliminarUsuario(string nombreUsuario)
         {
             int eliminado = 0;
@@ -57,7 +100,6 @@ namespace DireccionGeneralDeTránsito.DAO
                     SqlDataReader dataReader;
                     String query = "SELECT u.Nombre, u.usr_aPaterno, u.usr_aMaterno, u.usr_rol, u.usr_nombreUsuario, d.nombreAlias FROM usuario u "+
                         " INNER JOIN dbo.delegacion d ON u.idDelegacion = d.idDelegacion";
-                    Console.WriteLine(query);
                     command = new SqlCommand(query, conn);
                     dataReader = command.ExecuteReader();
                     while (dataReader.Read())

@@ -1,4 +1,5 @@
 ﻿using DireccionGeneralDeTránsito.DAO;
+using DireccionGeneralDeTránsito.Interfaz;
 using DireccionGeneralDeTránsito.pocos;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace DireccionGeneralDeTránsito.Vistas
     /// <summary>
     /// Lógica de interacción para UsuariosRegistrados.xaml
     /// </summary>
-    public partial class UsuariosRegistrados : Window
+    public partial class UsuariosRegistrados : Window, Observer
     {
         List<Usuario> usuarios;
 
@@ -79,7 +80,23 @@ namespace DireccionGeneralDeTránsito.Vistas
 
         private void btn_modificarUsuario_Click(object sender, RoutedEventArgs e)
         {
+            int indiceSeleccion = dg_UsuariosRegistrados.SelectedIndex;
+            if(indiceSeleccion >= 0)
+            {
+                Usuario usuarioEditar = usuarios[indiceSeleccion];
+                RegistrarUsuarios formEditarUsuario = new RegistrarUsuarios(usuarioEditar, this);
+                formEditarUsuario.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario no seleccionado");
+            }
+        }
 
+        public void actualizaInformación(string operacion)
+        {
+            
         }
     }
 }

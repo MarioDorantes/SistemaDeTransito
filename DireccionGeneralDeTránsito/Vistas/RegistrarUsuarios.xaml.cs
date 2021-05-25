@@ -1,4 +1,5 @@
 ﻿using DireccionGeneralDeTránsito.DAO;
+using DireccionGeneralDeTránsito.Interfaz;
 using DireccionGeneralDeTránsito.pocos;
 using DireccionGeneralDeTránsito.Vistas;
 using System;
@@ -22,12 +23,37 @@ namespace DireccionGeneralDeTránsito
     /// </summary>
     public partial class RegistrarUsuarios : Window
     {
+        Usuario usuarioEditar;
+        Observer notificacion;
+        Boolean isNuevo = false;
         public RegistrarUsuarios()
         {
             InitializeComponent();
             CargarTipoUsuario();
             CargarDelegaciones();
 
+        }
+        public RegistrarUsuarios(Observer notificacion) : this()
+        {
+            this.notificacion = notificacion;
+        }
+
+        public RegistrarUsuarios(Usuario edicionUsuario, Observer notificacion) : this(notificacion)
+        {
+            this.usuarioEditar = edicionUsuario;
+            CargarInfoUsuarioEditar();
+            isNuevo = true;
+        }
+
+        public void CargarInfoUsuarioEditar()
+        {
+            tbx_nombreRegistro.Text = usuarioEditar.Nombre;
+            tbx_aMaternoRegistro.Text = usuarioEditar.ApellidoMaterno;
+            tbx_aPaternoRegistro.Text = usuarioEditar.ApellidoPaterno;
+            tbx_nombreUsuario.Text = usuarioEditar.NombreUsuario;
+            cmb_delegacion.Text = usuarioEditar.Delegacion;
+            cmb_tipoUsuario.Text = usuarioEditar.TipoUsuario;
+            pbx_contraseña.Password = usuarioEditar.Contraseña;
         }
         public void CargarTipoUsuario()
         {
@@ -52,7 +78,6 @@ namespace DireccionGeneralDeTránsito
 
         private void btn_confirmarRegistro_Click(object sender, RoutedEventArgs e)
         {
-            int seRegistro = 0;
             String nombreUsuario = tbx_nombreUsuario.Text;
             String nombre = tbx_nombreRegistro.Text;
             String apellidoPaterno = tbx_aPaternoRegistro.Text;
@@ -62,31 +87,52 @@ namespace DireccionGeneralDeTránsito
             String nombreDelegacion = cmb_delegacion.Text;
             int idDelegacion = DelegacionDAO.cargarIdDelecacion(nombreDelegacion);
 
-            if (pbx_contraseña.Password.Equals(pbx_confirmarPass.Password))
+            if(isNuevo == true)
             {
-                if (tbx_nombreUsuario.Text == "" || tbx_nombreRegistro.Text == "" || tbx_aPaternoRegistro.Text == "" || tbx_aMaternoRegistro.Text == ""
-                || pbx_contraseña.Password == "" || cmb_tipoUsuario.Text == "")
+                if (pbx_contraseña.Password.Equals(pbx_confirmarPass.Password))
                 {
-                    MessageBox.Show("Campos faltantes");
-                }
-                else
-                {
-                    seRegistro = UsuarioDAOcs.RegistrarUsuario(nombre, apellidoPaterno, apellidoMaterno, nombreUsuario, contraseña, idDelegacion, tipoUsuario);
-                    if(seRegistro == 1)
+                    String nombreUsuarioViejo = usuarioEditar.NombreUsuario;
+                    int resultadoActualizar = UsuarioDAOcs.actualizarInformacionUsuario(nombre, apellidoPaterno, apellidoMaterno, nombreUsuario, contraseña,
+                    idDelegacion, tipoUsuario, nombreUsuarioViejo);
+                    if (resultadoActualizar == 1)
                     {
-                        MessageBox.Show("Usuario registrado correctamente");
+                        MessageBox.Show("Información actualizada correctamente");
                     }
                     else
                     {
-                        MessageBox.Show("Error de registro");
+                        MessageBox.Show("Error al actualizar la información, inténtelo de nuevo más tarde");
                     }
-                }
+                }    
             }
             else
             {
-                lbl_passValidador.Visibility = Visibility.Visible;
-                pbx_contraseña.Foreground = Brushes.Red;
-                pbx_confirmarPass.Foreground = Brushes.Red;
+                int seRegistro;
+                if (pbx_contraseña.Password.Equals(pbx_confirmarPass.Password))
+                {
+                    if (tbx_nombreUsuario.Text == "" || tbx_nombreRegistro.Text == "" || tbx_aPaternoRegistro.Text == "" || tbx_aMaternoRegistro.Text == ""
+                    || pbx_contraseña.Password == "" || cmb_tipoUsuario.Text == "")
+                    {
+                        MessageBox.Show("Campos faltantes");
+                    }
+                    else
+                    {
+                        seRegistro = UsuarioDAOcs.RegistrarUsuario(nombre, apellidoPaterno, apellidoMaterno, nombreUsuario, contraseña, idDelegacion, tipoUsuario);
+                        if (seRegistro == 1)
+                        {
+                            MessageBox.Show("Usuario registrado correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error de registro");
+                        }
+                    }
+                }
+                else
+                {
+                    lbl_passValidador.Visibility = Visibility.Visible;
+                    pbx_contraseña.Foreground = Brushes.Red;
+                    pbx_confirmarPass.Foreground = Brushes.Red;
+                }
             }
             
         }
