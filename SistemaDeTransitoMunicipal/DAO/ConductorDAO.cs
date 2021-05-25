@@ -63,6 +63,55 @@ namespace SistemaDeTransitoMunicipal.DAO
             return conductores;
         }
 
+        //Metodo creado para registro de vehiculos
+        public static List<Conductor> obtenerTodosLosConductores()
+        {
+            List<Conductor> conductores = new List<Conductor>();
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+
+                    String query = ("SELECT * FROM conductor;");
+
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        Conductor conductor = new Conductor();
+                        conductor.NumeroLicencia = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : "";
+                        conductor.NumeroTelefono = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
+                        conductor.FechaNacimiento = (!dataReader.IsDBNull(2)) ? dataReader.GetDateTime(2).ToString("d") : "";
+                        conductor.Nombre = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
+                        conductor.Paternos = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        conductor.Maternos = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
+                        conductor.IdDelegacion = (!dataReader.IsDBNull(6)) ? dataReader.GetInt32(6) : 0;
+                        conductores.Add(conductor);
+                    }
+                    command.Dispose();
+                    dataReader.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message + "No se estableció conexión con la BD", "Ocurrió un error");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return conductores;
+        }
+
+
         public static int agregarConductor(String numeroLicencia, String nombre, String paterno,
             String materno, String numeroTelefono, String fechaNacimiento, int delegacion)
         {

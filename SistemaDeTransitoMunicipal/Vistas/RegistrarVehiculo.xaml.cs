@@ -22,15 +22,30 @@ namespace SistemaDeTransitoMunicipal
     /// </summary>
     public partial class RegistrarVehiculo : Window
     {
+        List<Conductor> conductores;
 
         public RegistrarVehiculo()
         {
             InitializeComponent();
+            cargarConductores();
+        }
+        
+        private void cargarConductores()
+        {
+            conductores = ConductorDAO.obtenerTodosLosConductores();
+            cmb_conductores.ItemsSource = conductores;
         }
 
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
         {
+            salirAPrincipal();
+        }
+
+        private void salirAPrincipal()
+        {
+            GestionarVehiculos regresar = new GestionarVehiculos();
+            regresar.Show();
             this.Close();
         }
 
@@ -43,7 +58,8 @@ namespace SistemaDeTransitoMunicipal
             String aseguradora = txt_aseguradora.Text;
             String numPoliza = txt_num_poliza.Text;
             String numPlacas = txt_num_placas.Text;
-            int conductorLicencia = dg_conductores.SelectedIndex;
+            int posicionConductor = cmb_conductores.SelectedIndex;
+            
 
             Boolean camposLlenos = true;
 
@@ -82,29 +98,32 @@ namespace SistemaDeTransitoMunicipal
                 camposLlenos = false;
                 txt_num_placas.BorderBrush = Brushes.Red;
             }
-            if (conductorLicencia < 0)
+            if(posicionConductor < 0)
             {
                 camposLlenos = false;
-                dg_conductores.BorderBrush = Brushes.Red;
+                cmb_conductores.BorderBrush = Brushes.Red;
+
             }
+
 
             if (camposLlenos)
             {
-                //String conductorSeleccionado = conductores[conductorLicencia].Alias;
-                //Tengo que obtener los conductores y mostrarlos en la tabla o cambiar a combo ahi veo
 
-                //int resultado = VehiculoDAO.agregarVehiculo();
-                int resultado = 0;
+                String numLicencia = conductores[cmb_conductores.SelectedIndex].NumeroLicencia;
+
+                int resultado = VehiculoDAO.agregarVehiculo(numLicencia, marca, modelo, año, color, aseguradora, numPoliza, numPlacas);
 
                 if (resultado > 0)
                 {
                     MessageBox.Show("El vehiculo se registro exitosamente", "Registro exitoso");
-                    this.Close();
+                    
                 }
                 else
                 {
                     MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
                 }
+
+                salirAPrincipal();
             }
             else
             {
