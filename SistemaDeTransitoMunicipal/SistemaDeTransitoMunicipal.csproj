@@ -67,6 +67,7 @@
     <Compile Include="DAO\DelegacionDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DAO\VehiculoDAO.cs" />
+    <Compile Include="Interface\ObserverRespuesta.cs" />
     <Compile Include="pocos\Conductor.cs" />
     <Compile Include="pocos\Delegacion.cs" />
     <Compile Include="pocos\Usuario.cs" />

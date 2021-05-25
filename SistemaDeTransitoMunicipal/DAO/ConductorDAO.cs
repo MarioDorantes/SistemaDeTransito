@@ -63,6 +63,55 @@ namespace SistemaDeTransitoMunicipal.DAO
             return conductores;
         }
 
+        //Metodo creado para registro de vehiculos
+        public static List<Conductor> obtenerTodosLosConductores()
+        {
+            List<Conductor> conductores = new List<Conductor>();
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+
+                    String query = ("SELECT * FROM conductor;");
+
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        Conductor conductor = new Conductor();
+                        conductor.NumeroLicencia = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : "";
+                        conductor.NumeroTelefono = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
+                        conductor.FechaNacimiento = (!dataReader.IsDBNull(2)) ? dataReader.GetDateTime(2).ToString("d") : "";
+                        conductor.Nombre = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
+                        conductor.Paternos = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        conductor.Maternos = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
+                        conductor.IdDelegacion = (!dataReader.IsDBNull(6)) ? dataReader.GetInt32(6) : 0;
+                        conductores.Add(conductor);
+                    }
+                    command.Dispose();
+                    dataReader.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message + "No se estableció conexión con la BD", "Ocurrió un error");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return conductores;
+        }
+
+
         public static int agregarConductor(String numeroLicencia, String nombre, String paterno,
             String materno, String numeroTelefono, String fechaNacimiento, int delegacion)
         {
@@ -86,6 +135,77 @@ namespace SistemaDeTransitoMunicipal.DAO
                     command.Parameters.Add("cn_apellido_paterno", System.Data.SqlDbType.NVarChar, 100).Value = paterno;
                     command.Parameters.Add("cn_apellidoMaterno", System.Data.SqlDbType.NVarChar, 100).Value = materno;
                     command.Parameters.Add("idDelegacion", System.Data.SqlDbType.Int).Value = delegacion;
+                    resultado = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ha ocurrido un error");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return resultado;
+        }
+
+        public static int modificarConductor(String numeroLicencia, String nombre, String paterno,
+            String materno, String numeroTelefono, String fechaNacimiento, String numeroLicenciaConductor)
+        {
+            SqlConnection conn = null;
+            int resultado = 0;
+
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    String query = String.Format("UPDATE conductor SET cn_numTelefono = @cn_numTelefono, cn_FechaNacimiento = @cn_FechaNacimiento, " +
+                                    "cn_nombre = @cn_nombre, cn_apellido_paterno = @cn_apellido_paterno, cn_apellidoMaterno = @cn_apellidoMaterno" +
+                                    " WHERE cn_numLicencia = '{0}'", numeroLicenciaConductor);
+                    command = new SqlCommand(query, conn);
+
+                    command.Parameters.Add("cn_numLicencia", System.Data.SqlDbType.NChar, 30).Value = numeroLicencia;
+                    command.Parameters.Add("cn_numTelefono", System.Data.SqlDbType.NChar, 30).Value = numeroTelefono;
+                    command.Parameters.Add("cn_FechaNacimiento", System.Data.SqlDbType.Date).Value = fechaNacimiento;
+                    command.Parameters.Add("cn_nombre", System.Data.SqlDbType.NVarChar, 100).Value = nombre;
+                    command.Parameters.Add("cn_apellido_paterno", System.Data.SqlDbType.NVarChar, 100).Value = paterno;
+                    command.Parameters.Add("cn_apellidoMaterno", System.Data.SqlDbType.NVarChar, 100).Value = materno;
+                    resultado = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ha ocurrido un error");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return resultado;
+        }
+
+        public static int eliminarConductor(String numeroLicencia)
+        {
+            SqlConnection conn = null;
+            int resultado = 0;
+
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    String query = "DELETE FROM conductor WHERE cn_numLicencia = @cn_numLicencia";
+                    command = new SqlCommand(query, conn);
+                    command.Parameters.AddWithValue("@cn_numLicencia", numeroLicencia);
                     resultado = command.ExecuteNonQuery();
                 }
             }

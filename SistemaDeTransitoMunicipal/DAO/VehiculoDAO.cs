@@ -24,7 +24,8 @@ namespace SistemaDeTransitoMunicipal.DAO
                     SqlCommand command;
                     SqlDataReader dataReader;
 
-                    String query = "SELECT * FROM VEHICULO;";
+                    String query = "SELECT * FROM vehiculo;";
+                    Console.WriteLine(query);
 
                     command = new SqlCommand(query, conn);
                     dataReader = command.ExecuteReader();

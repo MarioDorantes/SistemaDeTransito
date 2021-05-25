@@ -1,4 +1,5 @@
 ﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.Interface;
 using SistemaDeTransitoMunicipal.pocos;
 using SistemaDeTransitoMunicipal.Vistas;
 using System;
@@ -20,21 +21,40 @@ namespace SistemaDeTransitoMunicipal
     /// <summary>
     /// Lógica de interacción para RegistrarConductor.xaml
     /// </summary>
-    public partial class RegistrarConductor : Window
+    public partial class registrarConductor : Window
     {
+        ObserverRespuesta notificacion;
+        Conductor conductorEdicion;
+        Boolean esNuevo = true;
+        String numeroLicenciaCondcutor;
 
-        List<Delegacion> delegaciones = null; 
-        public RegistrarConductor()
+        public registrarConductor()
         {
             InitializeComponent();
-            delegaciones = new List<Delegacion>();
-            cargarDelegaciones();
         }
 
-        private void cargarDelegaciones()
+        public registrarConductor(ObserverRespuesta notificacion) : this()
         {
-            delegaciones = DelegacionDAO.obtenerDelegaciones();
-            cb_delegacion.ItemsSource = delegaciones;
+            this.notificacion = notificacion;
+        }
+
+        public registrarConductor(Conductor conductorEdicion, ObserverRespuesta notificacion) : this(notificacion)
+        {
+            this.conductorEdicion = conductorEdicion;
+            cargarInformacionConductor();
+            esNuevo = false;
+        }
+
+        private void cargarInformacionConductor()
+        {
+            numeroLicenciaCondcutor = conductorEdicion.NumeroLicencia;
+            txt_numeroLicencia.Text = conductorEdicion.NumeroLicencia;
+            txt_numeroLicencia.IsEnabled = false;
+            txt_nombre.Text = conductorEdicion.Nombre;
+            txt_paterno.Text = conductorEdicion.Paternos;
+            txt_materno.Text = conductorEdicion.Maternos;
+            txt_telefono.Text = conductorEdicion.NumeroTelefono;
+            txt_nacimiento.Text = conductorEdicion.FechaNacimiento;
         }
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
@@ -44,13 +64,20 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_registrar_Click(object sender, RoutedEventArgs e)
         {
+
+            txt_numeroLicencia.BorderBrush = Brushes.LightGray;
+            txt_nombre.BorderBrush = Brushes.LightGray;
+            txt_paterno.BorderBrush = Brushes.LightGray;
+            txt_materno.BorderBrush = Brushes.LightGray;
+            txt_nacimiento.BorderBrush = Brushes.LightGray;
+            txt_telefono.BorderBrush = Brushes.LightGray;
+
             String numeroLicencia = txt_numeroLicencia.Text;
             String nombre = txt_nombre.Text;
             String paterno = txt_paterno.Text;
             String materno = txt_materno.Text;
             String fechaNacimiento = txt_nacimiento.Text;
             String telefono = txt_telefono.Text;
-            int posicionSeleccion = cb_delegacion.SelectedIndex;
 
             Boolean camposLlenos = true;
 
@@ -83,31 +110,46 @@ namespace SistemaDeTransitoMunicipal
                 camposLlenos = false;
                 txt_telefono.BorderBrush = Brushes.Red;
             }
-            if(posicionSeleccion < 0)
-            {
-                camposLlenos = false;
-                cb_delegacion.BorderBrush = Brushes.Red;
-            }
 
             if (camposLlenos)
             {
-                int delegacionSeleccionada = delegaciones[posicionSeleccion].IdDelegacion;
-
-                int resultado = ConductorDAO.agregarConductor(numeroLicencia, nombre, paterno, materno, telefono, fechaNacimiento, delegacionSeleccionada);
-                if(resultado > 0)
+                int resultado = 0;
+                int idDelegacion = MainWindow.idDelegacionLoggeada;
+                if (esNuevo)
                 {
-                    MessageBox.Show("El Conductor se agregó exitosamente", "Registro exitoso");
-                    this.Close();
+                    resultado = ConductorDAO.agregarConductor(numeroLicencia, nombre, paterno, materno, telefono, fechaNacimiento, idDelegacion);
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("El Conductor se agregó exitosamente", "Registro exitoso");
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
+                    }
+                    notificacion.actualizaInformacion("Registrar");
                 }
                 else
                 {
-                    MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
+                    resultado = ConductorDAO.modificarConductor(numeroLicencia, nombre, paterno, materno, telefono, fechaNacimiento, conductorEdicion.NumeroLicencia);
+                    if(resultado > 0)
+                    {
+                        MessageBox.Show("El Conductor se modificó exitosamente", "Modificación exitosa");
+                       
+                    }
+                    else
+                    {
+                        MessageBox.Show("No fue posible hacer la modificación", "Ocurrió un error");
+                    }
+                    notificacion.actualizaInformacion("Editar");
                 }
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Favor de llenar todos los campos", "Campos vacíos");
             }
         }
+
     }
 }

@@ -48,7 +48,8 @@ namespace SistemaDeTransitoMunicipal.Vistas
         private void btn_registrar_Click(object sender, RoutedEventArgs e)
         {
             RegistrarVehiculo registrarVehiculo = new RegistrarVehiculo();
-            registrarVehiculo.ShowDialog();
+            registrarVehiculo.Show();
+            this.Close();
         }
     }
 }

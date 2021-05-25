@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="RegistrarVehiculo" Height="450" Width="800" FontWeight="Bold">
     <Grid>
-        <Label Content="Seleccione un Conductor" HorizontalAlignment="Left" Margin="90,48,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Seleccione un Conductor" HorizontalAlignment="Left" Margin="112,48,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Label Content="Registro del Vehículo" HorizontalAlignment="Left" Margin="525,48,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Label Content="Marca: " HorizontalAlignment="Left" Margin="437,99,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Modelo: " HorizontalAlignment="Left" Margin="437,130,0,0" VerticalAlignment="Top"/>
@@ -25,7 +25,7 @@
         <TextBox x:Name="txt_num_placas" HorizontalAlignment="Left" Height="23" Margin="555,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
         <Button x:Name="btn_registrar" Content="Registrar" HorizontalAlignment="Left" Margin="35,355,0,0" VerticalAlignment="Top" Width="110" Height="40" Background="#FF75F654" Click="btn_registrar_Click"/>
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="650,355,0,0" VerticalAlignment="Top" Width="110" Height="40" Background="#FFF72E15" Click="btn_Cancelar_Click"/>
-        <DataGrid x:Name="dg_conductores" HorizontalAlignment="Left" Height="229" Margin="35,82,0,0" VerticalAlignment="Top" Width="375"/>
+        <ComboBox x:Name="cmb_conductores" HorizontalAlignment="Left" Margin="35,130,0,0" VerticalAlignment="Top" Width="330" Height="36"/>
 
     </Grid>
 </Window>

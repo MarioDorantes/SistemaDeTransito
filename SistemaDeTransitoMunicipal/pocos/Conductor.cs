@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeTransitoMunicipal.pocos
 {
-    class Conductor
+    public class Conductor
     {
         private String numeroLicencia;
         private String nombre;
@@ -26,5 +26,11 @@ namespace SistemaDeTransitoMunicipal.pocos
         public string FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
         public int IdDelegacion { get => idDelegacion; set => idDelegacion = value; }
         public string NombreDelegacion { get => nombreDelegacion; set => nombreDelegacion = value; }
+
+        public override string ToString()
+        {
+            return nombre + " " + paternos + " " + maternos;
+        }
+
     }
 }

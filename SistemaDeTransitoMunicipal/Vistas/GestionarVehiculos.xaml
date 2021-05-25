@@ -9,6 +9,7 @@
     <Grid>
         <DataGrid x:Name="dg_vehiculosRegistrados" HorizontalAlignment="Left" Height="260" Margin="30,95,0,0" VerticalAlignment="Top" Width="730" SelectionMode="Single" IsReadOnly="True">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Licencia del Conductor" Binding="{Binding NumeroLicencia}"/>
                 <DataGridTextColumn Header="Marca" Binding="{Binding Marca}"/>
                 <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}"/>
                 <DataGridTextColumn Header="Año" Binding="{Binding Año}"/>
