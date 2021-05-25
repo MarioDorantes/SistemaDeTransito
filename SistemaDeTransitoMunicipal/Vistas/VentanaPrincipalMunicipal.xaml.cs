@@ -55,5 +55,12 @@ namespace SistemaDeTransitoMunicipal
             gestionarVehiculos.Show();
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow inicioDeSesion = new MainWindow();
+            inicioDeSesion.Show();
+            this.Close();
+        }
     }
 }

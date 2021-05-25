@@ -31,11 +31,6 @@ namespace SistemaDeTransitoMunicipal.Vistas
             cargarConductores();
         }
 
-        public void actualizainformacion(String operacion)
-        {
-            cargarConductores();
-        }
-
         private void cargarConductores()
         {
             int idDelegacionLoggeada = MainWindow.idDelegacionLoggeada;
@@ -74,7 +69,36 @@ namespace SistemaDeTransitoMunicipal.Vistas
 
         public void actualizaInformacion(string respuesta)
         {
-            throw new NotImplementedException();
+            cargarConductores();
+        }
+
+        private void btn_eliminar_Click(object sender, RoutedEventArgs e)
+        {
+            int indiceSeleccion = dg_conductores.SelectedIndex;
+            if(indiceSeleccion >= 0)
+            {
+                Conductor conductorEliminar = conductores[indiceSeleccion];
+                MessageBoxResult resultado= MessageBox.Show("¿Seguro desea eliminar al conductor (a) " + conductorEliminar.Nombre + 
+                                                             " " + conductorEliminar.Paternos + "?",
+                                                             "Confirmar eliminacion", MessageBoxButton.OKCancel);
+                if(resultado == MessageBoxResult.OK)
+                {
+                    int resultadoEliminacion = ConductorDAO.eliminarConductor(conductorEliminar.NumeroLicencia);
+                    if(resultadoEliminacion > 0)
+                    {
+                        MessageBox.Show("Conductor eliminado con éxito", "Eliminación exitosa");
+                        this.actualizaInformacion("Eliminar");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No fue posible la eliminación", "Ocurrió un error");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para eliminar a un Conductor, debe seleccionarlo", "ATENCIÓN");
+            }
         }
     }
 }
