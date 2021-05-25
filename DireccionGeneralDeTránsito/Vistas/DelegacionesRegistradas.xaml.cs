@@ -61,7 +61,7 @@ namespace DireccionGeneralDeTránsito.Vistas
             }
             else
             {
-                MessageBox.Show("Usuario no seleccionado");
+                MessageBox.Show("Delegación no seleccionada");
             }
         }
 
@@ -96,7 +96,7 @@ namespace DireccionGeneralDeTránsito.Vistas
             }
             else
             {
-                MessageBox.Show("Debe de seleccionar a un usuario a eliminar");
+                MessageBox.Show("Debe de seleccionar una delegación para continuar");
             }
         }
 
