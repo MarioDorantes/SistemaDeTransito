@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DireccionGeneralDeTránsito.pocos
 {
-    class Usuario
+    public class Usuario
     {
         String nombreUsuario;
         String nombre;
