@@ -6,12 +6,57 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
 
 namespace DireccionGeneralDeTránsito.DAO
 {
     public class UsuarioDAOcs
     {
+        public static Usuario obtenerLogin(String nombreUsuario, String contraseña)
+        {
+            Usuario user = null;
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+                    String query = String.Format("SELECT u.usr_nombreUsuario, u.usr_contraseña, u.usr_rol " +
+                                                 "FROM usuario u WHERE u.usr_nombreUsuario = '{0}' AND u.usr_contraseña = '{1}';",
+                                                 nombreUsuario, contraseña);
+                    Console.WriteLine(query);
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    if (dataReader.Read())
+                    {
+                        user = new Usuario();
+                        user.NombreUsuario = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : "";
+                        user.Contraseña = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
+                        user.TipoUsuario = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
+                    }
+                    dataReader.Close();
+                    command.Dispose();
+                    Console.WriteLine(user);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error de inicio");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return user;
+
+        }
         public static int actualizarInformacionUsuario(String nombre, String aPaterno, String aMaterno, String nombreUsuario, String contraseña, int delegacion, 
             String tipoUsuario, String nombresUsuarioViejo)
         {

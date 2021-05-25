@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DireccionGeneralDeTránsito.DAO;
+using DireccionGeneralDeTránsito.pocos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,9 +29,33 @@ namespace DireccionGeneralDeTránsito
 
         private void btn_InicioSesion_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalAdministrativo ventanaPrincipalAdministrativo = new VentanaPrincipalAdministrativo();
-            ventanaPrincipalAdministrativo.Show();
-            this.Close();
+            String usuario = txt_nombreUsuario.Text;
+            String contraseña = pswd_contraseña.Password;
+            if(usuario.Length >0 && contraseña.Length >= 0)
+            {
+                Usuario usuarioLogin = UsuarioDAOcs.obtenerLogin(usuario, contraseña);
+                if(usuarioLogin != null)
+                {
+                    MessageBox.Show("Bienvenido al sistema " + usuarioLogin.NombreUsuario);
+                    VentanaPrincipalAdministrativo ventanaPrincipalAdministrativo = new VentanaPrincipalAdministrativo();
+                    ventanaPrincipalAdministrativo.Show();
+                    this.Close();
+                }
+                else if(usuarioLogin == null)
+                {
+                    lbl_malInicio.Visibility = Visibility.Visible;
+                    txt_nombreUsuario.Foreground = Brushes.Red;
+                    pswd_contraseña.Foreground = Brushes.Red;
+                }
+            }
+            else
+            {
+                lbl_malInicio.Visibility = Visibility.Visible;
+                txt_nombreUsuario.Foreground = Brushes.Red;
+                pswd_contraseña.Foreground = Brushes.Red;
+            }
+
+
         }
     }
 }
