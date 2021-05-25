@@ -1,4 +1,5 @@
 ﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.Interface;
 using SistemaDeTransitoMunicipal.pocos;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace SistemaDeTransitoMunicipal.Vistas
     /// <summary>
     /// Lógica de interacción para GestionarConductores.xaml
     /// </summary>
-    public partial class GestionarConductores : Window
+    public partial class GestionarConductores : Window, ObserverRespuesta
     {
         List<Conductor> conductores;
 
@@ -27,6 +28,11 @@ namespace SistemaDeTransitoMunicipal.Vistas
         {
             InitializeComponent();
             conductores = new List<Conductor>();
+            cargarConductores();
+        }
+
+        public void actualizainformacion(String operacion)
+        {
             cargarConductores();
         }
 
@@ -40,7 +46,7 @@ namespace SistemaDeTransitoMunicipal.Vistas
 
         private void btn_registrar_Click(object sender, RoutedEventArgs e)
         {
-            RegistrarConductor ventanaRegistrar = new RegistrarConductor();
+            registrarConductor ventanaRegistrar = new registrarConductor(this);
             ventanaRegistrar.Show();
         }
 
@@ -49,6 +55,26 @@ namespace SistemaDeTransitoMunicipal.Vistas
             VentanaPrincipalMunicipal ventanaAdmin = new VentanaPrincipalMunicipal();
             ventanaAdmin.Show();
             this.Close();
+        }
+
+        private void btn_editar_Click(object sender, RoutedEventArgs e)
+        {
+            int indiceSeleccion = dg_conductores.SelectedIndex;
+            if(indiceSeleccion >= 0)
+            {
+                Conductor conductorEdicion = conductores[indiceSeleccion];
+                registrarConductor editarConductor = new registrarConductor(conductorEdicion, this);
+                editarConductor.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Para editar un conductor, primero debe seleccionarlo", "ATENCIÓN");
+            }
+        }
+
+        public void actualizaInformacion(string respuesta)
+        {
+            throw new NotImplementedException();
         }
     }
 }

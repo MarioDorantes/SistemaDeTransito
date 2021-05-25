@@ -1,4 +1,5 @@
 ﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.Interface;
 using SistemaDeTransitoMunicipal.pocos;
 using SistemaDeTransitoMunicipal.Vistas;
 using System;
@@ -20,15 +21,44 @@ namespace SistemaDeTransitoMunicipal
     /// <summary>
     /// Lógica de interacción para RegistrarConductor.xaml
     /// </summary>
-    public partial class RegistrarConductor : Window
+    public partial class registrarConductor : Window
     {
 
-        List<Delegacion> delegaciones = null; 
-        public RegistrarConductor()
+        List<Delegacion> delegaciones = null;
+        ObserverRespuesta notificacion;
+        Conductor conductorEdicion;
+        Boolean esNuevo = true;
+        String numeroLicenciaCondcutor;
+
+        public registrarConductor()
         {
             InitializeComponent();
             delegaciones = new List<Delegacion>();
             cargarDelegaciones();
+        }
+
+        public registrarConductor(ObserverRespuesta notificacion) : this()
+        {
+            this.notificacion = notificacion;
+        }
+
+        public registrarConductor(Conductor conductorEdicion, ObserverRespuesta notificacion) : this(notificacion)
+        {
+            this.conductorEdicion = conductorEdicion;
+            cargarInformacionConductor();
+            esNuevo = false;
+        }
+
+        private void cargarInformacionConductor()
+        {
+            numeroLicenciaCondcutor = conductorEdicion.NumeroLicencia;
+            txt_numeroLicencia.Text = conductorEdicion.NumeroLicencia;
+            txt_numeroLicencia.IsEnabled = false;
+            txt_nombre.Text = conductorEdicion.Nombre;
+            txt_paterno.Text = conductorEdicion.Paternos;
+            txt_materno.Text = conductorEdicion.Maternos;
+            txt_telefono.Text = conductorEdicion.NumeroTelefono;
+            txt_nacimiento.Text = conductorEdicion.FechaNacimiento;
         }
 
         private void cargarDelegaciones()
