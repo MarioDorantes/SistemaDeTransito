@@ -55,6 +55,55 @@ namespace DireccionGeneralDeTránsito.DAO
 
             return infoActualizada;
         }
+        
+        public static int ValidarUsuariosDelegacion(int idDelegacion)
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            int tieneUsuarios = 0;
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+                    String query = String.Format("SELECT usr_nombreUsuario FROM usuario WHERE idDelegacion= {0}", idDelegacion);
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        Usuario usuario = new Usuario();
+                        usuario.Nombre = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : " ";
+                        usuarios.Add(usuario);
+                    }
+                    if (usuarios.Count() > 0)
+                    {
+                        tieneUsuarios = 1;
+                    }
+                    else
+                    {
+                        tieneUsuarios = 0;
+                    }
+                    dataReader.Close();
+                    command.Dispose();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                tieneUsuarios = 0;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return tieneUsuarios;
+        }
         public static int EliminarUsuario(string nombreUsuario)
         {
             int eliminado = 0;

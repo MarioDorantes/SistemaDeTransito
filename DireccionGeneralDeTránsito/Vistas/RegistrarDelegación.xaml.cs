@@ -1,4 +1,5 @@
 ﻿using DireccionGeneralDeTránsito.DAO;
+using DireccionGeneralDeTránsito.Interfaz;
 using DireccionGeneralDeTránsito.pocos;
 using DireccionGeneralDeTránsito.Vistas;
 using System;
@@ -20,12 +21,36 @@ namespace DireccionGeneralDeTránsito
     /// <summary>
     /// Lógica de interacción para RegistrarDelegación.xaml
     /// </summary>
-    public partial class RegistrarDelegación : Window
+    public partial class RegistrarDelegación : Window, Observer
     {
+        Observer notificacion;
+        Boolean isNuevo = true;
+        Delegacion editarDelegacion;
         public RegistrarDelegación()
         {
             InitializeComponent();
             cargarMinicipios();
+        }
+
+        public RegistrarDelegación(Observer notificacion) : this()
+        {
+            this.notificacion = notificacion;
+        }
+
+        public RegistrarDelegación(Delegacion delegacionEditar, Observer notificacion) : this(notificacion)
+        {
+            this.editarDelegacion = delegacionEditar;
+            CargarInfoDelegacionEditar();
+            isNuevo = false;
+        }
+        public void CargarInfoDelegacionEditar()
+        {
+            txb_nombreDelegacion.Text = editarDelegacion.NombreAlias;
+            txb_coloniaDelegacion.Text = editarDelegacion.Colonia;
+            txb_codigoPostal.Text = editarDelegacion.CodigoPostal;
+            txb_correo.Text = editarDelegacion.Email;
+            txb_telefono.Text = editarDelegacion.NumeroTelefono;
+            txb_calle.Text = editarDelegacion.CalleNumero;
         }
 
         private void btn_regresar_Click(object sender, RoutedEventArgs e)
@@ -68,22 +93,51 @@ namespace DireccionGeneralDeTránsito
             String numeroTel = txb_telefono.Text;
             String email = txb_correo.Text;
             String municipio = cmb_municipio.Text;
-            if(txb_nombreDelegacion.Text =="" || txb_coloniaDelegacion.Text == "" || txb_codigoPostal.Text == ""
-                || txb_calle.Text == "" || txb_telefono.Text == "" || txb_correo.Text == "" || cmb_municipio.Text == "")
+            if(isNuevo == true)
             {
-                MessageBox.Show("Campos faltantes");
-            }
-            else
-            {
-                if (DelegacionDAO.RegistrarDelegacion(nombreDelegacion, codigoPostal, colonia, municipio, calleNum, email, numeroTel) == 1)
+                if (txb_nombreDelegacion.Text == "" || txb_coloniaDelegacion.Text == "" || txb_codigoPostal.Text == ""
+                                || txb_calle.Text == "" || txb_telefono.Text == "" || txb_correo.Text == "" || cmb_municipio.Text == "")
                 {
-                    MessageBox.Show("Delegación registrada correctamente");
+                    MessageBox.Show("Campos faltantes");
                 }
                 else
                 {
-                    MessageBox.Show("Error de registro en la delegación, inténtelo de nuevo");
+                    if (DelegacionDAO.RegistrarDelegacion(nombreDelegacion, codigoPostal, colonia, municipio, calleNum, email, numeroTel) == 1)
+                    {
+                        MessageBox.Show("Delegación registrada correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error de registro en la delegación, inténtelo de nuevo");
+                    }
                 }
             }
+            else
+            {
+                if (txb_nombreDelegacion.Text == "" || txb_coloniaDelegacion.Text == "" || txb_codigoPostal.Text == ""
+                                || txb_calle.Text == "" || txb_telefono.Text == "" || txb_correo.Text == "" || cmb_municipio.Text == "")
+                {
+                    MessageBox.Show("Campos faltantes");
+                }
+                else
+                {
+                    int idDelegacion = DelegacionDAO.cargarIdDelecacion(nombreDelegacion);
+                    if (DelegacionDAO.ActualizarDelegacion(nombreDelegacion,colonia,codigoPostal,email,calleNum,numeroTel,municipio,idDelegacion) == 1)
+                    {
+                        MessageBox.Show("Delegación registrada correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error de registro en la delegación, inténtelo de nuevo");
+                    }
+                }
+            }
+   
+        }
+
+        public void actualizaInformación(string operacion)
+        {
+            notificacion.actualizaInformación(operacion);
         }
     }
 }

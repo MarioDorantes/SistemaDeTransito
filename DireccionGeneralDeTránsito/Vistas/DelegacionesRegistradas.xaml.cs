@@ -1,4 +1,5 @@
 ﻿using DireccionGeneralDeTránsito.DAO;
+using DireccionGeneralDeTránsito.Interfaz;
 using DireccionGeneralDeTránsito.pocos;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace DireccionGeneralDeTránsito.Vistas
     /// <summary>
     /// Lógica de interacción para DelegacionesRegistradas.xaml
     /// </summary>
-    public partial class DelegacionesRegistradas : Window
+    public partial class DelegacionesRegistradas : Window, Observer
     {
         List<Delegacion> delegaciones;
         public DelegacionesRegistradas()
@@ -46,6 +47,62 @@ namespace DireccionGeneralDeTránsito.Vistas
             VentanaPrincipalAdministrativo ventanaPrincipal = new VentanaPrincipalAdministrativo();
             ventanaPrincipal.Show();
             this.Close();
+        }
+
+        private void btn_editarDelegacion_Click(object sender, RoutedEventArgs e)
+        {
+            int indiceSeleccion = dg_delegaciones.SelectedIndex;
+            if (indiceSeleccion >= 0)
+            {
+                Delegacion delegacionActualizar = delegaciones[indiceSeleccion];
+                RegistrarDelegación ventanaDelegacionActualizar = new RegistrarDelegación(delegacionActualizar, this);
+                ventanaDelegacionActualizar.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario no seleccionado");
+            }
+        }
+
+        private void btn_eliminarDelegacion_Click(object sender, RoutedEventArgs e)
+        {
+            int indiceSeleccion = dg_delegaciones.SelectedIndex;
+            if (indiceSeleccion >= 0)
+            {
+                Delegacion delegacionEliminar = delegaciones[indiceSeleccion];
+                MessageBoxResult resultado = MessageBox.Show("¿Estas seguro de eliminar la delegación " + delegacionEliminar.NombreAlias + "?", "Confirmar accion", MessageBoxButton.OKCancel);
+                int idDelegacion = DelegacionDAO.cargarIdDelecacion(delegacionEliminar.NombreAlias);
+                if (resultado == MessageBoxResult.OK)
+                {
+                    int tieneUsuarios = UsuarioDAOcs.ValidarUsuariosDelegacion(idDelegacion);
+                    if(tieneUsuarios == 0)
+                    {
+                        int resultadoEliminar = DelegacionDAO.EliminarDelegacion(idDelegacion);
+                        if (resultadoEliminar == 1)
+                        {
+                            MessageBox.Show("Delegacion eliminada correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al eliminar la delegación");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La delegación no se ha podido eliminar debido a que tiene usuarios registrados en ella");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe de seleccionar a un usuario a eliminar");
+            }
+        }
+
+        public void actualizaInformación(string operacion)
+        {
+            throw new NotImplementedException();
         }
     }
 }

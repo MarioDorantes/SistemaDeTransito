@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DireccionGeneralDeTránsito.pocos
 {
-    class Delegacion
+    public class Delegacion
     {
         String nombreAlias;
         String colonia;

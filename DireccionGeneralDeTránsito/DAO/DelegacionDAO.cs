@@ -10,6 +10,81 @@ namespace DireccionGeneralDeTránsito.DAO
 {
     class DelegacionDAO
     {
+        public static int ActualizarDelegacion(String nombreDelegacion, String colonia, String codigoPostal, String correo, String calleNum, 
+            string numeroTel, String municipio, int idDelegacion)
+        {
+            int infoActualizada = 0;
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    String query = "UPDATE dbo.delegacion SET nombreAlias=@nombreAlias, colonia=@colonia, codigoPostal=@codigoPostal, correo=@correo," +
+                        " calle=@calle, telefono=@telefono, municipio=@municipio WHERE idDelegacion=@idDelegacion";
+                    command = new SqlCommand(query, conn);
+                    command.Parameters.Add("@nombreAlias", System.Data.SqlDbType.VarChar, 50).Value = nombreDelegacion;
+                    command.Parameters.Add("@colonia", System.Data.SqlDbType.VarChar, 50).Value = colonia;
+                    command.Parameters.Add("@codigoPostal", System.Data.SqlDbType.VarChar, 50).Value = codigoPostal;
+                    command.Parameters.Add("@correo", System.Data.SqlDbType.VarChar, 50).Value = correo;
+                    command.Parameters.Add("@calle", System.Data.SqlDbType.VarChar, 50).Value = calleNum;
+                    command.Parameters.Add("@telefono", System.Data.SqlDbType.VarChar, 50).Value = numeroTel;
+                    command.Parameters.Add("@municipio", System.Data.SqlDbType.VarChar, 50).Value = municipio;
+                    command.Parameters.Add("@idDelegacion", System.Data.SqlDbType.VarChar, 50).Value = idDelegacion;
+                    infoActualizada = 1;
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                infoActualizada = 0;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return infoActualizada;
+        }
+        public static int EliminarDelegacion(int idDelegacion)
+        {
+            int eliminado = 0;
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    String query = "DELETE from dbo.delegacion WHERE idDelegacion = @idDelegacion";
+                    command = new SqlCommand(query, conn);
+                    command.Parameters.Add("@idDelegacion", System.Data.SqlDbType.Int).Value = idDelegacion;
+                    eliminado = 1;
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                }
+
+            }
+            catch (Exception)
+            {
+                eliminado = 0;
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return eliminado;
+        }
         public static List<Delegacion> ObtenerDelegaciones()
         {
             List<Delegacion> delegaciones = new List<Delegacion>();
