@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.pocos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,21 @@ namespace SistemaDeTransitoMunicipal
     /// </summary>
     public partial class RegistrarReporte : Window
     {
+
+        List<Vehiculo> vehiculos;
+
         public RegistrarReporte()
         {
             InitializeComponent();
+            vehiculos = new List<Vehiculo>();
+            extraerDatosConductorVehiculo();
+        }
+
+        public void extraerDatosConductorVehiculo()
+        {
+            vehiculos = VehiculoDAO.obtenerInformacionVehiculosParaElReporte();
+            dg_listaConductores.AutoGenerateColumns = false;
+            dg_listaConductores.ItemsSource = vehiculos;
         }
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
@@ -29,6 +43,11 @@ namespace SistemaDeTransitoMunicipal
             VentanaPrincipalMunicipal inicio = new VentanaPrincipalMunicipal();
             inicio.Show();
             this.Close();
+        }
+
+        private void btn_agregarADataGrid_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

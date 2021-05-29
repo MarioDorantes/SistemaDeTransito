@@ -62,6 +62,57 @@ namespace SistemaDeTransitoMunicipal.DAO
             return vehiculos;
         }
 
+        public static List<Vehiculo> obtenerInformacionVehiculosParaElReporte()
+        {
+            List<Vehiculo> vehiculos = new List<Vehiculo>();
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+
+                    String query = "SELECT v.vhc_idVehiculo, v.vhc_marca, v.vhc_modelo, v.vhc_color, " +
+                        "v.vhc_numPlacas, c.cn_nombre AS conductorNomnbre, c.cn_apellido_Paterno AS conductorApellidoPaterno, " +
+                        "c.cn_apellidoMaterno AS conductorApellidoMaterno FROM dbo.vehiculo v " +
+                        "INNER JOIN dbo.conductor c ON v.cn_numLicencia = c.cn_numLicencia;";
+
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        Vehiculo vehiculo = new Vehiculo();
+                        vehiculo.IdVehiculo = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
+                        vehiculo.Marca = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
+                        vehiculo.Modelo = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
+                        vehiculo.Color = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
+                        vehiculo.NumeroPlacas = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        vehiculo.ConductorNombre = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
+                        vehiculo.ConductorApellidoPaterno = (!dataReader.IsDBNull(6)) ? dataReader.GetString(6) : "";
+                        vehiculo.ConductorApellidoMaterno = (!dataReader.IsDBNull(7)) ? dataReader.GetString(7) : "";
+                        vehiculos.Add(vehiculo);
+                    }
+                    command.Dispose();
+                    dataReader.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("No hay conexión a la base de datos. Intente más tarde", "Error" + e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return vehiculos;
+        }
+
         public static int agregarVehiculo(String numLicencia, String marca, String modelo, String año, String color, 
             String aseguradora, String numPoliza, String numPlacas)
         {

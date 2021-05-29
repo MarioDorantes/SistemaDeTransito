@@ -18,6 +18,11 @@ namespace SistemaDeTransitoMunicipal.pocos
         private String numeroPoliza;
         private String numeroPlacas;
 
+        //Extras para el reporte
+        private String conductorNombre;
+        private String conductorApellidoPaterno;
+        private String conductorApellidoMaterno;
+
         public string NumeroLicencia { get => numeroLicencia; set => numeroLicencia = value; }
         public int IdVehiculo { get => idVehiculo; set => idVehiculo = value; }
         public string Marca { get => marca; set => marca = value; }
@@ -27,5 +32,10 @@ namespace SistemaDeTransitoMunicipal.pocos
         public string Aseguradora { get => aseguradora; set => aseguradora = value; }
         public string NumeroPoliza { get => numeroPoliza; set => numeroPoliza = value; }
         public string NumeroPlacas { get => numeroPlacas; set => numeroPlacas = value; }
+        
+        //Extras
+        public string ConductorNombre { get => conductorNombre; set => conductorNombre = value; }
+        public string ConductorApellidoPaterno { get => conductorApellidoPaterno; set => conductorApellidoPaterno = value; }
+        public string ConductorApellidoMaterno { get => conductorApellidoMaterno; set => conductorApellidoMaterno = value; }
     }
 }
