@@ -154,5 +154,81 @@ namespace SistemaDeTransitoMunicipal.DAO
             return resultado;
         }
 
+
+        public static int eliminarVehiculo(int idVehiculo)
+        {
+            SqlConnection conn = null;
+            int resultado = 0;
+
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    String query = "DELETE FROM vehiculo WHERE vhc_idVehiculo = @vhc_idVehiculo";
+                    command = new SqlCommand(query, conn);
+                    command.Parameters.AddWithValue("@vhc_idVehiculo", idVehiculo);
+                    resultado = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error en la base de datos. Intente más tarde");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return resultado;
+        }
+        
+        public static int modificarVehiculo(String numLicencia, String marca, String modelo, String año, String color, 
+            String aseguradora, String numPoliza, String numPlacas, int idVehiculo)
+        {
+            SqlConnection conn = null;
+            int resultado = 0;
+
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    String query = String.Format("UPDATE vehiculo SET cn_numLicencia = @cn_numLicencia, vhc_marca = @vhc_marca, " +
+                        "vhc_modelo = @vhc_modelo, vhc_año = @vhc_año, vhc_color = @vhc_color, vhc_aseguradora = @vhc_aseguradora, " +
+                        "vhc_numPoliza = @vhc_numPoliza, vhc_numPlacas = @vhc_numPlacas WHERE vhc_idVehiculo = '{0}'", idVehiculo);
+                    command = new SqlCommand(query, conn);
+
+                    command.Parameters.Add("cn_numLicencia", System.Data.SqlDbType.NChar, 30).Value = numLicencia;       
+                    command.Parameters.Add("vhc_marca", System.Data.SqlDbType.NVarChar, 50).Value = marca;
+                    command.Parameters.Add("vhc_modelo", System.Data.SqlDbType.NVarChar, 50).Value = modelo;
+                    command.Parameters.Add("vhc_año", System.Data.SqlDbType.NVarChar, 50).Value = año;
+                    command.Parameters.Add("vhc_color", System.Data.SqlDbType.NVarChar, 50).Value = color;
+                    command.Parameters.Add("vhc_aseguradora", System.Data.SqlDbType.NVarChar, 100).Value = aseguradora;
+                    command.Parameters.Add("vhc_numPoliza", System.Data.SqlDbType.NVarChar, 50).Value = numPoliza;
+                    command.Parameters.Add("vhc_numPlacas", System.Data.SqlDbType.NVarChar, 50).Value = numPlacas;
+                    resultado = command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ha ocurrido un error");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return resultado;
+        }
+        
+
+
     }
 }

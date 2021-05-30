@@ -1,4 +1,5 @@
 ﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.Interface;
 using SistemaDeTransitoMunicipal.pocos;
 using SistemaDeTransitoMunicipal.Vistas;
 using System;
@@ -23,13 +24,63 @@ namespace SistemaDeTransitoMunicipal
     public partial class RegistrarVehiculo : Window
     {
         List<Conductor> conductores;
+        ObserverRespuesta notificacion;
+        Vehiculo vehiculoEdicion;
+        Boolean isNuevo = true;
+        int idVehiculo = 0;
 
         public RegistrarVehiculo()
         {
             InitializeComponent();
+            conductores = new List<Conductor>();
             cargarConductores();
         }
-        
+
+        public RegistrarVehiculo(ObserverRespuesta notificacion) : this()
+        {
+            this.notificacion = notificacion;
+        }
+
+        public RegistrarVehiculo(Vehiculo vehiculoEdicion, ObserverRespuesta notificacion) : this(notificacion)
+        {
+            this.vehiculoEdicion = vehiculoEdicion;
+            isNuevo = false;
+            CargarInformacionVehiculoEdicion();
+        }
+
+        private void CargarInformacionVehiculoEdicion()
+        {
+
+            idVehiculo = vehiculoEdicion.IdVehiculo;
+            txt_marca.Text = vehiculoEdicion.Marca;
+            txt_modelo.Text = vehiculoEdicion.Modelo;
+            txt_año.Text = vehiculoEdicion.Año;
+            txt_color.Text = vehiculoEdicion.Color;
+            txt_aseguradora.Text = vehiculoEdicion.Aseguradora;
+            txt_num_poliza.Text = vehiculoEdicion.NumeroPoliza;
+            txt_num_placas.Text = vehiculoEdicion.NumeroPlacas;
+            int posConductor = obtenerPosConductor(vehiculoEdicion.NumeroLicencia);
+            cmb_conductores.SelectedIndex = posConductor;
+
+        }
+
+        private int obtenerPosConductor(String numLicencia)
+        {
+            int resultado = 0;
+            if (conductores.Count > 0)
+            {
+                for (int i = 0; i < conductores.Count; i++)
+                {
+                    Conductor conductor = conductores[i];
+                    if (conductor.NumeroLicencia == numLicencia)
+                    {
+                        return i;
+                    }
+                }
+            }
+            return resultado;
+        }
+
         private void cargarConductores()
         {
             conductores = ConductorDAO.obtenerTodosLosConductores();
@@ -39,13 +90,6 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            salirAPrincipal();
-        }
-
-        private void salirAPrincipal()
-        {
-            GestionarVehiculos regresar = new GestionarVehiculos();
-            regresar.Show();
             this.Close();
         }
 
@@ -111,19 +155,41 @@ namespace SistemaDeTransitoMunicipal
 
                 String numLicencia = conductores[cmb_conductores.SelectedIndex].NumeroLicencia;
 
-                int resultado = VehiculoDAO.agregarVehiculo(numLicencia, marca, modelo, año, color, aseguradora, numPoliza, numPlacas);
+                int resultado = 0;
 
-                if (resultado > 0)
+                if (isNuevo)
                 {
-                    MessageBox.Show("El vehiculo se registro exitosamente", "Registro exitoso");
-                    
+                    resultado = VehiculoDAO.agregarVehiculo(numLicencia, marca, modelo, año, color, aseguradora, numPoliza, numPlacas);
+
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("El vehiculo se registro exitosamente", "Registro exitoso");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
+                    }
+
+                    notificacion.actualizaInformacion("Registrar");
                 }
                 else
                 {
-                    MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
+                    
+                    resultado = VehiculoDAO.modificarVehiculo(numLicencia, marca, modelo, año, color, aseguradora, numPoliza, numPlacas, vehiculoEdicion.IdVehiculo);
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("Vehiculo actualizado exitosamente", "Mensaje de confirmación");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, intente más tarde", "Error");
+                    }
+                    notificacion.actualizaInformacion("Editar");
+                    
                 }
+                this.Close();
 
-                salirAPrincipal();
             }
             else
             {

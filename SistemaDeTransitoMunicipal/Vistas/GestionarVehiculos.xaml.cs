@@ -1,4 +1,5 @@
 ﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.Interface;
 using SistemaDeTransitoMunicipal.pocos;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace SistemaDeTransitoMunicipal.Vistas
     /// <summary>
     /// Lógica de interacción para GestionarVehiculos.xaml
     /// </summary>
-    public partial class GestionarVehiculos : Window
+    public partial class GestionarVehiculos : Window, ObserverRespuesta
     {
 
         List<Vehiculo> vehiculos;
@@ -47,9 +48,58 @@ namespace SistemaDeTransitoMunicipal.Vistas
 
         private void btn_registrar_Click(object sender, RoutedEventArgs e)
         {
-            RegistrarVehiculo registrarVehiculo = new RegistrarVehiculo();
-            registrarVehiculo.Show();
-            this.Close();
+            RegistrarVehiculo registrarVehiculo = new RegistrarVehiculo(this);
+            registrarVehiculo.ShowDialog();
+        }
+
+
+        public void actualizaInformacion(string respuesta)
+        {
+            cargarDatosVehiculos();
+        }
+
+        private void btn_eliminar_Click(object sender, RoutedEventArgs e)
+        {
+            int indiceSeleccion = dg_vehiculosRegistrados.SelectedIndex;
+            if (indiceSeleccion >= 0)
+            {
+                Vehiculo vehiculoAEliminar = vehiculos[indiceSeleccion];
+                MessageBoxResult resultado = MessageBox.Show("¿Seguro desea eliminar el vehiculo con placas: " + vehiculoAEliminar.NumeroPlacas + "?", "Confirmar eliminacion", MessageBoxButton.OKCancel);
+                
+                if (resultado == MessageBoxResult.OK)
+                {
+                    int resultadoEliminacion = VehiculoDAO.eliminarVehiculo(vehiculoAEliminar.IdVehiculo);
+                    if (resultadoEliminacion > 0)
+                    {
+                        MessageBox.Show("Vehiculo eliminado con éxito", "Eliminación exitosa");
+                        this.actualizaInformacion("Eliminar");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar", "Ocurrió un error");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para eliminar un Vehiculo, debe seleccionarlo", "Sin selección");
+            }
+        }
+
+        private void btn_modificar_Click(object sender, RoutedEventArgs e)
+        {
+            int indiceSeleccion = dg_vehiculosRegistrados.SelectedIndex;
+
+            if (indiceSeleccion >= 0)
+            {
+                Vehiculo vehiculoAEdicion = vehiculos[indiceSeleccion];
+                RegistrarVehiculo modificarVehiculo = new RegistrarVehiculo(vehiculoAEdicion, this);
+                modificarVehiculo.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Para editar un vehiculo debe seleccionarlo", "Sin selección");
+            }
         }
     }
 }

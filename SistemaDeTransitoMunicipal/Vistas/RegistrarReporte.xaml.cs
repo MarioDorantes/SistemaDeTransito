@@ -23,11 +23,13 @@ namespace SistemaDeTransitoMunicipal
     {
 
         List<Vehiculo> vehiculos;
+        List<Vehiculo> vehiculosReporte;
 
         public RegistrarReporte()
         {
             InitializeComponent();
             vehiculos = new List<Vehiculo>();
+            vehiculosReporte = new List<Vehiculo>();
             extraerDatosConductorVehiculo();
         }
 
@@ -47,7 +49,36 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_agregarADataGrid_Click(object sender, RoutedEventArgs e)
         {
+            int seleccion = dg_listaConductores.SelectedIndex;
+            if(seleccion >= 0)
+            {
+                Vehiculo vehiculoAAgregar = vehiculos[seleccion];
+                if(vehiculosReporte.Count != 0)
+                {
+                    List<int> idVehiculos = new List<int>();
 
+                    for(int i = 0; i < vehiculos.Count; i++)
+                    {
+                        //Console.WriteLine(vehiculosReporte[i].IdVehiculo + "\n");
+                        idVehiculos.Add(vehiculosReporte[i].IdVehiculo);
+                    }
+                }
+                else
+                {
+                    vehiculosReporte.Add(vehiculoAAgregar);
+                    dg_agregados.AutoGenerateColumns = false;
+                    dg_agregados.ItemsSource = null;
+                    dg_agregados.ItemsSource = vehiculosReporte;
+                    dg_listaConductores.SelectedIndex = -1;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para agregar un registro, primero debe seleccionarlo", "Sin selección");
+            }
         }
+
+
+
     }
 }
