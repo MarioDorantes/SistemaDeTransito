@@ -10,11 +10,11 @@ namespace DireccionGeneralDeTránsito.ConexionBD
 {
     class ConexionBD
     {
-        private static String SERVER = "proyecto-tecnologias.database.windows.net";
+        private static String SERVER = "localhost";
         private static String PORT = "1433";
         private static String DATABASE = "SistemaTransito";
-        private static String USER = "elcapistro";
-        private static String PASSWORD = "Admin123";
+        private static String USER = "sa";
+        private static String PASSWORD = "1234";
 
         public static SqlConnection getConnection()
         {

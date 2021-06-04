@@ -21,7 +21,7 @@ namespace DireccionGeneralDeTránsito.DAO
                 if (conn != null)
                 {
                     SqlCommand command;
-                    String query = "UPDATE dbo.delegacion SET nombreAlias=@nombreAlias, colonia=@colonia, codigoPostal=@codigoPostal, correo=@correo," +
+                    String query = "UPDATE dbo.delegacion SET nombreAlias=@nombreAlias, colonia=@colonia, codigPostal=@codigoPostal, correo=@correo," +
                         " calle=@calle, telefono=@telefono, municipio=@municipio WHERE idDelegacion=@idDelegacion";
                     command = new SqlCommand(query, conn);
                     command.Parameters.Add("@nombreAlias", System.Data.SqlDbType.VarChar, 50).Value = nombreDelegacion;
@@ -96,7 +96,7 @@ namespace DireccionGeneralDeTránsito.DAO
                 {
                     SqlCommand command;
                     SqlDataReader dataReader;
-                    String query = "SELECT codigoPostal, nombreAlias, calle, colonia, municipio, correo, telefono FROM delegacion;";
+                    String query = "SELECT codigPostal, nombreAlias, calle, colonia, municipio, correo, telefono FROM delegacion;";
                     Console.WriteLine(query);
                     command = new SqlCommand(query, conn);
                     dataReader = command.ExecuteReader();
@@ -218,9 +218,9 @@ namespace DireccionGeneralDeTránsito.DAO
                 {
                     SqlCommand command;
                     String query = "INSERT INTO delegacion VALUES " +
-                        "(@codigoPostal, @nombreAlias, @calle, @colonia, @municipio, @correo, @telefono);";
+                        "(@codigPostal, @nombreAlias, @calle, @colonia, @municipio, @correo, @telefono);";
                     command = new SqlCommand(query, conn);
-                    command.Parameters.Add("codigoPostal", System.Data.SqlDbType.VarChar, 50).Value = codigoPostal;
+                    command.Parameters.Add("codigPostal", System.Data.SqlDbType.VarChar, 50).Value = codigoPostal;
                     command.Parameters.Add("nombreAlias", System.Data.SqlDbType.VarChar, 50).Value = nombreDel;
                     command.Parameters.Add("calle", System.Data.SqlDbType.VarChar, 50).Value = calleNum;
                     command.Parameters.Add("colonia", System.Data.SqlDbType.VarChar, 50).Value = ColoniaDel;

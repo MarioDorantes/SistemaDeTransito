@@ -23,7 +23,7 @@ namespace DireccionGeneralDeTránsito.DAO
                 {
                     SqlCommand command;
                     SqlDataReader dataReader;
-                    String query = String.Format("SELECT u.usr_nombreUsuario, u.usr_contraseña, u.usr_rol " +
+                    String query = String.Format("SELECT u.usr_nombreUsuario, u.usr_contraseña, u.usr_cargo" +
                                                  "FROM usuario u WHERE u.usr_nombreUsuario = '{0}' AND u.usr_contraseña = '{1}';",
                                                  nombreUsuario, contraseña);
                     Console.WriteLine(query);
@@ -68,8 +68,8 @@ namespace DireccionGeneralDeTránsito.DAO
                 if (conn != null)
                 {
                     SqlCommand command;
-                    String query = "UPDATE dbo.Usuario SET usr_nombreUsuario=@nombreUsuario, usr_contraseña=@contraseña, usr_rol=@tipoUsuario, idDelegacion=@idDelegacion," +
-                        " Nombre=@nombre, usr_aPaterno=@aPaterno, usr_aMaterno=@aMaterno WHERE usr_nombreUsuario=@nombreUsuarioViejo;";
+                    String query = "UPDATE dbo.Usuario SET usr_nombreUsuario=@nombreUsuario, usr_contraseña=@contraseña, usr_cargo=@tipoUsuario, idDelegacion=@idDelegacion," +
+                        " usr_nombre=@nombre, usr_aPaterno=@aPaterno, usr_aMaterno=@aMaterno WHERE usr_nombreUsuario=@nombreUsuarioViejo;";
                     command = new SqlCommand(query, conn);
                     command.Parameters.Add("@nombreUsuario", System.Data.SqlDbType.VarChar, 50).Value = nombreUsuario;
                     command.Parameters.Add("@contraseña", System.Data.SqlDbType.VarChar, 50).Value = contraseña;
@@ -192,7 +192,7 @@ namespace DireccionGeneralDeTránsito.DAO
                 {
                     SqlCommand command;
                     SqlDataReader dataReader;
-                    String query = "SELECT u.Nombre, u.usr_aPaterno, u.usr_aMaterno, u.usr_rol, u.usr_nombreUsuario, d.nombreAlias FROM usuario u "+
+                    String query = "SELECT u.usr_nombre, u.usr_aPaterno, u.usr_aMaterno, u.usr_cargo, u.usr_nombreUsuario, d.nombreAlias FROM usuario u "+
                         " INNER JOIN dbo.delegacion d ON u.idDelegacion = d.idDelegacion";
                     command = new SqlCommand(query, conn);
                     dataReader = command.ExecuteReader();
@@ -237,13 +237,13 @@ namespace DireccionGeneralDeTránsito.DAO
                 {
                     SqlCommand command;
                     String query = "INSERT INTO usuario VALUES " +
-                        "(@usr_nombreUsuario, @usr_contraseña, @usr_rol, @idDelegacion, @Nombre, @usr_aPaterno, @usr_aMaterno);";
+                        "(@usr_nombreUsuario, @usr_contraseña, @usr_cargo, @idDelegacion, @usr_nombre, @usr_aPaterno, @usr_aMaterno);";
                     command = new SqlCommand(query, conn);
                     command.Parameters.Add("usr_nombreUsuario", System.Data.SqlDbType.VarChar, 50).Value = nombreUsuario;
                     command.Parameters.Add("usr_contraseña", System.Data.SqlDbType.VarChar, 50).Value = contraseña;
-                    command.Parameters.Add("usr_rol", System.Data.SqlDbType.VarChar, 50).Value = tipoUsuario;
+                    command.Parameters.Add("usr_cargo", System.Data.SqlDbType.VarChar, 50).Value = tipoUsuario;
                     command.Parameters.Add("idDelegacion", System.Data.SqlDbType.VarChar, 50).Value = delegacion;
-                    command.Parameters.Add("Nombre", System.Data.SqlDbType.VarChar, 50).Value = nombre;
+                    command.Parameters.Add("usr_nombre", System.Data.SqlDbType.VarChar, 50).Value = nombre;
                     command.Parameters.Add("usr_aPaterno", System.Data.SqlDbType.VarChar, 50).Value = aPaterno;
                     command.Parameters.Add("usr_aMaterno", System.Data.SqlDbType.VarChar, 50).Value = aMaterno;
                     command.ExecuteNonQuery();
