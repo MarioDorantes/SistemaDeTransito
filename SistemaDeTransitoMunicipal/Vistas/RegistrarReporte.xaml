@@ -5,21 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal"
         mc:Ignorable="d"
-        Title="Registrar Reporte" Height="527" Width="809">
+        Title="Registrar Reporte" Height="622" Width="969">
     <Grid>
-        <Label Content="Seleccione el Conductor" HorizontalAlignment="Left" Margin="50,54,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Seleccione el Vehículo" HorizontalAlignment="Left" Margin="445,54,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox x:Name="cmb_conductores" HorizontalAlignment="Left" Margin="50,105,0,0" VerticalAlignment="Top" Width="305" Height="35"/>
-        <ComboBox x:Name="cmb_vehiculos" HorizontalAlignment="Left" Margin="445,105,0,0" VerticalAlignment="Top" Width="305" Height="35"/>
-        <Label Content="Ingrese la dirección del Siniestro" HorizontalAlignment="Left" Margin="50,190,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="35" Margin="50,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
-        <Label Content="Observaciones" HorizontalAlignment="Left" Margin="445,198,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txt_observaciones" HorizontalAlignment="Left" Height="35" Margin="445,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305"/>
-        <Label Content="Subir fotografías" HorizontalAlignment="Left" Margin="50,310,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="btn_registrar_reporte" Content="Registrar" HorizontalAlignment="Left" Margin="50,425,0,0" VerticalAlignment="Top" Width="145" Height="40" FontWeight="Bold" Background="#FF75F654"/>
-        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="605,425,0,0" VerticalAlignment="Top" Width="145" Height="40" FontWeight="Bold" Background="#FFF72E15" Click="btn_Cancelar_Click"/>
-        <Label Content="Fecha" HorizontalAlignment="Left" Margin="445,310,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txt_fecha" HorizontalAlignment="Left" Height="23" Margin="505,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <Label Content="Seleccione los Conductores involucrados" HorizontalAlignment="Left" Margin="35,36,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Conductores y vehiculos agregados al reporte" HorizontalAlignment="Left" Margin="500,36,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Ingrese la dirección del Siniestro" HorizontalAlignment="Left" Margin="35,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="30" Margin="40,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="530"/>
+        <Label Content="Subir fotografías" HorizontalAlignment="Left" Margin="40,364,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btn_registrar_reporte" Content="Registrar" HorizontalAlignment="Left" Margin="128,525,0,0" VerticalAlignment="Top" Width="145" Height="40" FontWeight="Bold" Background="#FF75F654"/>
+        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="715,525,0,0" VerticalAlignment="Top" Width="145" Height="40" FontWeight="Bold" Background="#FFF72E15" Click="btn_Cancelar_Click"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="615,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="txt_fecha" HorizontalAlignment="Left" Height="30" Margin="605,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330"/>
+        <DataGrid x:Name="dg_listaConductores" HorizontalAlignment="Left" Height="185" Margin="40,75,0,0" VerticalAlignment="Top" Width="432" SelectionMode="Single" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding ConductorNombre}"/>
+                <DataGridTextColumn Header="Apellido Paterno" Binding="{Binding ConductorApellidoPaterno}"/>
+                <DataGridTextColumn Header="Apellido Materno" Binding="{Binding ConductorApellidoMaterno}"/>
+                <DataGridTextColumn Header="Placas" Binding="{Binding NumeroPlacas}"/>
+                <DataGridTextColumn Header="Marca" Binding="{Binding Marca}"/>
+                <DataGridTextColumn Header="Color" Binding="{Binding Color}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="dg_agregados" HorizontalAlignment="Left" Height="185" Margin="500,75,0,0" VerticalAlignment="Top" Width="435" SelectionMode="Single" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding ConductorNombre}"/>
+                <DataGridTextColumn Header="Apellido Paterno" Binding="{Binding ConductorApellidoPaterno}"/>
+                <DataGridTextColumn Header="Apellido Materno" Binding="{Binding ConductorApellidoMaterno}"/>
+                <DataGridTextColumn Header="Placas" Binding="{Binding NumeroPlacas}"/>
+                <DataGridTextColumn Header="Marca" Binding="{Binding Marca}"/>
+                <DataGridTextColumn Header="Color" Binding="{Binding Color}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btn_agregarADataGrid" Content="Agregar" HorizontalAlignment="Left" Margin="347,36,0,0" VerticalAlignment="Top" Width="125" Height="26" Background="#FF0DDCD3" BorderBrush="Black" FontWeight="Bold" Click="btn_agregarADataGrid_Click"/>
 
     </Grid>
 </Window>
