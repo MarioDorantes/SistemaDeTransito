@@ -127,7 +127,7 @@ namespace SistemaDeTransitoMunicipal
                         {
                             MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
                         }
-                        notificacion.actualizaInformacion("Registrar")
+                    notificacion.actualizaInformacion("Registrar");
                 }
                 else
                 {

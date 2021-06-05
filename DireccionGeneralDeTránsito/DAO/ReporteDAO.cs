@@ -34,12 +34,13 @@ namespace DireccionGeneralDeTránsito.DAO
                     while (dataReader.Read())
                     {
                         Reporte reporte = new Reporte();
-                        reporte.IdReporte = (dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
-                        reporte.FechaDeReporte = (dataReader.IsDBNull(1)) ? dataReader.GetDateTime(1).ToString("d") : "";
-                        reporte.Estatus = (dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
-                        reporte.IdDelegacion = (dataReader.IsDBNull(3)) ? dataReader.GetInt32(3) : 0;
-                        reporte.NombreDelegacion = (dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
-                        reporte.DireccionSiniestro = (dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
+                        reporte.IdReporte = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
+                        reporte.FechaDeReporte = (!dataReader.IsDBNull(1)) ? dataReader.GetDateTime(1).ToString("d") : "";
+                        reporte.Estatus = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
+                        reporte.IdDelegacion = (!dataReader.IsDBNull(3)) ? dataReader.GetInt32(3) : 0;
+                        reporte.NombreDelegacion = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        reporte.DireccionSiniestro = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
+                        reportes.Add(reporte);
                     }
                     command.Dispose();
                     dataReader.Close();
