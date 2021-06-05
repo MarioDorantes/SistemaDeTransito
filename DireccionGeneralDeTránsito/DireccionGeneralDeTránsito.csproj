@@ -57,9 +57,11 @@
     </ApplicationDefinition>
     <Compile Include="conexionBD\ConexionBD.cs" />
     <Compile Include="DAO\DelegacionDAO.cs" />
+    <Compile Include="DAO\ReporteDAO.cs" />
     <Compile Include="DAO\UsuarioDAOcs.cs" />
     <Compile Include="interfaz\Observer.cs" />
     <Compile Include="pocos\Delegacion.cs" />
+    <Compile Include="pocos\Reporte.cs" />
     <Compile Include="pocos\Usuario.cs" />
     <Compile Include="vistas\DelegacionesRegistradas.xaml.cs">
       <DependentUpon>DelegacionesRegistradas.xaml</DependentUpon>
