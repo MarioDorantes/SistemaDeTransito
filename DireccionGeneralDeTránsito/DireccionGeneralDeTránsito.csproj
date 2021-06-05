@@ -58,46 +58,46 @@
     <Compile Include="conexionBD\ConexionBD.cs" />
     <Compile Include="DAO\DelegacionDAO.cs" />
     <Compile Include="DAO\UsuarioDAOcs.cs" />
-    <Compile Include="Interfaz\Observer.cs" />
+    <Compile Include="interfaz\Observer.cs" />
     <Compile Include="pocos\Delegacion.cs" />
     <Compile Include="pocos\Usuario.cs" />
-    <Compile Include="Vistas\DelegacionesRegistradas.xaml.cs">
+    <Compile Include="vistas\DelegacionesRegistradas.xaml.cs">
       <DependentUpon>DelegacionesRegistradas.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\DetalleDeReportes.xaml.cs">
+    <Compile Include="vistas\DetalleDeReportes.xaml.cs">
       <DependentUpon>DetalleDeReportes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\DictaminarReporte.xaml.cs">
+    <Compile Include="vistas\DictaminarReporte.xaml.cs">
       <DependentUpon>DictaminarReporte.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\RegistrarDelegación.xaml.cs">
+    <Compile Include="vistas\RegistrarDelegación.xaml.cs">
       <DependentUpon>RegistrarDelegación.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\RegistrarUsuarios.xaml.cs">
+    <Compile Include="vistas\RegistrarUsuarios.xaml.cs">
       <DependentUpon>RegistrarUsuarios.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\UsuariosRegistrados.xaml.cs">
+    <Compile Include="vistas\UsuariosRegistrados.xaml.cs">
       <DependentUpon>UsuariosRegistrados.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\VentanaPrincipalAdministrativo.xaml.cs">
+    <Compile Include="vistas\VentanaPrincipalAdministrativo.xaml.cs">
       <DependentUpon>VentanaPrincipalAdministrativo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\VerReportes.xaml.cs">
+    <Compile Include="vistas\VerReportes.xaml.cs">
       <DependentUpon>VerReportes.xaml</DependentUpon>
     </Compile>
-    <Page Include="Vistas\DelegacionesRegistradas.xaml">
+    <Page Include="vistas\DelegacionesRegistradas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\DetalleDeReportes.xaml">
+    <Page Include="vistas\DetalleDeReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\DictaminarReporte.xaml">
+    <Page Include="vistas\DictaminarReporte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\MainWindow.xaml">
+    <Page Include="vistas\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -105,27 +105,27 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Vistas\MainWindow.xaml.cs">
+    <Compile Include="vistas\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Vistas\RegistrarDelegación.xaml">
+    <Page Include="vistas\RegistrarDelegación.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Vistas\RegistrarUsuarios.xaml">
+    <Page Include="vistas\RegistrarUsuarios.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Vistas\UsuariosRegistrados.xaml">
+    <Page Include="vistas\UsuariosRegistrados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\VentanaPrincipalAdministrativo.xaml">
+    <Page Include="vistas\VentanaPrincipalAdministrativo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\VerReportes.xaml">
+    <Page Include="vistas\VerReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

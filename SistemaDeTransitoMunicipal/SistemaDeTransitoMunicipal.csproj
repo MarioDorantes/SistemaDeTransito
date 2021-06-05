@@ -67,52 +67,52 @@
     <Compile Include="DAO\DelegacionDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DAO\VehiculoDAO.cs" />
-    <Compile Include="Interface\ObserverRespuesta.cs" />
+    <Compile Include="interface\ObserverRespuesta.cs" />
     <Compile Include="pocos\Conductor.cs" />
     <Compile Include="pocos\Delegacion.cs" />
     <Compile Include="pocos\Usuario.cs" />
     <Compile Include="pocos\Vehiculo.cs" />
-    <Compile Include="Vistas\DictaminarReporte.xaml.cs">
+    <Compile Include="vistas\DictaminarReporte.xaml.cs">
       <DependentUpon>DictaminarReporte.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\GestionarConductores.xaml.cs">
+    <Compile Include="vistas\GestionarConductores.xaml.cs">
       <DependentUpon>GestionarConductores.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\GestionarVehiculos.xaml.cs">
+    <Compile Include="vistas\GestionarVehiculos.xaml.cs">
       <DependentUpon>GestionarVehiculos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\HistorialDeReportes.xaml.cs">
+    <Compile Include="vistas\HistorialDeReportes.xaml.cs">
       <DependentUpon>HistorialDeReportes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\RegistrarConductor.xaml.cs">
+    <Compile Include="vistas\RegistrarConductor.xaml.cs">
       <DependentUpon>RegistrarConductor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\RegistrarReporte.xaml.cs">
+    <Compile Include="vistas\RegistrarReporte.xaml.cs">
       <DependentUpon>RegistrarReporte.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\RegistrarVehiculo.xaml.cs">
+    <Compile Include="vistas\RegistrarVehiculo.xaml.cs">
       <DependentUpon>RegistrarVehiculo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\VentanaPrincipalMunicipal.xaml.cs">
+    <Compile Include="vistas\VentanaPrincipalMunicipal.xaml.cs">
       <DependentUpon>VentanaPrincipalMunicipal.xaml</DependentUpon>
     </Compile>
-    <Page Include="Vistas\DictaminarReporte.xaml">
+    <Page Include="vistas\DictaminarReporte.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Vistas\GestionarConductores.xaml">
+    <Page Include="vistas\GestionarConductores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\GestionarVehiculos.xaml">
+    <Page Include="vistas\GestionarVehiculos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\HistorialDeReportes.xaml">
+    <Page Include="vistas\HistorialDeReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\inicioDeSesion.xaml">
+    <Page Include="vistas\inicioDeSesion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -120,23 +120,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Vistas\inicioDeSesion.xaml.cs">
+    <Compile Include="vistas\inicioDeSesion.xaml.cs">
       <DependentUpon>inicioDeSesion.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Vistas\RegistrarConductor.xaml">
+    <Page Include="vistas\RegistrarConductor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\RegistrarReporte.xaml">
+    <Page Include="vistas\RegistrarReporte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\RegistrarVehiculo.xaml">
+    <Page Include="vistas\RegistrarVehiculo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\VentanaPrincipalMunicipal.xaml">
+    <Page Include="vistas\VentanaPrincipalMunicipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
