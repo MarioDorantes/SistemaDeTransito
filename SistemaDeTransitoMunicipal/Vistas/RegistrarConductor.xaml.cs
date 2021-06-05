@@ -81,7 +81,7 @@ namespace SistemaDeTransitoMunicipal
 
             Boolean camposLlenos = true;
 
-            if(numeroLicencia.Length == 0)
+            if (numeroLicencia.Length == 0)
             {
                 camposLlenos = false;
                 txt_numeroLicencia.BorderBrush = Brushes.Red;
@@ -116,18 +116,18 @@ namespace SistemaDeTransitoMunicipal
                 int resultado = 0;
                 int idDelegacion = MainWindow.idDelegacionLoggeada;
                 if (esNuevo)
-                {
-                    resultado = ConductorDAO.agregarConductor(numeroLicencia, nombre, paterno, materno, telefono, fechaNacimiento, idDelegacion);
-                    if (resultado > 0)
-                    {
-                        MessageBox.Show("El Conductor se agregó exitosamente", "Registro exitoso");
-                        
-                    }
-                    else
-                    {
-                        MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
-                    }
-                    notificacion.actualizaInformacion("Registrar");
+                { 
+                        resultado = ConductorDAO.agregarConductor(numeroLicencia, nombre, paterno, materno, telefono, fechaNacimiento, idDelegacion);
+                        if (resultado > 0)
+                        {
+                            MessageBox.Show("El Conductor se agregó exitosamente", "Registro exitoso");
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
+                        }
+                        notificacion.actualizaInformacion("Registrar")
                 }
                 else
                 {
