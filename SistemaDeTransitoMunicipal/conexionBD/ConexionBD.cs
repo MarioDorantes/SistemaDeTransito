@@ -10,11 +10,11 @@ namespace SistemaDeTransitoMunicipal.conexionBD
 {
     class ConexionBD
     {
-        private static String SERVER = "proyecto-tecnologias.database.windows.net";
+        private static String SERVER = "ttuv.database.windows.net";
         private static String PORT = "1433";
         private static String DATABASE = "SistemaTransito";
-        private static String USER = "elcapistro";
-        private static String PASSWORD = "Admin123";
+        private static String USER = "brandon";
+        private static String PASSWORD = "UVTec123";
 
         public static SqlConnection getConnection()
         {
