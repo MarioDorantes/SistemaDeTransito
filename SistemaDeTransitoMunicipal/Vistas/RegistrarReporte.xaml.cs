@@ -1,4 +1,5 @@
-﻿using SistemaDeTransitoMunicipal.DAO;
+﻿using Microsoft.Win32;
+using SistemaDeTransitoMunicipal.DAO;
 using SistemaDeTransitoMunicipal.pocos;
 using System;
 using System.Collections.Generic;
@@ -78,7 +79,62 @@ namespace SistemaDeTransitoMunicipal
             }
         }
 
+        private void btn_foto1_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.jpg, *.png) | *.jpg; *.png";
+
+            if(openFileDialog.ShowDialog() == true)
+            {
+                if (img_num1.Source == null)
+                {
+                    Uri fileUri1 = new Uri(openFileDialog.FileName);
+                    img_num1.Source = new BitmapImage(fileUri1);
+                }              
+                else if(img_num2.Source == null)
+                {
+                    Uri fileUri2 = new Uri(openFileDialog.FileName);
+                    img_num2.Source = new BitmapImage(fileUri2);
+                }
+                else if (img_num3.Source == null)
+                {
+                    Uri fileUri3 = new Uri(openFileDialog.FileName);
+                    img_num3.Source = new BitmapImage(fileUri3);
+                }
+                else if (img_num4.Source == null)
+                {
+                    Uri fileUri4 = new Uri(openFileDialog.FileName);
+                    img_num4.Source = new BitmapImage(fileUri4);
+                }
+                else if (img_num5.Source == null)
+                {
+                    Uri fileUri5 = new Uri(openFileDialog.FileName);
+                    img_num5.Source = new BitmapImage(fileUri5);
+                }
+                else if (img_num6.Source == null)
+                {
+                    Uri fileUri6 = new Uri(openFileDialog.FileName);
+                    img_num6.Source = new BitmapImage(fileUri6);
+                }
+                else if (img_num7.Source == null)
+                {
+                    Uri fileUri7 = new Uri(openFileDialog.FileName);
+                    img_num7.Source = new BitmapImage(fileUri7);
+                }
+                else if (img_num8.Source == null)
+                {
+                    Uri fileUri8 = new Uri(openFileDialog.FileName);
+                    img_num8.Source = new BitmapImage(fileUri8);
+                }
+
+            }
+
+        }
 
 
+
+
+    
+    
     }
 }
