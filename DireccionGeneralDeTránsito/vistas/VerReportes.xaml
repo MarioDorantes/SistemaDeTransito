@@ -5,9 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito"
         mc:Ignorable="d"
-        Title="Ver detalles de reporte pendiente" Height="450" Width="800">
+        Title="Ver detalles de reporte" Height="450" Width="700">
     <Grid>
-        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="652,365,0,0" VerticalAlignment="Top" Width="105" Height="32" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#FFF68D8D" Click="btn_cancelar_Click"/>
+        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="543,366,0,0" VerticalAlignment="Top" Width="105" Height="32" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#FFF68D8D" Click="btn_cancelar_Click"/>
+        <DataGrid x:Name="dg_reportes" HorizontalAlignment="Left" Height="240" Margin="36,87,0,0" VerticalAlignment="Top" Width="612">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Fecha de reporte" Binding="{Binding FechaDeReporte}"/>
+                <DataGridTextColumn Header="Estado" Binding="{Binding Estatus}"/>
+                <DataGridTextColumn Header="Delegación" Binding="{Binding NombreDelegacion}"/>
+                <DataGridTextColumn Header="Direccion del siniestro" Binding="{Binding DireccionSiniestro}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Ver detalle" HorizontalAlignment="Left" Margin="401,33,0,0" VerticalAlignment="Top" Width="105" Height="32" Background="#FF72E9FA" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
+        <Button Content="Dictaminar" HorizontalAlignment="Left" Margin="543,33,0,0" VerticalAlignment="Top" Width="105" Height="32" RenderTransformOrigin="0.475,0.618" Background="#FF91ED88" FontWeight="Bold" FontFamily="Arial" FontSize="14"/>
 
     </Grid>
 </Window>

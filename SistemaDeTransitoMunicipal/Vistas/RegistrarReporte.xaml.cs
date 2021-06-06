@@ -3,6 +3,7 @@ using SistemaDeTransitoMunicipal.DAO;
 using SistemaDeTransitoMunicipal.pocos;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -131,10 +132,55 @@ namespace SistemaDeTransitoMunicipal
 
         }
 
+        private void btn_registrar_reporte_Click(object sender, RoutedEventArgs e)
+        {
+            String direccion = txt_direccion.Text;
+            String fecha = txt_fecha.Text;
+            String estatus = "Pendiente";
+
+            Boolean camposLlenos = true;
+
+            if (direccion.Length == 0)
+            {
+                camposLlenos = false;
+                txt_direccion.BorderBrush = Brushes.Red;
+            }
+            if (fecha.Length == 0)
+            {
+                camposLlenos = false;
+                txt_fecha.BorderBrush = Brushes.Red;
+            }
+
+            if (camposLlenos)
+            {/*
+                int idDelegacion = MainWindow.idDelegacionLoggeada;
+
+                //PRUEBA PARA PASAR IMAGEN A BYTE
+                byte[] imagen1;
+                
+
+                int resultado = ReporteDAO.agregarReporte(idDelegacion, fecha, estatus, direccion, imagen1);
+
+                if (resultado > 0)
+                {
+                    MessageBox.Show("El Reporte se registro exitosamente", "Registro exitoso");
+
+                }
+                else
+                {
+                    MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
+                }*/
+            }
+            else
+            {
+                MessageBox.Show("Favor de llenar todos los campos", "Campos vacíos");
+            }
 
 
 
-    
-    
+        }
+
+
+
     }
 }

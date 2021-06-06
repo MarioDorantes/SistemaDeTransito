@@ -12,7 +12,7 @@
         <Label Content="Ingrese la dirección del Siniestro" HorizontalAlignment="Left" Margin="500,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="30" Margin="500,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435"/>
         <Label Content="Subir fotografías" HorizontalAlignment="Left" Margin="40,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="btn_registrar_reporte" Content="Registrar" HorizontalAlignment="Left" Margin="128,525,0,0" VerticalAlignment="Top" Width="145" Height="40" FontWeight="Bold" Background="#FF75F654"/>
+        <Button x:Name="btn_registrar_reporte" Content="Registrar" HorizontalAlignment="Left" Margin="128,525,0,0" VerticalAlignment="Top" Width="145" Height="40" FontWeight="Bold" Background="#FF75F654" Click="btn_registrar_reporte_Click"/>
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="715,525,0,0" VerticalAlignment="Top" Width="145" Height="40" FontWeight="Bold" Background="#FFF72E15" Click="btn_Cancelar_Click"/>
         <Label Content="Fecha" HorizontalAlignment="Left" Margin="500,364,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="txt_fecha" HorizontalAlignment="Left" Height="30" Margin="500,395,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435"/>
