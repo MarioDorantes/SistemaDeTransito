@@ -23,7 +23,7 @@ namespace DireccionGeneralDeTránsito.DAO
                 {
                     SqlCommand command;
                     SqlDataReader dataReader;
-                    String query = String.Format("SELECT u.usr_nombreUsuario, u.usr_contraseña, u.usr_rol" +
+                    String query = String.Format("SELECT u.usr_nombreUsuario, u.usr_contraseña, u.usr_rol " +
                                                  "FROM usuario u WHERE u.usr_nombreUsuario = '{0}' AND u.usr_contraseña = '{1}';",
                                                  nombreUsuario, contraseña);
                     Console.WriteLine(query);

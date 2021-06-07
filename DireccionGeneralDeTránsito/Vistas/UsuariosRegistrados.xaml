@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito.Vistas"
         mc:Ignorable="d"
         Title="UsuariosRegistrados" Height="450" Width="800">
-    <Grid>
-        <Label Content="USUARIOS REGISTRADOS AL SISTEMA&#xD;&#xA;" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="251,22,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dg_UsuariosRegistrados" IsReadOnly="True" SelectionMode="Single" HorizontalAlignment="Left" Height="245" Margin="22,77,0,0" VerticalAlignment="Top" Width="748">
+    <Grid Background="#FF9E1616">
+        <Label Content="USUARIOS REGISTRADOS AL SISTEMA&#xD;&#xA;" FontSize="22" FontWeight="Bold" HorizontalAlignment="Left" Margin="178,8,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <DataGrid x:Name="dg_UsuariosRegistrados" IsReadOnly="True" SelectionMode="Single" HorizontalAlignment="Left" Height="245" Margin="22,77,0,0" VerticalAlignment="Top" Width="748" FontSize="16" BorderBrush="Black" Background="#FF9E1616">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre(s)" Binding="{Binding Nombre}"/>
                 <DataGridTextColumn Header="Apellido paterno" Binding="{Binding ApellidoPaterno}"/>
@@ -18,7 +18,7 @@
                 <DataGridTextColumn Header="Nombre de usuario" Binding="{Binding NombreUsuario}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="47,28,0,0" VerticalAlignment="Top" Width="75" Click="btn_regresar_Click"/>
+        <Button x:Name="btn_regresar" Content="Retroceder" HorizontalAlignment="Left" Margin="22,22,0,0" VerticalAlignment="Top" Width="76" Click="btn_regresar_Click" Height="24" BorderBrush="Black" Foreground="Black" Background="#FFECECEC"/>
         <Button x:Name="btn_registrarUsuario" Content="Registrar usuario" Background="GreenYellow" HorizontalAlignment="Left" Margin="22,346,0,0" VerticalAlignment="Top" Width="136" Height="37" Click="btn_registrarUsuario_Click" FontWeight="Bold"/>
         <Button x:Name="btn_modificarUsuario" Content="Modificar usuario" Background="Yellow" HorizontalAlignment="Left" Margin="178,346,0,0" VerticalAlignment="Top" Width="136" Height="37"  FontWeight="Bold" Click="btn_modificarUsuario_Click"/>
         <Button x:Name="btn_eliminarUsuario" Content="Eliminar usuario" Background="red" HorizontalAlignment="Left" Margin="332,346,0,0" VerticalAlignment="Top" Width="136" Height="37" FontWeight="Bold" Click="btn_eliminarUsuario_Click"/>

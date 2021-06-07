@@ -5,15 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito"
         mc:Ignorable="d"
-        Title="Inicio de sesión - Dirección General De Tránsito" Height="497" Width="389">
-    <Grid>
-        <Label Content="Sistema de Dirección General" HorizontalAlignment="Left" Margin="45,65,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Height="45" Width="290"/>
-        <Label Content="Nombre de usuario:" HorizontalAlignment="Left" Margin="45,164,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="45,239,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="txt_nombreUsuario" HorizontalAlignment="Left" Height="23" Margin="50,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289"/>
-        <PasswordBox x:Name="pswd_contraseña" HorizontalAlignment="Left" Margin="50,280,0,0" VerticalAlignment="Top" Width="289" Height="25"/>
-        <Button x:Name="btn_inicio_sesion" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="130,350,0,0" VerticalAlignment="Top" Width="130" Background="#FF4DD938" FontWeight="Bold" Height="40" Click="btn_InicioSesion_Click"/>
-        <Label x:Name="lbl_malInicio" Content="Usuario y/o contraseña incorrecto/s" Foreground="Red" Visibility="Hidden" HorizontalAlignment="Left" Margin="100,310,0,0" VerticalAlignment="Top"/>
+        Title="Inicio de sesión - Dirección General De Tránsito" Height="665.754" Width="389">
+    <Grid Background="#FF9E1616">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="94*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="        DIRECCIÓN GENERAL&#xA;&#x9;        DE &#xA;                TRÁNSITO" HorizontalAlignment="Center" Margin="45,124,46,0" VerticalAlignment="Top" FontStretch="Normal" FontWeight="Bold" FontSize="20" Height="91" Width="290" Grid.ColumnSpan="2" Foreground="White"/>
+        <Label x:Name="lbl_malInicio" Content="Usuario y/o contraseña incorrecto/s" Foreground="Red" Visibility="Hidden" HorizontalAlignment="Left" Margin="1.101,310,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Grid HorizontalAlignment="Left" Height="285" Margin="45,220,0,0" VerticalAlignment="Top" Width="290" Grid.ColumnSpan="2" Background="White">
+            <Label Content="Nombre de usuario:" HorizontalAlignment="Left" Margin="73,49,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="Black"/>
+            <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="95,129,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+            <TextBox x:Name="txt_nombreUsuario" HorizontalAlignment="Left" Height="23" Margin="14,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256"/>
+            <PasswordBox x:Name="pswd_contraseña" HorizontalAlignment="Left" Margin="14,163,0,0" VerticalAlignment="Top" Width="256" Height="25"/>
+            <Button x:Name="btn_inicio_sesion" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="84,224,0,0" VerticalAlignment="Top" Width="130" Background="#FF4DD938" FontWeight="Bold" Height="40" Click="btn_InicioSesion_Click" MinWidth="5" Padding="-3,1,1,1" RenderTransformOrigin="0.5,0"/>
+        </Grid>
+        <Image HorizontalAlignment="Left" Height="100" Margin="46,10,0,0" VerticalAlignment="Top" Width="81" Source="Escudo_Veracruz.png" Grid.Column="1"/>
 
 
     </Grid>

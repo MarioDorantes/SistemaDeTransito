@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito.Vistas"
         mc:Ignorable="d"
         Title="DelegacionesRegistradas" Height="450" Width="800">
-    <Grid>
-        <Label Content="DELEGACIONES REGISTRADAS&#xD;&#xA;" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="289,23,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dg_delegaciones" IsReadOnly="True" SelectionMode="Single" HorizontalAlignment="Left" Height="259" Margin="22,97,0,0" VerticalAlignment="Top" Width="746">
+    <Grid Background="#FF9E1616">
+        <Label Content="DELEGACIONES REGISTRADAS&#xD;&#xA;" FontSize="22" FontWeight="Bold" HorizontalAlignment="Left" Margin="225,23,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <DataGrid x:Name="dg_delegaciones" IsReadOnly="True" SelectionMode="Single" HorizontalAlignment="Left" Height="259" Margin="22,97,0,0" VerticalAlignment="Top" Width="746" FontSize="16" BorderBrush="Black" Background="#FF9E1616">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding NombreAlias}"/>
                 <DataGridTextColumn Header="Calle" Binding="{Binding CalleNumero}"/>
@@ -19,9 +19,9 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="22,29,0,0" VerticalAlignment="Top" Width="75" Click="btn_regresar_Click"/>
-        <Button x:Name="btn_registroDelegacion" Content="Registrar delegacion" HorizontalAlignment="Left" Background="GreenYellow" Margin="22,378,0,0" VerticalAlignment="Top" Width="164" Click="btn_registroDelegacion_Click" FontWeight="Bold"/>
-        <Button x:Name="btn_eliminarDelegacion" Content="Eliminar delegación" HorizontalAlignment="Left" Background="Red" Margin="385,378,0,0" VerticalAlignment="Top" Width="164" FontWeight="Bold" Click="btn_eliminarDelegacion_Click"/>
-        <Button x:Name="btn_editarDelegacion" Content="Modificar delegación" HorizontalAlignment="Left" Background="Yellow" Margin="204,378,0,0" VerticalAlignment="Top" Width="164" FontWeight="Bold" Click="btn_editarDelegacion_Click"/>
+        <Button x:Name="btn_registroDelegacion" Content="Registrar delegacion" HorizontalAlignment="Left" Background="GreenYellow" Margin="22,368,0,0" VerticalAlignment="Top" Width="164" Click="btn_registroDelegacion_Click" FontWeight="Bold" Height="41"/>
+        <Button x:Name="btn_eliminarDelegacion" Content="Eliminar delegación" HorizontalAlignment="Left" Background="Red" Margin="385,368,0,0" VerticalAlignment="Top" Width="164" FontWeight="Bold" Click="btn_eliminarDelegacion_Click" Height="41"/>
+        <Button x:Name="btn_editarDelegacion" Content="Modificar delegación" HorizontalAlignment="Left" Background="Yellow" Margin="201,368,0,0" VerticalAlignment="Top" Width="164" FontWeight="Bold" Click="btn_editarDelegacion_Click" Height="41"/>
 
     </Grid>
 </Window>
