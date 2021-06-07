@@ -1,5 +1,6 @@
 ﻿using SistemaDeTransitoMunicipal.DAO;
 using SistemaDeTransitoMunicipal.pocos;
+using SistemaDeTransitoMunicipal.vistas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,21 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_verDetalle_Click(object sender, RoutedEventArgs e)
         {
+
+            int indiceSeleccion = dg_ListaReportes.SelectedIndex;
+
+            if (indiceSeleccion >= 0)
+            {
+                Reporte reporteVisualizar = reportes[indiceSeleccion];
+                VerDetalleReporte detalleReporte = new VerDetalleReporte(reporteVisualizar);
+                detalleReporte.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Para visualizar un reporte debe seleccionarlo", "Sin selección");
+            }
+
 
         }
     }

@@ -98,6 +98,9 @@
     <Compile Include="vistas\VentanaPrincipalMunicipal.xaml.cs">
       <DependentUpon>VentanaPrincipalMunicipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="vistas\VerDetalleReporte.xaml.cs">
+      <DependentUpon>VerDetalleReporte.xaml</DependentUpon>
+    </Compile>
     <Page Include="vistas\DictaminarReporte.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -139,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="vistas\VentanaPrincipalMunicipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\VerDetalleReporte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
