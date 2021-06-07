@@ -63,6 +63,9 @@
     <Compile Include="pocos\Delegacion.cs" />
     <Compile Include="pocos\Reporte.cs" />
     <Compile Include="pocos\Usuario.cs" />
+    <Compile Include="vistas\ChatGeneral.xaml.cs">
+      <DependentUpon>ChatGeneral.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistas\DelegacionesRegistradas.xaml.cs">
       <DependentUpon>DelegacionesRegistradas.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
     <Compile Include="vistas\VerReportes.xaml.cs">
       <DependentUpon>VerReportes.xaml</DependentUpon>
     </Compile>
+    <Page Include="vistas\ChatGeneral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vistas\DelegacionesRegistradas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,9 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="vistas\atras.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\Escudo_Veracruz.png" />

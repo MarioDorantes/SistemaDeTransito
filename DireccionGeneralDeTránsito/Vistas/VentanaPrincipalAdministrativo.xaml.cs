@@ -1,4 +1,5 @@
-﻿using DireccionGeneralDeTránsito.Vistas;
+﻿using DireccionGeneralDeTránsito.vistas;
+using DireccionGeneralDeTránsito.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,8 @@ namespace DireccionGeneralDeTránsito
 
         private void btn_DetalleDeReportes_Click(object sender, RoutedEventArgs e)
         {
-            DetalleDeReportes detalleDeReportes = new DetalleDeReportes();
-            detalleDeReportes.Show();
+            ChatGeneral ventanaChat = new ChatGeneral();
+            ventanaChat.Show();
             this.Close();
         }
 

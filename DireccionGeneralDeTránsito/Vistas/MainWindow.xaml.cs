@@ -31,15 +31,15 @@ namespace DireccionGeneralDeTránsito
         {
             String usuario = txt_nombreUsuario.Text;
             String contraseña = pswd_contraseña.Password;
-            VentanaPrincipalAdministrativo ventanaPrincipalAdministrativo = new VentanaPrincipalAdministrativo();
-            ventanaPrincipalAdministrativo.Show();
-            this.Close();
             if (usuario.Length >0 && contraseña.Length >= 0)
             {
                 Usuario usuarioLogin = UsuarioDAOcs.obtenerLogin(usuario, contraseña);
                 if(usuarioLogin != null)
                 {
                     MessageBox.Show("Bienvenido al sistema " + usuarioLogin.NombreUsuario);
+                    VentanaPrincipalAdministrativo ventanaPrincipalAdministrativo = new VentanaPrincipalAdministrativo();
+                    ventanaPrincipalAdministrativo.Show();
+                    this.Close();
                 }
                 else if(usuarioLogin == null)
                 {

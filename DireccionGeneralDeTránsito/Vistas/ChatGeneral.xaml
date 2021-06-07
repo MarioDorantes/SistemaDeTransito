@@ -1,0 +1,18 @@
+﻿<Window x:Class="DireccionGeneralDeTránsito.vistas.ChatGeneral"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DireccionGeneralDeTránsito.vistas"
+        mc:Ignorable="d"
+        Title="ChatGeneral" Height="450" Width="800">
+    <Grid Background="#FF9E1616">
+        <Label Content="CHAT DIRECCIÓN GENERAL&#xD;&#xA;" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="400" Margin="433,10,0,0" VerticalAlignment="Top" Width="349" Source="Escudo_Veracruz.png"/>
+        <TextBox HorizontalAlignment="Left" Height="272" Margin="10,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="772" FontSize="16"/>
+        <Button x:Name="Btn_EnviarMensaje" Content="Enviar mensaje" HorizontalAlignment="Left" Margin="581,348,0,0" VerticalAlignment="Top" Width="201" Background="#FF33F144" FontWeight="Bold" Height="62" FontSize="14" Click="Btn_EnviarMensaje_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="61" Margin="10,348,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="566" FontSize="16"/>
+        <Button x:Name="Btn_Regresar" Content="Regresar" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Click="Btn_Regresar_Click"/>
+
+    </Grid>
+</Window>
