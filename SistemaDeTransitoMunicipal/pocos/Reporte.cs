@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaDeTransitoMunicipal.pocos
 {
-    class Reporte
+    public class Reporte
     {
 
         private int idReporte;

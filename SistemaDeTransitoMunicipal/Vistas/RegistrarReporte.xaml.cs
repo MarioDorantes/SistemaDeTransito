@@ -44,6 +44,11 @@ namespace SistemaDeTransitoMunicipal
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
         {
+            salir();
+        }
+
+        private void salir()
+        {
             VentanaPrincipalMunicipal inicio = new VentanaPrincipalMunicipal();
             inicio.Show();
             this.Close();
@@ -179,6 +184,9 @@ namespace SistemaDeTransitoMunicipal
                 {
                     MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
                 }
+
+                salir();
+
             }
             else
             {
