@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.pocos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,21 @@ namespace SistemaDeTransitoMunicipal
     /// </summary>
     public partial class HistorialDeReportes : Window
     {
+
+        List<Reporte> reportes;
+
         public HistorialDeReportes()
         {
             InitializeComponent();
+            reportes = new List<Reporte>();
+            extraerDatosReportes();
+        }
+
+        public void extraerDatosReportes()
+        {
+            reportes = ReporteDAO.obtenerReportes();
+            dg_ListaReportes.AutoGenerateColumns = false;
+            dg_ListaReportes.ItemsSource = reportes;
         }
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
@@ -29,6 +43,11 @@ namespace SistemaDeTransitoMunicipal
             VentanaPrincipalMunicipal inicio = new VentanaPrincipalMunicipal();
             inicio.Show();
             this.Close();
+        }
+
+        private void btn_verDetalle_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

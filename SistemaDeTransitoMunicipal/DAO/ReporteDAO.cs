@@ -1,4 +1,5 @@
 ﻿using SistemaDeTransitoMunicipal.conexionBD;
+using SistemaDeTransitoMunicipal.pocos;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -48,6 +49,57 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             return resultado;
         }
+
+
+        public static List<Reporte> obtenerReportes()
+        {
+            List<Reporte> reportes = new List<Reporte>();
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+
+                    String query = "SELECT * FROM reportePrueba;";
+                    Console.WriteLine(query);
+
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        Reporte reporte = new Reporte();
+                        reporte.IdReporte = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
+                        reporte.IdDelegacion = (!dataReader.IsDBNull(1)) ? dataReader.GetInt32(1) : 0;
+                        reporte.Fecha = (!dataReader.IsDBNull(2)) ? dataReader.GetDateTime(2).ToString("d") : "";
+                        reporte.Estatus = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
+                        reporte.Direccion = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        reporte.Imagen1 = (!dataReader.IsDBNull(5)) ? dataReader.GetSqlBytes(5).ToString() : "";
+
+                        reportes.Add(reporte);
+                    }
+                    command.Dispose();
+                    dataReader.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("No hay conexión a la base de datos. Intente más tarde", "Error" + e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return reportes;
+        }
+
+
 
     }
 }

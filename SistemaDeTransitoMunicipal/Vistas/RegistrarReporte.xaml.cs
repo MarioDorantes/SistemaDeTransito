@@ -52,16 +52,20 @@ namespace SistemaDeTransitoMunicipal
         private void btn_agregarADataGrid_Click(object sender, RoutedEventArgs e)
         {
             int seleccion = dg_listaConductores.SelectedIndex;
+
             if(seleccion >= 0)
             {
                 Vehiculo vehiculoAAgregar = vehiculos[seleccion];
+                
                 if(vehiculosReporte.Count != 0)
                 {
+                    Console.WriteLine("Entro al if donde truena");
                     List<int> idVehiculos = new List<int>();
 
-                    for(int i = 0; i < vehiculos.Count; i++)
+                    for (int i = 0; i < vehiculos.Count; i++)
                     {
-                        //Console.WriteLine(vehiculosReporte[i].IdVehiculo + "\n");
+                        Console.WriteLine("Entro al for donde truena");
+                        Console.WriteLine(vehiculosReporte[i].IdVehiculo + "\n");
                         idVehiculos.Add(vehiculosReporte[i].IdVehiculo);
                     }
                 }
@@ -79,20 +83,21 @@ namespace SistemaDeTransitoMunicipal
                 MessageBox.Show("Para agregar un registro, primero debe seleccionarlo", "Sin selección");
             }
         }
-
+  
         private void btn_foto1_Click(object sender, RoutedEventArgs e)
         {
+            
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.jpg, *.png) | *.jpg; *.png";
 
-            if(openFileDialog.ShowDialog() == true)
+            if (openFileDialog.ShowDialog() == true)
             {
                 if (img_num1.Source == null)
                 {
                     Uri fileUri1 = new Uri(openFileDialog.FileName);
                     img_num1.Source = new BitmapImage(fileUri1);
-                }              
-                else if(img_num2.Source == null)
+                }
+                else if (img_num2.Source == null)
                 {
                     Uri fileUri2 = new Uri(openFileDialog.FileName);
                     img_num2.Source = new BitmapImage(fileUri2);
@@ -127,11 +132,10 @@ namespace SistemaDeTransitoMunicipal
                     Uri fileUri8 = new Uri(openFileDialog.FileName);
                     img_num8.Source = new BitmapImage(fileUri8);
                 }
-
             }
-
         }
 
+ 
         private void btn_registrar_reporte_Click(object sender, RoutedEventArgs e)
         {
             String direccion = txt_direccion.Text;
@@ -150,14 +154,19 @@ namespace SistemaDeTransitoMunicipal
                 camposLlenos = false;
                 txt_fecha.BorderBrush = Brushes.Red;
             }
+            if(img_num1.Source == null)
+            {
+                camposLlenos = false;
+            }
 
             if (camposLlenos)
-            {/*
+            {
                 int idDelegacion = MainWindow.idDelegacionLoggeada;
 
                 //PRUEBA PARA PASAR IMAGEN A BYTE
-                byte[] imagen1;
                 
+                String imag1Aux = img_num1.Source.ToString();
+                byte[] imagen1 = Encoding.ASCII.GetBytes(imag1Aux);
 
                 int resultado = ReporteDAO.agregarReporte(idDelegacion, fecha, estatus, direccion, imagen1);
 
@@ -169,7 +178,7 @@ namespace SistemaDeTransitoMunicipal
                 else
                 {
                     MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
-                }*/
+                }
             }
             else
             {
