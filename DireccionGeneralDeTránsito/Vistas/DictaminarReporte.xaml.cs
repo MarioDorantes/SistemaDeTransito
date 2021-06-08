@@ -19,7 +19,7 @@ namespace DireccionGeneralDeTránsito
     /// </summary>
     public partial class DictaminarReporte : Window
     {
-        public DictaminarReporte()
+        public DictaminarReporte(String idReporte)
         {
             InitializeComponent();
         }

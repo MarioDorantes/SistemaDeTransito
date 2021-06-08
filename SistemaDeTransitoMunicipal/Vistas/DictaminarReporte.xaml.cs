@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaDeTransitoMunicipal.pocos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace DireccionGeneralDeTránsito
         public DictaminarReporte()
         {
             InitializeComponent();
+        }
+
+        public DictaminarReporte(Reporte reporteDictaminar)
+        {
+            InitializeComponent();
+            
         }
 
        /* private void btn_cancelar_Click(object sender, RoutedEventArgs e)
