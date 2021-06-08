@@ -6,16 +6,16 @@
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal"
         mc:Ignorable="d"
         Title="RegistrarVehiculo" Height="450" Width="800" FontWeight="Bold">
-    <Grid>
-        <Label Content="Seleccione un Conductor" HorizontalAlignment="Left" Margin="112,48,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Registro del Vehículo" HorizontalAlignment="Left" Margin="525,48,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Marca: " HorizontalAlignment="Left" Margin="437,99,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Modelo: " HorizontalAlignment="Left" Margin="437,130,0,0" VerticalAlignment="Top"/>
-        <Label Content="Año: " HorizontalAlignment="Left" Margin="437,161,0,0" VerticalAlignment="Top"/>
-        <Label Content="Color: " HorizontalAlignment="Left" Margin="437,192,0,0" VerticalAlignment="Top"/>
-        <Label Content="Aseguradora: " HorizontalAlignment="Left" Margin="437,223,0,0" VerticalAlignment="Top"/>
-        <Label Content="Número de póliza de seguro:" HorizontalAlignment="Left" Margin="437,254,0,0" VerticalAlignment="Top"/>
-        <Label Content="Número de placas: " HorizontalAlignment="Left" Margin="437,285,0,0" VerticalAlignment="Top"/>
+    <Grid Background="#FF9E1616">
+        <Label Content="Seleccione un Conductor" HorizontalAlignment="Left" Margin="112,48,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="White"/>
+        <Label Content="Registro del Vehículo" HorizontalAlignment="Left" Margin="525,48,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="White"/>
+        <Label Content="Marca: " HorizontalAlignment="Left" Margin="437,99,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Modelo: " HorizontalAlignment="Left" Margin="437,130,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Año: " HorizontalAlignment="Left" Margin="437,161,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Color: " HorizontalAlignment="Left" Margin="437,192,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Aseguradora: " HorizontalAlignment="Left" Margin="437,223,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Número de póliza de seguro:" HorizontalAlignment="Left" Margin="437,254,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Número de placas: " HorizontalAlignment="Left" Margin="437,285,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="txt_marca" HorizontalAlignment="Left" Height="23" Margin="493,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267"/>
         <TextBox x:Name="txt_modelo" HorizontalAlignment="Left" Height="23" Margin="493,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267"/>
         <TextBox x:Name="txt_año" HorizontalAlignment="Left" Height="23" Margin="493,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267"/>

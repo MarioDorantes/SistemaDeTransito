@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal"
         mc:Ignorable="d"
         Title="Registrar Conductor" Height="400" Width="700">
-    <Grid Margin="0,0,-6.4,-2.2">
-        <Label Content="Número de licencia: " HorizontalAlignment="Left" Margin="23,23,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Width="147"/>
-        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="98,67,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Apellido Paterno:" HorizontalAlignment="Left" Margin="39,108,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Apellido Materno:" HorizontalAlignment="Left" Margin="39,156,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="16,202,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Teléfono:" HorizontalAlignment="Left" Height="26" Margin="93,248,0,0" VerticalAlignment="Top" Width="72" FontFamily="Arial" FontSize="14" FontWeight="Bold" RenderTransformOrigin="0.727,0.445"/>
+    <Grid Margin="0,0,-6.4,-2.2" Background="#FF9E1616">
+        <Label Content="Número de licencia: " HorizontalAlignment="Left" Margin="23,23,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Width="147" Foreground="White"/>
+        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="98,67,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Apellido Paterno:" HorizontalAlignment="Left" Margin="39,108,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Apellido Materno:" HorizontalAlignment="Left" Margin="39,156,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="16,202,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Teléfono:" HorizontalAlignment="Left" Height="26" Margin="93,248,0,0" VerticalAlignment="Top" Width="72" FontFamily="Arial" FontSize="14" FontWeight="Bold" RenderTransformOrigin="0.727,0.445" Foreground="White"/>
         <TextBox x:Name="txt_numeroLicencia" HorizontalAlignment="Left" Height="23" Margin="175,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
         <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Height="23" Margin="175,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
         <TextBox x:Name="txt_paterno" HorizontalAlignment="Left" Height="23" Margin="175,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>

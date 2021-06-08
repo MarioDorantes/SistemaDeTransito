@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal.Vistas"
         mc:Ignorable="d"
         Title="Gestionar Vehiculos" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="dg_vehiculosRegistrados" HorizontalAlignment="Left" Height="260" Margin="30,95,0,0" VerticalAlignment="Top" Width="730" SelectionMode="Single" IsReadOnly="True">
+    <Grid Background="White">
+        <Image HorizontalAlignment="Left" Height="380" Margin="226,29,0,0" VerticalAlignment="Top" Width="534" Source="Escudo_Veracruz.png"/>
+
+        <DataGrid x:Name="dg_vehiculosRegistrados" HorizontalAlignment="Left" Height="260" Margin="30,105,0,0" VerticalAlignment="Top" Width="730" SelectionMode="Single" IsReadOnly="True" Background="#FF9E1616">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Licencia del Conductor" Binding="{Binding NumeroLicencia}"/>
                 <DataGridTextColumn Header="Marca" Binding="{Binding Marca}"/>
@@ -19,10 +21,13 @@
                 <DataGridTextColumn Header="Numero de Placas" Binding="{Binding NumeroPlacas}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btn_registrar" Content="Registrar" HorizontalAlignment="Left" Margin="375,55,0,0" VerticalAlignment="Top" Width="115" Height="30" Background="#FF75F654" FontWeight="Bold" Click="btn_registrar_Click"/>
+        <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="792" Background="#FF9E1616">
+            <Label Content="GESTIÓN DE VEHÍCULOS" HorizontalAlignment="Left" Margin="190,20,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="36"/>
+        </Grid>
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="660,370,0,0" VerticalAlignment="Top" Width="100" Height="30" Background="#FFF72E15" FontWeight="Bold" Click="btn_cancelar_Click"/>
-        <Button x:Name="btn_eliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="645,55,0,0" VerticalAlignment="Top" Width="115" Height="30" Background="#FFFF2C2C" FontWeight="Bold" Foreground="#FFFFE6E6" Click="btn_eliminar_Click"/>
-        <Button x:Name="btn_modificar" Content="Modificar" HorizontalAlignment="Left" Margin="510,55,0,0" VerticalAlignment="Top" Width="115" Height="30" Foreground="Black" Background="#FFE8FF00" FontWeight="Bold" Click="btn_modificar_Click"/>
+        <Button x:Name="btn_eliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="270,379,0,0" VerticalAlignment="Top" Width="115" Height="30" Background="#FFFF2C2C" Foreground="Black" Click="btn_eliminar_Click" FontWeight="Bold"/>
+        <Button x:Name="btn_modificar" Content="Modificar" HorizontalAlignment="Left" Margin="150,379,0,0" VerticalAlignment="Top" Width="115" Height="30" Foreground="Black" Background="#FFE8FF00" FontWeight="Bold" Click="btn_modificar_Click"/>
+        <Button x:Name="btn_registrar" Content="Registrar" HorizontalAlignment="Left" Margin="30,379,0,0" VerticalAlignment="Top" Width="115" Height="30" Background="#FF75F654" FontWeight="Bold" Click="btn_registrar_Click"/>
 
     </Grid>
 </Window>
