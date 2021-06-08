@@ -57,6 +57,22 @@ namespace DireccionGeneralDeTránsito.DAO
             return user;
 
         }
+
+        public static Boolean comprobarExistencia(String nombreUsuario)
+        {
+            Boolean existe = false;
+            List<Usuario> usuarios = new List<Usuario>();
+            usuarios = ObtenerUsuarios();
+            foreach(Usuario usuario in usuarios)
+            {
+                if (usuario.Nombre.Equals(nombreUsuario))
+                {
+                    existe = true;
+                }
+            }
+            return existe;
+        }
+
         public static int actualizarInformacionUsuario(String nombre, String aPaterno, String aMaterno, String nombreUsuario, String contraseña, int delegacion, 
             String tipoUsuario, String nombresUsuarioViejo)
         {
@@ -237,7 +253,7 @@ namespace DireccionGeneralDeTránsito.DAO
                 {
                     SqlCommand command;
                     String query = "INSERT INTO usuario VALUES " +
-                        "(@usr_nombreUsuario, @usr_contraseña, @usr_rol, @idDelegacion, @usr_nombre, @usr_aPaterno, @usr_aMaterno);";
+                        "(@usr_nombreUsuario, @usr_nombre, @usr_aPaterno, @usr_aMaterno,  @usr_rol, @usr_contraseña, @idDelegacion);";
                     command = new SqlCommand(query, conn);
                     command.Parameters.Add("usr_nombreUsuario", System.Data.SqlDbType.VarChar, 50).Value = nombreUsuario;
                     command.Parameters.Add("usr_contraseña", System.Data.SqlDbType.VarChar, 50).Value = contraseña;
