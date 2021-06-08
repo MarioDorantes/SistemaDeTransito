@@ -95,6 +95,9 @@
     <Compile Include="vistas\RegistrarVehiculo.xaml.cs">
       <DependentUpon>RegistrarVehiculo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="vistas\VentanaChat.xaml.cs">
+      <DependentUpon>VentanaChat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistas\VentanaPrincipalMunicipal.xaml.cs">
       <DependentUpon>VentanaPrincipalMunicipal.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="vistas\RegistrarVehiculo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vistas\VentanaChat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
