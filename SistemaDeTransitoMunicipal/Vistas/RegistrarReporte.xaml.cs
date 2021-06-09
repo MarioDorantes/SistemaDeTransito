@@ -54,34 +54,21 @@ namespace SistemaDeTransitoMunicipal
             this.Close();
         }
 
+
         private void btn_agregarADataGrid_Click(object sender, RoutedEventArgs e)
         {
             int seleccion = dg_listaConductores.SelectedIndex;
 
-            if(seleccion >= 0)
+            if (seleccion >= 0)
             {
-                Vehiculo vehiculoAAgregar = vehiculos[seleccion];
-                
-                if(vehiculosReporte.Count != 0)
-                {
-                    Console.WriteLine("Entro al if donde truena");
-                    List<int> idVehiculos = new List<int>();
 
-                    for (int i = 0; i < vehiculos.Count; i++)
-                    {
-                        Console.WriteLine("Entro al for donde truena");
-                        Console.WriteLine(vehiculosReporte[i].IdVehiculo + "\n");
-                        idVehiculos.Add(vehiculosReporte[i].IdVehiculo);
-                    }
-                }
-                else
-                {
-                    vehiculosReporte.Add(vehiculoAAgregar);
-                    dg_agregados.AutoGenerateColumns = false;
-                    dg_agregados.ItemsSource = null;
-                    dg_agregados.ItemsSource = vehiculosReporte;
-                    dg_listaConductores.SelectedIndex = -1;
-                }
+                Vehiculo vehiculoAAgregar = vehiculos[seleccion];
+
+                vehiculosReporte.Add(vehiculoAAgregar);
+                dg_agregados.AutoGenerateColumns = false;
+                dg_agregados.ItemsSource = null;
+                dg_agregados.ItemsSource = vehiculosReporte;
+
             }
             else
             {

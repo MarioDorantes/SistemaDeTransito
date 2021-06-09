@@ -1,6 +1,7 @@
 ﻿using SistemaDeTransitoMunicipal.pocos;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,21 +43,8 @@ namespace SistemaDeTransitoMunicipal.vistas
             txt_direccionDetalle.Text = reporteVisualizar.Direccion;
             txt_fechaDetalle.Text = reporteVisualizar.Fecha;
 
-            /*
-            OPCION 1 QUE NO JALA JSJS 
-             
-            byte[] imagen1 = Encoding.ASCII.GetBytes(reporteVisualizar.Imagen1);
-            String ima1Aux = imagen1.ToString();
-            img_1Detalle= ima1Aux;
-            */
+     
 
-            /*
-            OPCION 2 TAMPOCO JALA xd LE VOY MAS A ESTE
-            byte [] imagen1 = Encoding.ASCII.GetBytes(reporteVisualizar.Imagen1);
-            String resultadoImg1 = "C:\\Users\\mario\\Downloads\\imagenUno.jpg";
-            System.IO.File.WriteAllBytes(@resultadoImg1, imagen1);
-            img_1Detalle.Source = @resultadoImg1;
-            */
 
         }
 
@@ -67,4 +55,5 @@ namespace SistemaDeTransitoMunicipal.vistas
             this.Close();
         }
     }
+
 }
