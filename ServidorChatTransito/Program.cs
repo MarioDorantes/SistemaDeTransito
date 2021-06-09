@@ -6,7 +6,7 @@ namespace ServidorChatTransito
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SocketServer.Conectar();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DireccionGeneralDeTránsito.DAO;
+using DireccionGeneralDeTránsito.Interfaz;
 using DireccionGeneralDeTránsito.pocos;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,11 @@ namespace DireccionGeneralDeTránsito
     /// <summary>
     /// Lógica de interacción para VerReportes.xaml
     /// </summary>
-    public partial class VerReportes : Window
+    public partial class VerReportes : Window, Observer
     {
 
         List<Reporte> reportes;
+        public static int idReporte;
         public VerReportes()
         {
             InitializeComponent();
@@ -42,6 +44,27 @@ namespace DireccionGeneralDeTránsito
             VentanaPrincipalAdministrativo principalAdministrativo = new VentanaPrincipalAdministrativo();
             principalAdministrativo.Show();
             this.Close();
+        }
+
+        private void btn_verDetalle_Click(object sender, RoutedEventArgs e)
+        {
+            int posicionSeleccionada = dg_reportes.SelectedIndex;
+            if (posicionSeleccionada >= 0)
+            {
+                idReporte = reportes[posicionSeleccionada].IdReporte;
+                DetalleDeReportes ventanaDetalle = new DetalleDeReportes();
+                ventanaDetalle.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Para ver un reporte, primero debe seleccionarlo", "ATENCIÓN");
+            }
+        }
+
+        public void actualizaInformación(string operacion)
+        {
+            cargarReportes();
         }
     }
 }

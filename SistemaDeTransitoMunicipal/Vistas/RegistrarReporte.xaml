@@ -6,15 +6,17 @@
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal"
         mc:Ignorable="d"
         Title="Registrar Reporte" Height="622" Width="969">
-    <Grid>
-        <Label Content="Seleccione los Conductores involucrados" HorizontalAlignment="Left" Margin="35,36,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Conductores y vehiculos agregados al reporte" HorizontalAlignment="Left" Margin="500,36,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Ingrese la dirección del Siniestro" HorizontalAlignment="Left" Margin="500,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+    <Grid Background="#FF9E1616">
+        <Image HorizontalAlignment="Left" Height="529" Margin="256,36,0,0" VerticalAlignment="Top" Width="705" Source="Escudo_Veracruz.png"/>
+
+        <Label Content="Seleccione los Conductores involucrados" HorizontalAlignment="Left" Margin="35,36,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" BorderBrush="Black"/>
+        <Label Content="Conductores y vehiculos agregados al reporte" HorizontalAlignment="Left" Margin="500,36,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Ingrese la dirección del Siniestro" HorizontalAlignment="Left" Margin="742,279,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" BorderBrush="Black"/>
         <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="30" Margin="500,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435"/>
-        <Label Content="Subir fotografías" HorizontalAlignment="Left" Margin="40,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Subir fotografías" HorizontalAlignment="Left" Margin="40,279,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
         <Button x:Name="btn_registrar_reporte" Content="Registrar" HorizontalAlignment="Left" Margin="128,525,0,0" VerticalAlignment="Top" Width="145" Height="40" FontWeight="Bold" Background="#FF75F654" Click="btn_registrar_reporte_Click"/>
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="715,525,0,0" VerticalAlignment="Top" Width="145" Height="40" FontWeight="Bold" Background="#FFF72E15" Click="btn_Cancelar_Click"/>
-        <Label Content="Fecha" HorizontalAlignment="Left" Margin="500,364,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="893,364,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
         <TextBox x:Name="txt_fecha" HorizontalAlignment="Left" Height="30" Margin="500,395,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435"/>
         <DataGrid x:Name="dg_listaConductores" HorizontalAlignment="Left" Height="185" Margin="40,75,0,0" VerticalAlignment="Top" Width="432" SelectionMode="Single" IsReadOnly="True">
             <DataGrid.Columns>
@@ -46,7 +48,7 @@
         <Image x:Name="img_num6" HorizontalAlignment="Left" Height="72" Margin="128,405,0,0" VerticalAlignment="Top" Width="70"/>
         <Image x:Name="img_num7" HorizontalAlignment="Left" Height="72" Margin="215,405,0,0" VerticalAlignment="Top" Width="70"/>
         <Image x:Name="img_num8" HorizontalAlignment="Left" Height="72" Margin="300,405,0,0" VerticalAlignment="Top" Width="70"/>
-        <Label Content="Nota: Se deben incluir mínimo 3 y máximo 8 fotografías " HorizontalAlignment="Left" Margin="45,477,0,0" VerticalAlignment="Top" FontStyle="Italic"/>
+        <Label Content="Nota: Se deben incluir mínimo 3 y máximo 8 fotografías " HorizontalAlignment="Left" Margin="45,477,0,0" VerticalAlignment="Top" FontStyle="Italic" Foreground="White"/>
 
     </Grid>
 </Window>

@@ -5,27 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito"
         mc:Ignorable="d"
-        Title="DictaminarReporte" Height="670.708" Width="896.501">
+        Title="DictaminarReporte" Height="500" Width="896.501">
     <Grid Margin="0,0,3.4,-6.2" Background="#FF9E1616">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="588*"/>
             <ColumnDefinition Width="299*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_dictaminar" Content="Dictaminar" HorizontalAlignment="Left" Margin="18,591,0,0" VerticalAlignment="Top" Width="142" Height="45" FontFamily="Arial" FontSize="14" FontWeight="Bold" Background="#FF7FF66D"/>
-        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="144,591,0,0" VerticalAlignment="Top" Width="145" Height="45" Background="#FFFD6969" FontFamily="Arial" FontSize="14" FontWeight="Bold" Grid.Column="1" Click="btn_cancelar_Click"/>
-        <Label Content="Lugar del siniestro:" HorizontalAlignment="Left" Margin="18,131,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Height="26" Width="139" Foreground="White"/>
-        <Label Content="Fecha del siniestro:" HorizontalAlignment="Left" Margin="18,173,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Height="26" Width="54" Foreground="White"/>
-        <Label Content="Involucrados:" HorizontalAlignment="Left" Margin="18,215,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" FontSize="14" Width="116" Height="26" Foreground="White"/>
-        <Label Content="Fotos:" HorizontalAlignment="Left" Margin="505,131,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" RenderTransformOrigin="1.098,0.801" Height="26" Width="53" Foreground="White"/>
-        <Label Content="Agregar dictamen: " HorizontalAlignment="Left" Margin="18,400,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Height="26" Width="138" Foreground="White"/>
-        <TextBox x:Name="txt_Dictamen" HorizontalAlignment="Left" Height="120" Margin="18,431,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="858" Grid.ColumnSpan="2"/>
-        <DataGrid HorizontalAlignment="Left" Height="149" Margin="18,246,0,0" VerticalAlignment="Top" Width="858" Grid.ColumnSpan="2">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Nombre del involucrado" Binding="{Binding FechaDeReporte}"/>
-                <DataGridTextColumn Header="Placas de vehículo" Binding="{Binding Estatus}"/>
-                <DataGridTextColumn Header="Vehículo" Binding="{Binding NombreDelegacion}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Content="DICTAMINAR REPORTE" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="36" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_dictaminar" Content="Dictaminar" HorizontalAlignment="Left" Margin="18,401,0,0" VerticalAlignment="Top" Width="142" Height="45" FontFamily="Arial" FontSize="14" FontWeight="Bold" Background="#FF7FF66D" Click="btn_dictaminar_Click"/>
+        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="117,401,0,0" VerticalAlignment="Top" Width="145" Height="45" Background="#FFFD6969" FontFamily="Arial" FontSize="14" FontWeight="Bold" Grid.Column="1" Click="btn_cancelar_Click" RenderTransformOrigin="0.373,-1.809"/>
+        <Label Content="Agregar dictamen: " HorizontalAlignment="Left" Margin="18,34,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Height="35" Width="142" Foreground="white" Background="#FF9E1616"/>
+        <TextBox x:Name="txt_Dictamen" HorizontalAlignment="Left" Height="280" Margin="18,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="832" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

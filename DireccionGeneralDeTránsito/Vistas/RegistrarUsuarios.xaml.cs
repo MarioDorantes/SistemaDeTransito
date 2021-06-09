@@ -26,6 +26,15 @@ namespace DireccionGeneralDeTránsito
         Usuario usuarioEditar;
         Observer notificacion;
         Boolean isNuevo = false;
+        String usuarioConectado = "";
+        public RegistrarUsuarios(String usuario)
+        {
+            InitializeComponent();
+            usuarioConectado = usuario;
+            CargarTipoUsuario();
+            CargarDelegaciones();
+
+        }
         public RegistrarUsuarios()
         {
             InitializeComponent();
@@ -71,7 +80,7 @@ namespace DireccionGeneralDeTránsito
         }
         private void btn_regresar_Click(object sender, RoutedEventArgs e)
         {
-            UsuariosRegistrados ventanaUsuariosRegistrados = new UsuariosRegistrados();
+            UsuariosRegistrados ventanaUsuariosRegistrados = new UsuariosRegistrados(usuarioConectado);
             ventanaUsuariosRegistrados.Show();
             this.Close();
         }
@@ -94,14 +103,15 @@ namespace DireccionGeneralDeTránsito
                     String nombreUsuarioViejo = usuarioEditar.NombreUsuario;
                     int resultadoActualizar = UsuarioDAOcs.actualizarInformacionUsuario(nombre, apellidoPaterno, apellidoMaterno, nombreUsuario, contraseña,
                     idDelegacion, tipoUsuario, nombreUsuarioViejo);
+                    
                     if (resultadoActualizar == 1)
-                    {
-                        MessageBox.Show("Información actualizada correctamente");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al actualizar la información, inténtelo de nuevo más tarde");
-                    }
+                        {
+                            MessageBox.Show("Información actualizada correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al actualizar la información, inténtelo de nuevo más tarde");
+                        }
                 }    
             }
             else
@@ -116,15 +126,23 @@ namespace DireccionGeneralDeTránsito
                     }
                     else
                     {
-                        seRegistro = UsuarioDAOcs.RegistrarUsuario(nombre, apellidoPaterno, apellidoMaterno, nombreUsuario, contraseña, idDelegacion, tipoUsuario);
-                        if (seRegistro == 1)
+                        if (UsuarioDAOcs.comprobarExistencia(nombreUsuario)==false)
                         {
-                            MessageBox.Show("Usuario registrado correctamente");
+                            seRegistro = UsuarioDAOcs.RegistrarUsuario(nombre, apellidoPaterno, apellidoMaterno, nombreUsuario, contraseña, idDelegacion, tipoUsuario);
+                            if (seRegistro == 1)
+                            {
+                                MessageBox.Show("Usuario registrado correctamente");
+                            }
+                            else
+                            {
+                                MessageBox.Show("El nombre de usuario que inténtas registrar ya existe dentro del sistema");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Error de registro");
+                            MessageBox.Show("El nombre de usuario que inténtas registrar ya existe dentro del sistema");
                         }
+                            
                     }
                 }
                 else

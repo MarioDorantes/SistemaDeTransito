@@ -1,4 +1,5 @@
-﻿using SistemaDeTransitoMunicipal.Vistas;
+﻿using SistemaDeTransitoMunicipal.vistas;
+using SistemaDeTransitoMunicipal.Vistas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,13 @@ namespace SistemaDeTransitoMunicipal
         {
             MainWindow inicioDeSesion = new MainWindow();
             inicioDeSesion.Show();
+            this.Close();
+        }
+
+        private void btn_chat_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaChat ventanaChat = new VentanaChat();
+            ventanaChat.Show();
             this.Close();
         }
     }

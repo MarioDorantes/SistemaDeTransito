@@ -8,7 +8,7 @@
         Title="Detalle De Reportes" Height="562" Width="829">
     <Grid>
         <Label Content="Reportes disponibles:" HorizontalAlignment="Left" Margin="25,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="btn_ver_detalle" Content="Ver Detalle" HorizontalAlignment="Left" Margin="40,460,0,0" VerticalAlignment="Top" Width="135" Height="40" FontWeight="Bold" Background="#FF75F654"/>
+        <Button x:Name="btn_dictaminar" Content="Dictaminar" HorizontalAlignment="Left" Margin="40,460,0,0" VerticalAlignment="Top" Width="135" Height="40" FontWeight="Bold" Background="#FF75F654" Click="btn_dictaminar_Click"/>
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="655,460,0,0" VerticalAlignment="Top" Width="135" Height="40" FontWeight="Bold" Background="#FFF72E15" Click="btn_Cancelar_Click"/>
         <Label Content="Conductor involucrado" HorizontalAlignment="Left" Margin="371,43,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Vehículo involucrado" HorizontalAlignment="Left" Margin="605,43,0,0" VerticalAlignment="Top" FontWeight="Bold"/>

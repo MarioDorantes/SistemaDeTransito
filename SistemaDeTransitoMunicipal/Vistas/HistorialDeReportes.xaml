@@ -6,16 +6,18 @@
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal"
         mc:Ignorable="d"
         Title="Historial De Reportes" Height="450" Width="800">
-    <Grid>
-        <Label Content="Reportes Emitidos:" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+    <Grid Background="#FF9E1616">
+        <Image HorizontalAlignment="Left" Height="399" Margin="226,10,0,0" VerticalAlignment="Top" Width="539" Source="Escudo_Veracruz.png"/>
+
+        <Label Content="Reportes Emitidos:" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="640,345,0,0" VerticalAlignment="Top" Width="125" Height="40" FontWeight="Bold" Background="#FFF72E15" Click="btn_Cancelar_Click"/>
-        <DataGrid x:Name="dg_ListaReportes" HorizontalAlignment="Left" Height="205" Margin="25,100,0,0" VerticalAlignment="Top" Width="740" SelectionMode="Single" IsReadOnly="True">
+        <DataGrid x:Name="dg_ListaReportes" HorizontalAlignment="Left" Height="205" Margin="25,100,0,0" VerticalAlignment="Top" Width="740" SelectionMode="Single" IsReadOnly="True" BorderBrush="Black" Background="#FF9E1616" FontSize="16">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Fecha de Emisión" Binding="{Binding Fecha}"/>
                 <DataGridTextColumn Header="Estatus" Binding="{Binding Estatus}"/>
                 <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}"/>
             </DataGrid.Columns>
-        </DataGrid>   
+        </DataGrid>
         <Button x:Name="btn_verDetalle" Content="Ver detalle" HorizontalAlignment="Left" Margin="650,40,0,0" VerticalAlignment="Top" Width="115" Background="#FFF0F938" FontWeight="Bold" Height="34" BorderBrush="#FF7C7C7C" Foreground="Black" Click="btn_verDetalle_Click"/>
 
     </Grid>

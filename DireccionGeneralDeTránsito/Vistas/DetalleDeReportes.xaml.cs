@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace DireccionGeneralDeTránsito
     /// </summary>
     public partial class DetalleDeReportes : Window
     {
+
+        DictaminarReporte ventanaDictaminar = new DictaminarReporte();
         public DetalleDeReportes()
         {
             InitializeComponent();
@@ -26,9 +29,14 @@ namespace DireccionGeneralDeTránsito
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalAdministrativo inicio = new VentanaPrincipalAdministrativo();
-            inicio.Show();
+            VerReportes ventanaVerReportes = new VerReportes();
+            ventanaVerReportes.Show();
             this.Close();
+        }
+        
+        private void btn_dictaminar_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaDictaminar.Show();
         }
     }
 }

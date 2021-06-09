@@ -54,7 +54,7 @@ namespace SistemaDeTransitoMunicipal
             txt_paterno.Text = conductorEdicion.Paternos;
             txt_materno.Text = conductorEdicion.Maternos;
             txt_telefono.Text = conductorEdicion.NumeroTelefono;
-            txt_nacimiento.Text = conductorEdicion.FechaNacimiento;
+            dp_fechaNacimiento.Text = conductorEdicion.FechaNacimiento;
         }
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
@@ -69,17 +69,20 @@ namespace SistemaDeTransitoMunicipal
             txt_nombre.BorderBrush = Brushes.LightGray;
             txt_paterno.BorderBrush = Brushes.LightGray;
             txt_materno.BorderBrush = Brushes.LightGray;
-            txt_nacimiento.BorderBrush = Brushes.LightGray;
+            dp_fechaNacimiento.BorderBrush = Brushes.LightGray;
             txt_telefono.BorderBrush = Brushes.LightGray;
 
             String numeroLicencia = txt_numeroLicencia.Text;
             String nombre = txt_nombre.Text;
             String paterno = txt_paterno.Text;
             String materno = txt_materno.Text;
-            String fechaNacimiento = txt_nacimiento.Text;
+            String fechaNacimiento = dp_fechaNacimiento.Text;
             String telefono = txt_telefono.Text;
 
             Boolean camposLlenos = true;
+            Boolean licenciaRepetida = false;
+
+            licenciaRepetida = ConductorDAO.verificarLicenciasRegistradas(numeroLicencia);
 
             if (numeroLicencia.Length == 0)
             {
@@ -103,7 +106,7 @@ namespace SistemaDeTransitoMunicipal
             }
             if(fechaNacimiento.Length == 0){
                 camposLlenos = false;
-                txt_nacimiento.BorderBrush = Brushes.Red;
+                dp_fechaNacimiento.BorderBrush = Brushes.Red;
             }
             if(telefono.Length == 0)
             {
@@ -116,18 +119,26 @@ namespace SistemaDeTransitoMunicipal
                 int resultado = 0;
                 int idDelegacion = MainWindow.idDelegacionLoggeada;
                 if (esNuevo)
-                { 
+                {
+                    if (!licenciaRepetida)
+                    {
                         resultado = ConductorDAO.agregarConductor(numeroLicencia, nombre, paterno, materno, telefono, fechaNacimiento, idDelegacion);
                         if (resultado > 0)
                         {
                             MessageBox.Show("El Conductor se agregó exitosamente", "Registro exitoso");
-
+                            notificacion.actualizaInformacion("Registrar");
+                            this.Close();
                         }
                         else
                         {
                             MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
                         }
-                    notificacion.actualizaInformacion("Registrar");
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Número de licencia anteriormente registrado, pruebe con otro", "ATENCIÓN");
+                    }
                 }
                 else
                 {
@@ -135,15 +146,16 @@ namespace SistemaDeTransitoMunicipal
                     if(resultado > 0)
                     {
                         MessageBox.Show("El Conductor se modificó exitosamente", "Modificación exitosa");
-                       
+                        notificacion.actualizaInformacion("Editar");
+                        this.Close();
                     }
                     else
                     {
                         MessageBox.Show("No fue posible hacer la modificación", "Ocurrió un error");
                     }
-                    notificacion.actualizaInformacion("Editar");
+                   
                 }
-                this.Close();
+                
             }
             else
             {

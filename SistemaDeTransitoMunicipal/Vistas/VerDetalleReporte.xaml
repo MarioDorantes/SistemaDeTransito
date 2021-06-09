@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal.vistas"
         mc:Ignorable="d"
         Title="Ver Detalle del Reporte" Height="542" Width="899">
-    <Grid>
-        <Label Content="Conductores y vehículos involucrados" HorizontalAlignment="Left" Margin="31,34,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+    <Grid Background="#FF9E1616">
+        <Image HorizontalAlignment="Left" Height="476" Margin="239,25,0,0" VerticalAlignment="Top" Width="567" Source="Escudo_Veracruz.png"/>
+        <Label Content="Conductores y vehículos involucrados" HorizontalAlignment="Left" Margin="31,29,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
         <DataGrid x:Name="dg_listaInvolucrados" HorizontalAlignment="Left" Height="165" Margin="31,65,0,0" VerticalAlignment="Top" Width="384" SelectionMode="Single" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding ConductorNombre}"/>
@@ -18,12 +19,12 @@
                 <DataGridTextColumn Header="Color" Binding="{Binding Color}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Dirección del Siniestro" HorizontalAlignment="Left" Margin="500,54,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Dirección del Siniestro" HorizontalAlignment="Left" Margin="672,49,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
         <TextBox x:Name="txt_direccionDetalle" HorizontalAlignment="Left" Height="40" Margin="500,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="360"/>
-        <Label Content="Fecha" HorizontalAlignment="Left" Margin="500,150,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="797,150,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
         <TextBox x:Name="txt_fechaDetalle" HorizontalAlignment="Left" Height="39" Margin="500,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="360"/>
-        <Label Content="Fotografías" HorizontalAlignment="Left" Margin="31,265,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Fotografías" HorizontalAlignment="Left" Margin="31,260,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
         <Image x:Name="img_1Detalle" HorizontalAlignment="Left" Height="100" Margin="31,296,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="715,450,0,0" VerticalAlignment="Top" Width="135" FontWeight="Bold" Background="#FF15FFCA" Foreground="Black" Height="40" Click="btn_regresar_Click"/>
+        <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="682,439,0,0" VerticalAlignment="Top" Width="168" FontWeight="Bold" Background="#FF15FFCA" Foreground="Black" Height="51" Click="btn_regresar_Click" FontSize="16"/>
     </Grid>
 </Window>

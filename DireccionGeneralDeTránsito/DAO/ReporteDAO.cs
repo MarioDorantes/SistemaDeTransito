@@ -26,7 +26,7 @@ namespace DireccionGeneralDeTránsito.DAO
                     SqlDataReader dataReader;
 
                     String query = "SELECT r.rpt_id, r.fechaReporte, r.estatusReporte, r.idDelegacion, d.nombreAlias, r.direccionSiniestro FROM reporte r "
-                                   +"INNER JOIN delegacion d ON r.idDelegacion = d.idDelegacion; ";
+                                   + "INNER JOIN delegacion d ON r.idDelegacion = d.idDelegacion; ";
 
                     command = new SqlCommand(query, conn);
                     dataReader = command.ExecuteReader();
@@ -59,5 +59,41 @@ namespace DireccionGeneralDeTránsito.DAO
             }
             return reportes;
         }
+
+        public static int cambiarEstadoReporte(int idReporte)
+        {
+            {
+                int informacionActualizada = 0;
+                SqlConnection conn = null;
+                try
+                {
+                    conn = ConexionBD.ConexionBD.getConnection();
+                    if (conn != null)
+                    {
+                        SqlCommand command;
+                        String query = String.Format("UPDATE reporte SET estatusReporte = 'Dictaminado' WHERE rpt_id = {0};", idReporte);
+                        command = new SqlCommand(query, conn);
+                        informacionActualizada = command.ExecuteNonQuery();
+                        command.Dispose();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                finally
+                {
+                    if (conn != null)
+                    {
+                        conn.Close();
+                    }
+                }
+
+                return informacionActualizada;
+            }
+        }
     }
 }
+    
+

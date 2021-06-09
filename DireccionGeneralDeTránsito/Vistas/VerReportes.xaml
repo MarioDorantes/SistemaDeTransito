@@ -16,8 +16,7 @@
                 <DataGridTextColumn Header="Direccion del siniestro" Binding="{Binding DireccionSiniestro}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Ver detalle" HorizontalAlignment="Left" Margin="401,33,0,0" VerticalAlignment="Top" Width="105" Height="32" Background="#FF72E9FA" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
-        <Button Content="Dictaminar" HorizontalAlignment="Left" Margin="543,33,0,0" VerticalAlignment="Top" Width="105" Height="32" RenderTransformOrigin="0.475,0.618" Background="#FF91ED88" FontWeight="Bold" FontFamily="Arial" FontSize="14"/>
+        <Button x:Name="btn_verDetalle" Content="Ver detalle" HorizontalAlignment="Left" Margin="543,36,0,0" VerticalAlignment="Top" Width="105" Height="32" Background="#FF72E9FA" FontFamily="Arial" FontSize="14" FontWeight="Bold" RenderTransformOrigin="1.369,0.443" Click="btn_verDetalle_Click" />
 
     </Grid>
 </Window>
