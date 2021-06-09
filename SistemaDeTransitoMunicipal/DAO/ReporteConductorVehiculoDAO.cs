@@ -10,7 +10,7 @@ using System.Windows;
 namespace SistemaDeTransitoMunicipal.DAO
 {
     class ReporteConductorVehiculoDAO
-    {
+    {/*
         public static int agregarReporteConductorVehiculo(int idReporte, String numLicencia, int idVehiculo)
         {
             SqlConnection conn = null;
@@ -43,7 +43,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                 }
             }
             return resultado;
-        }
+        }*/
 
     }
 }

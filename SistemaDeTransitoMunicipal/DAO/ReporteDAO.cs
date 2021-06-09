@@ -32,7 +32,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                     command.Parameters.Add("rpt_fecha", System.Data.SqlDbType.Date).Value = fecha;
                     command.Parameters.Add("rpt_estatus", System.Data.SqlDbType.NVarChar, 50).Value = estatus;
                     command.Parameters.Add("rpt_direccion", System.Data.SqlDbType.NVarChar, 50).Value = direccion;
-                    command.Parameters.Add("rpt_imagen1", System.Data.SqlDbType.Image).Value = imagen1;
+                    command.Parameters.Add("rpt_imagen1", System.Data.SqlDbType.VarBinary).Value = imagen1;
                     resultado = command.ExecuteNonQuery();
                 }
             }
@@ -77,7 +77,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                         reporte.Fecha = (!dataReader.IsDBNull(2)) ? dataReader.GetDateTime(2).ToString("d") : "";
                         reporte.Estatus = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
                         reporte.Direccion = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
-                        reporte.Imagen1 = (!dataReader.IsDBNull(5)) ? dataReader.GetSqlBytes(5).ToString() : "";
+                        reporte.Imagen1 = (!dataReader.IsDBNull(5)) ? (byte [])dataReader.GetValue(5) : new byte [0];
 
                         reportes.Add(reporte);
                     }

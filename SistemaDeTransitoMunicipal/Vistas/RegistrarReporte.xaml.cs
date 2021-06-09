@@ -75,7 +75,9 @@ namespace SistemaDeTransitoMunicipal
                 MessageBox.Show("Para agregar un registro, primero debe seleccionarlo", "Sin selección");
             }
         }
-  
+
+        Uri fileUri1;
+
         private void btn_foto1_Click(object sender, RoutedEventArgs e)
         {
             
@@ -86,7 +88,7 @@ namespace SistemaDeTransitoMunicipal
             {
                 if (img_num1.Source == null)
                 {
-                    Uri fileUri1 = new Uri(openFileDialog.FileName);
+                    fileUri1 = new Uri(openFileDialog.FileName);
                     img_num1.Source = new BitmapImage(fileUri1);
                 }
                 else if (img_num2.Source == null)
@@ -156,9 +158,12 @@ namespace SistemaDeTransitoMunicipal
                 int idDelegacion = MainWindow.idDelegacionLoggeada;
 
                 //PRUEBA PARA PASAR IMAGEN A BYTE
-                
+                /*
                 String imag1Aux = img_num1.Source.ToString();
                 byte[] imagen1 = Encoding.ASCII.GetBytes(imag1Aux);
+                */
+
+                byte[] imagen1 = System.IO.File.ReadAllBytes(fileUri1.AbsoluteUri);
 
                 int resultado = ReporteDAO.agregarReporte(idDelegacion, fecha, estatus, direccion, imagen1);
 

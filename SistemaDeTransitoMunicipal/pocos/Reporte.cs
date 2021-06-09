@@ -16,7 +16,7 @@ namespace SistemaDeTransitoMunicipal.pocos
         private String fecha;
         private String estatus;
         private String direccion;
-        private String imagen1;
+        private byte [] imagen1;
 
         public int IdReporte { get => idReporte; set => idReporte = value; }
         public string NumLicencia { get => numLicencia; set => numLicencia = value; }
@@ -25,6 +25,6 @@ namespace SistemaDeTransitoMunicipal.pocos
         public string Fecha { get => fecha; set => fecha = value; }
         public string Estatus { get => estatus; set => estatus = value; }
         public string Direccion { get => direccion; set => direccion = value; }
-        public string Imagen1 { get => imagen1; set => imagen1 = value; }
+        public byte[] Imagen1 { get => imagen1; set => imagen1 = value; }
     }
 }
