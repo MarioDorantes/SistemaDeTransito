@@ -1,4 +1,5 @@
-﻿using DireccionGeneralDeTránsito.DAO;
+﻿using DireccionGeneralDeTránsito.pocos;
+using DireccionGeneralDeTránsito.DAO;
 using DireccionGeneralDeTránsito.Interfaz;
 using System;
 using System.Collections.Generic;
@@ -21,13 +22,19 @@ namespace DireccionGeneralDeTránsito
     /// </summary>
     public partial class DictaminarReporte : Window
     {
-        public DictaminarReporte()
+        String usuarioConectado = "";
+        public DictaminarReporte(String idReporte, String usuario)
         {
             InitializeComponent();
+            usuarioConectado = usuario;
         }
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
+            VerReportes ventanaVerReportes = new VerReportes(usuarioConectado);
+            ventanaVerReportes.Show();
+            this.Close();
+        }
             this.Close();
         }
 
