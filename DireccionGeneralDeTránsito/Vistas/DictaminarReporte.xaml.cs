@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DireccionGeneralDeTránsito.pocos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,16 @@ namespace DireccionGeneralDeTránsito
     /// </summary>
     public partial class DictaminarReporte : Window
     {
-        public DictaminarReporte(String idReporte)
+        String usuarioConectado = "";
+        public DictaminarReporte(String idReporte, String usuario)
         {
             InitializeComponent();
+            usuarioConectado = usuario;
         }
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
-            VerReportes ventanaVerReportes = new VerReportes();
+            VerReportes ventanaVerReportes = new VerReportes(usuarioConectado);
             ventanaVerReportes.Show();
             this.Close();
         }

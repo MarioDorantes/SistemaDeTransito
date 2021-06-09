@@ -26,6 +26,15 @@ namespace DireccionGeneralDeTránsito
         Usuario usuarioEditar;
         Observer notificacion;
         Boolean isNuevo = false;
+        String usuarioConectado = "";
+        public RegistrarUsuarios(String usuario)
+        {
+            InitializeComponent();
+            usuarioConectado = usuario;
+            CargarTipoUsuario();
+            CargarDelegaciones();
+
+        }
         public RegistrarUsuarios()
         {
             InitializeComponent();
@@ -71,7 +80,7 @@ namespace DireccionGeneralDeTránsito
         }
         private void btn_regresar_Click(object sender, RoutedEventArgs e)
         {
-            UsuariosRegistrados ventanaUsuariosRegistrados = new UsuariosRegistrados();
+            UsuariosRegistrados ventanaUsuariosRegistrados = new UsuariosRegistrados(usuarioConectado);
             ventanaUsuariosRegistrados.Show();
             this.Close();
         }

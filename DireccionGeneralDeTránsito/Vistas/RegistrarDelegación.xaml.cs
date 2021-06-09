@@ -26,6 +26,13 @@ namespace DireccionGeneralDeTránsito
         Observer notificacion;
         Boolean isNuevo = true;
         Delegacion editarDelegacion;
+        String usuarioConectado = "";
+        public RegistrarDelegación(String usuario)
+        {
+            InitializeComponent();
+            usuarioConectado = usuario;
+            cargarMinicipios();
+        }
         public RegistrarDelegación()
         {
             InitializeComponent();
@@ -55,7 +62,7 @@ namespace DireccionGeneralDeTránsito
 
         private void btn_regresar_Click(object sender, RoutedEventArgs e)
         {
-            DelegacionesRegistradas ventanaDelegaciones = new DelegacionesRegistradas();
+            DelegacionesRegistradas ventanaDelegaciones = new DelegacionesRegistradas(usuarioConectado);
             ventanaDelegaciones.Show();
             this.Close();
         }

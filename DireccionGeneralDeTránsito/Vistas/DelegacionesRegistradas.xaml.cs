@@ -23,9 +23,11 @@ namespace DireccionGeneralDeTránsito.Vistas
     public partial class DelegacionesRegistradas : Window, Observer
     {
         List<Delegacion> delegaciones;
-        public DelegacionesRegistradas()
+        String usuarioConectado = "";
+        public DelegacionesRegistradas(String usuario)
         {
             InitializeComponent();
+            usuarioConectado = usuario;
             delegaciones = new List<Delegacion>();
             CargarDelegaciones();
         }
@@ -44,7 +46,7 @@ namespace DireccionGeneralDeTránsito.Vistas
 
         private void btn_regresar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalAdministrativo ventanaPrincipal = new VentanaPrincipalAdministrativo();
+            VentanaPrincipalAdministrativo ventanaPrincipal = new VentanaPrincipalAdministrativo(usuarioConectado);
             ventanaPrincipal.Show();
             this.Close();
         }

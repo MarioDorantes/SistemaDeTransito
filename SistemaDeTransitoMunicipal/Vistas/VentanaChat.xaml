@@ -12,7 +12,7 @@
         <Label Content="CHAT GENERAL DE TRANSITO" HorizontalAlignment="Left" Margin="147,10,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="36"/>
         <TextBox x:Name="Tb_Contenido" HorizontalAlignment="Left" Height="253" Margin="10,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="772"/>
         <TextBox x:Name="Tb_mensaje" HorizontalAlignment="Left" Height="71" Margin="10,338,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="558"/>
-        <Button x:Name="Btn_Enviar" Content="Enviar mensaje" HorizontalAlignment="Left" Margin="573,338,0,0" VerticalAlignment="Top" Width="209" Height="71" Foreground="Black" Background="#FF33F144" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="Btn_Enviar" Content="Enviar mensaje" HorizontalAlignment="Left" Margin="573,338,0,0" VerticalAlignment="Top" Width="209" Height="71" Foreground="Black" Background="#FF33F144" FontSize="16" FontWeight="Bold" Click="Btn_Enviar_Click"/>
         <Button x:Name="Btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="75" Click="Btn_regresar_Click"/>
 
     </Grid>

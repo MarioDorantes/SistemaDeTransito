@@ -22,6 +22,7 @@ namespace DireccionGeneralDeTránsito
     /// </summary>
     public partial class MainWindow : Window
     {
+        String nombreUsuario;
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +38,9 @@ namespace DireccionGeneralDeTránsito
                 if(usuarioLogin != null)
                 {
                     MessageBox.Show("Bienvenido al sistema " + usuarioLogin.NombreUsuario);
-                    VentanaPrincipalAdministrativo ventanaPrincipalAdministrativo = new VentanaPrincipalAdministrativo();
+                    nombreUsuario = usuarioLogin.NombreUsuario;
+                    nombreUsuario = usuarioLogin.NombreUsuario;
+                    VentanaPrincipalAdministrativo ventanaPrincipalAdministrativo = new VentanaPrincipalAdministrativo(nombreUsuario);
                     ventanaPrincipalAdministrativo.Show();
                     this.Close();
                 }

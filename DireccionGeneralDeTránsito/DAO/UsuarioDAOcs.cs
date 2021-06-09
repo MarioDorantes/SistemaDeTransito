@@ -44,7 +44,7 @@ namespace DireccionGeneralDeTránsito.DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error de inicio");
+                MessageBox.Show("Error de inicio"+e.Message);
             }
             finally
             {

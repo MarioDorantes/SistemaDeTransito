@@ -16,18 +16,23 @@ using System.Windows.Shapes;
 
 namespace DireccionGeneralDeTránsito
 {
-    /// <summary>
-    /// Lógica de interacción para VerReportes.xaml
-    /// </summary>
+    
     public partial class VerReportes : Window
     {
-
+        String usuarioConectado = "";
         List<Reporte> reportes;
         public VerReportes()
         {
             InitializeComponent();
             reportes = new List<Reporte>();
             cargarReportes();
+        }
+        public VerReportes(String usuario)
+        {
+            InitializeComponent();
+            reportes = new List<Reporte>();
+            cargarReportes();
+            usuarioConectado = usuario;
         }
 
         private void cargarReportes()
@@ -39,7 +44,7 @@ namespace DireccionGeneralDeTránsito
 
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalAdministrativo principalAdministrativo = new VentanaPrincipalAdministrativo();
+            VentanaPrincipalAdministrativo principalAdministrativo = new VentanaPrincipalAdministrativo(usuarioConectado);
             principalAdministrativo.Show();
             this.Close();
         }
