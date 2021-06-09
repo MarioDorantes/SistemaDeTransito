@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal.Vistas"
         mc:Ignorable="d"
         Title="GestionarConductores" Height="455" Width="800">
-    <Grid Margin="0,0,3.6,-4" Height="424" VerticalAlignment="Top">
-        <DataGrid x:Name="dg_conductores" HorizontalAlignment="Left" Height="282" Margin="26,71,0,0" VerticalAlignment="Top" Width="734">
+    <Grid Margin="0,0,3.6,-4" Height="424" VerticalAlignment="Top" Background="#FF9E1616">
+        <DataGrid x:Name="dg_conductores" HorizontalAlignment="Left" Height="282" Margin="26,71,0,0" VerticalAlignment="Top" Width="734" Background="#FF9E1616" BorderBrush="Black">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                 <DataGridTextColumn Header="Apellido Paterno" Binding="{Binding Paternos}"/>

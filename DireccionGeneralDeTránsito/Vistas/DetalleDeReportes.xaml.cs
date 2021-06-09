@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DireccionGeneralDeTránsito.pocos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +20,28 @@ namespace DireccionGeneralDeTránsito
     /// </summary>
     public partial class DetalleDeReportes : Window
     {
+        String usuarioConectado = "";
+        public DetalleDeReportes(String usuario)
+
+        DictaminarReporte ventanaDictaminar = new DictaminarReporte();
         public DetalleDeReportes()
         {
             InitializeComponent();
+            usuarioConectado = usuario;
         }
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalAdministrativo inicio = new VentanaPrincipalAdministrativo();
+            VentanaPrincipalAdministrativo inicio = new VentanaPrincipalAdministrativo(usuarioConectado);
             inicio.Show();
+            VerReportes ventanaVerReportes = new VerReportes();
+            ventanaVerReportes.Show();
             this.Close();
+        }
+        
+        private void btn_dictaminar_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaDictaminar.Show();
         }
     }
 }

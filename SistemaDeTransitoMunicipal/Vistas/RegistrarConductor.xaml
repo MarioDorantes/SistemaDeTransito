@@ -6,21 +6,22 @@
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal"
         mc:Ignorable="d"
         Title="Registrar Conductor" Height="400" Width="700">
-    <Grid Margin="0,0,-6.4,-2.2">
-        <Label Content="Número de licencia: " HorizontalAlignment="Left" Margin="23,23,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Width="147"/>
-        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="98,67,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Apellido Paterno:" HorizontalAlignment="Left" Margin="39,108,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Apellido Materno:" HorizontalAlignment="Left" Margin="39,156,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="16,202,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Teléfono:" HorizontalAlignment="Left" Height="26" Margin="93,248,0,0" VerticalAlignment="Top" Width="72" FontFamily="Arial" FontSize="14" FontWeight="Bold" RenderTransformOrigin="0.727,0.445"/>
+    <Grid Margin="0,0,-6.4,-2.2" Background="#FF9E1616">
+        <Label Content="Número de licencia: " HorizontalAlignment="Left" Margin="23,23,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Width="147" Foreground="White"/>
+        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="98,67,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Apellido Paterno:" HorizontalAlignment="Left" Margin="39,108,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Apellido Materno:" HorizontalAlignment="Left" Margin="39,156,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="16,202,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Teléfono:" HorizontalAlignment="Left" Height="26" Margin="93,248,0,0" VerticalAlignment="Top" Width="72" FontFamily="Arial" FontSize="14" FontWeight="Bold" RenderTransformOrigin="0.727,0.445" Foreground="White"/>
         <TextBox x:Name="txt_numeroLicencia" HorizontalAlignment="Left" Height="23" Margin="175,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
         <TextBox x:Name="txt_nombre" HorizontalAlignment="Left" Height="23" Margin="175,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
         <TextBox x:Name="txt_paterno" HorizontalAlignment="Left" Height="23" Margin="175,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
         <TextBox x:Name="txt_materno" HorizontalAlignment="Left" Height="23" Margin="175,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
-        <TextBox x:Name="txt_nacimiento" HorizontalAlignment="Left" Height="23" Margin="175,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
         <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Height="23" Margin="175,251,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
         <Button x:Name="btn_registrar" Content="Registrar" HorizontalAlignment="Left" Margin="23,313,0,0" VerticalAlignment="Top" Width="105" Height="34" FontFamily="Arial" FontSize="14" FontWeight="Bold" Background="#FF75F654" Click="btn_registrar_Click"/>
         <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="564,313,0,0" VerticalAlignment="Top" Width="105" Height="34" Background="#FFF72E15" FontFamily="Arial" FontSize="14" FontWeight="Bold" Click="btn_cancelar_Click"/>
+        <DatePicker x:Name="dp_fechaNacimiento" HorizontalAlignment="Left" Margin="175,204,0,0" VerticalAlignment="Top" Width="475"/>
+
 
     </Grid>
 </Window>

@@ -222,5 +222,41 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             return resultado;
         }
+
+        public static Boolean verificarLicenciasRegistradas(string numeroDeLicencia)
+        {
+            Boolean licenciaObtenida = false;
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+
+                    String query = String.Format("SELECT cn_numLicencia FROM conductor WHERE cn_numLicencia = '{0}' ", numeroDeLicencia);
+
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    if (dataReader.Read())
+                    {
+                        licenciaObtenida = true;
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message + "No se estableció conexión con la BD", "Ocurrió un error");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return licenciaObtenida;
+        }
     }
 }

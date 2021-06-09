@@ -97,6 +97,9 @@
     <Compile Include="vistas\RegistrarVehiculo.xaml.cs">
       <DependentUpon>RegistrarVehiculo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="vistas\VentanaChat.xaml.cs">
+      <DependentUpon>VentanaChat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="vistas\VentanaPrincipalMunicipal.xaml.cs">
       <DependentUpon>VentanaPrincipalMunicipal.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="vistas\VentanaChat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="vistas\VentanaPrincipalMunicipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +185,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="vistas\Escudo_Veracruz.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,4 @@
-﻿using DireccionGeneralDeTránsito.pocos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -15,23 +14,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DireccionGeneralDeTránsito.vistas
+namespace SistemaDeTransitoMunicipal.vistas
 {
     /// <summary>
-    /// Lógica de interacción para ChatGeneral.xaml
+    /// Lógica de interacción para VentanaChat.xaml
     /// </summary>
-    public partial class ChatGeneral : Window
+    public partial class VentanaChat : Window
     {
         String usuarioConectado = "";
         TcpClient clientSocket = new TcpClient();
         NetworkStream serverStream = default(NetworkStream);
         string msjServidor = "";
-        public ChatGeneral(String usuario)
+        public VentanaChat()
         {
             InitializeComponent();
-            Tb_Contenido.IsEnabled = false;
-            usuarioConectado = usuario;
-            ConectarAlServidor();
         }
 
         public void ConectarAlServidor()
@@ -82,17 +78,17 @@ namespace DireccionGeneralDeTránsito.vistas
             {
                 MessageBox.Show("Error de conexión con el servidor");
             }
-            
+
         }
 
-        private void Btn_Regresar_Click(object sender, RoutedEventArgs e)
+        private void Btn_regresar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalAdministrativo ventanaPrincipal = new VentanaPrincipalAdministrativo(usuarioConectado);
-            ventanaPrincipal.Show();
+            VentanaPrincipalMunicipal ventanaAdmin = new VentanaPrincipalMunicipal();
+            ventanaAdmin.Show();
             this.Close();
         }
 
-        private void Btn_EnviarMensaje_Click(object sender, RoutedEventArgs e)
+        private void Btn_Enviar_Click(object sender, RoutedEventArgs e)
         {
             if (Tb_mensaje.Text.Length > 0)
             {

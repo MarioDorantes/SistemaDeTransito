@@ -5,15 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal"
         mc:Ignorable="d"
-        Title="Inicio Sistema Municipal" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="btn_registrar_conductor" Content="Gestionar Conductores" HorizontalAlignment="Left" Margin="65,70,0,0" VerticalAlignment="Top" Width="155" Height="45" Click="btn_registrar_conductor_Click" Background="#FF1FCDF3" FontWeight="Bold"/>
-        <Button x:Name ="btn_gestionar_vehiculos" Content="Gestionar Vehículos" HorizontalAlignment="Left" Margin="65,175,0,0" VerticalAlignment="Top" Width="155" Height="45" Background="#FF1FCDF3" FontWeight="Bold" Click="btn_gestionar_vehiculos_Click"/>
-        <Button x:Name="btn_registrar_reporte" Content="Registrar Reporte" HorizontalAlignment="Left" Margin="65,295,0,0" VerticalAlignment="Top" Width="155" Height="45" Background="#FF1FCDF3" FontWeight="Bold" Click="btn_RegistrarReporte_Click"/>
-        <Button x:Name="btn_historial_reportes" Content="Historial de Reportes" HorizontalAlignment="Left" Margin="530,70,0,0" VerticalAlignment="Top" Width="155" Height="45" Background="#FF1FCDF3" FontWeight="Bold" Click="btn_HistorialDeReportes_Click"/>
-        <Button x:Name="btn_dictamen_reporte" Content="Dictamen de Reporte" HorizontalAlignment="Left" Margin="530,175,0,0" VerticalAlignment="Top" Width="155" Height="45" Click="btn_dictamen_reporte_Click"/>
-        <Button x:Name="btn_chat" Content="Chat General" HorizontalAlignment="Left" Margin="530,295,0,0" VerticalAlignment="Top" Width="155" Height="45"/>
-        <Button Content="Cerrar Sesión" HorizontalAlignment="Left" Margin="676,366,0,0" VerticalAlignment="Top" Width="97" Height="32" Background="#FFF48383" FontFamily="Arial" FontSize="14" FontWeight="Bold" Click="Button_Click"/>
+        Title="Inicio Sistema Municipal" Height="431.366" Width="800">
+    <Grid Background="White">
+        <Button x:Name="btn_registrar_conductor" Content="Gestionar Conductores" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Width="263" Height="70" Click="btn_registrar_conductor_Click" Background="#FF9E1616" FontWeight="Bold" RenderTransformOrigin="1.971,4.159" BorderThickness="5,1,1,1"/>
+        <Button x:Name ="btn_gestionar_vehiculos" Content="Gestionar Vehículos" HorizontalAlignment="Left" Margin="499,265,0,0" VerticalAlignment="Top" Width="283" Height="67" Background="#FF9E1616" FontWeight="Bold" Click="btn_gestionar_vehiculos_Click" BorderThickness="5,1,1,1"/>
+        <Button x:Name="btn_registrar_reporte" Content="Registrar Reporte" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="376" Height="149" Background="#FF9E1616" FontWeight="Bold" Click="btn_RegistrarReporte_Click" BorderThickness="5,1,1,1"/>
+        <Button x:Name="btn_historial_reportes" Content="Historial de Reportes" HorizontalAlignment="Left" Margin="391,105,0,0" VerticalAlignment="Top" Width="391" Height="149" Background="#FF9E1616" FontWeight="Bold" Click="btn_HistorialDeReportes_Click" BorderThickness="5,1,1,1"/>
+        <Button x:Name="btn_chat" Content="Chat General" HorizontalAlignment="Left" Margin="278,265,0,0" VerticalAlignment="Top" Width="216" Height="69" Background="#FF9E1616" FontWeight="Bold" BorderThickness="5,1,1,1" Click="btn_chat_Click"/>
+        <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="792" Background="#FF9E1616">
+            <Label Content="SISTEMA DE TRÁNSITO MUNICIPAL" HorizontalAlignment="Left" Margin="182,22,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold" Background="{x:Null}"/>
+            <Image HorizontalAlignment="Left" Height="93" Margin="696,-3,0,0" VerticalAlignment="Top" Width="86" Source="Escudo_Veracruz.png"/>
+        </Grid>
+        <Button Content="Cerrar Sesión" HorizontalAlignment="Left" Margin="330,353,0,0" VerticalAlignment="Top" Width="115" Height="32" Background="#FFF33939" FontFamily="Arial" FontSize="14" FontWeight="Bold" Click="Button_Click" BorderThickness="5,1,1,1"/>
 
     </Grid>
 </Window>

@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="conexionBD\ConexionBD.cs" />
     <Compile Include="DAO\DelegacionDAO.cs" />
+    <Compile Include="DAO\DictamenDAO.cs" />
     <Compile Include="DAO\ReporteDAO.cs" />
     <Compile Include="DAO\UsuarioDAOcs.cs" />
     <Compile Include="interfaz\Observer.cs" />

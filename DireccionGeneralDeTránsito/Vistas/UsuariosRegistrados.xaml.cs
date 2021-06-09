@@ -23,10 +23,18 @@ namespace DireccionGeneralDeTránsito.Vistas
     public partial class UsuariosRegistrados : Window, Observer
     {
         List<Usuario> usuarios;
+        String usuarioConectado = "";
 
         public UsuariosRegistrados()
         {
             InitializeComponent();
+            usuarios = new List<Usuario>();
+            cargarUsuarios();
+        }
+        public UsuariosRegistrados(String usuario)
+        {
+            InitializeComponent();
+            usuarioConectado = usuario;
             usuarios = new List<Usuario>();
             cargarUsuarios();
         }
@@ -39,7 +47,7 @@ namespace DireccionGeneralDeTránsito.Vistas
         }
         private void btn_regresar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalAdministrativo ventanaPrincipal = new VentanaPrincipalAdministrativo();
+            VentanaPrincipalAdministrativo ventanaPrincipal = new VentanaPrincipalAdministrativo(usuarioConectado);
             ventanaPrincipal.Show();
             this.Close();
         }
