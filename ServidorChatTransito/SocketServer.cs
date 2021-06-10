@@ -33,12 +33,24 @@ namespace ServidorChatTransito
                 msjCliente = msjCliente.Substring(0, msjCliente.IndexOf("$"));
 
                 Console.WriteLine("Nombre cliente: " + msjCliente);
-
-                listaClientes.Add(msjCliente, clientSocket);
+                if (listaClientes.ContainsKey(msjCliente))
+                {
+                    listaClientes.Remove(msjCliente);
+                    listaClientes.Remove(clientSocket);
+                    notificarClientes("Se ha desconectado del chat "+msjCliente,msjCliente,false);
+                    listaClientes.Add(msjCliente, clientSocket);
+                }
+                else
+                {
+                    listaClientes.Add(msjCliente, clientSocket);
+                }
+                
                 Console.WriteLine(msjCliente + " se unio al chat...");
+       
+                
 
                 //Metodo de notificacion a todos
-                notificarClientes(msjCliente + " se ha unido ", msjCliente, false);
+                notificarClientes("Se ha unido al chat "+msjCliente, msjCliente, false);
 
                 //Asignacion de la clase responsable del socket cliente
                 ClienteRemoto clienteRemoto = new ClienteRemoto();
@@ -57,7 +69,7 @@ namespace ServidorChatTransito
 
                 if (flag == true)
                 {
-                    broadcastBytes = Encoding.ASCII.GetBytes("Mensaje de ("+nomCliente+"):" + mensaje);
+                    broadcastBytes = Encoding.ASCII.GetBytes("Mensaje de ("+nomCliente+"): " + mensaje);
                 }
                 else
                 {
@@ -84,7 +96,7 @@ namespace ServidorChatTransito
             this.clientSocket = clientSocket;
             this.nomCliente = nomCliente;
             Thread ctThread = new Thread(escucharChat);
-            ctThread.Start();
+            ctThread.Start();   
         }
 
         private void escucharChat()
@@ -99,7 +111,6 @@ namespace ServidorChatTransito
                     networkStream.Read(bytesFrom, 0, clientSocket.ReceiveBufferSize);
                     dataFromCliente = Encoding.ASCII.GetString(bytesFrom);
                     dataFromCliente = dataFromCliente.Substring(0, dataFromCliente.IndexOf("$"));
-                    Console.WriteLine("Del cliente - " + nomCliente + ":" + dataFromCliente);
 
                     SocketServer.notificarClientes(dataFromCliente, nomCliente, true);
                 }

@@ -17,11 +17,10 @@ using System.Windows.Shapes;
 
 namespace SistemaDeTransitoMunicipal
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
+    
     public partial class MainWindow : Window
     {
+        public static string nombreUsuario = "";
 
         public static int idDelegacionLoggeada = 0;
         public MainWindow()
@@ -39,6 +38,7 @@ namespace SistemaDeTransitoMunicipal
                 Usuario userRespuesta = UsuarioDAO.obtenerLogin(usuario, contraseña);
                 if (userRespuesta != null && userRespuesta.NombreUsuario != null)
                 {
+                    nombreUsuario = userRespuesta.NombreUsuario;
                     idDelegacionLoggeada = userRespuesta.IdDelegacion;
                     MessageBox.Show("Bienvenido al sistema : " + userRespuesta.NombreUsuario, "Usuario encontrado");
                     irVentanaAdministrador();

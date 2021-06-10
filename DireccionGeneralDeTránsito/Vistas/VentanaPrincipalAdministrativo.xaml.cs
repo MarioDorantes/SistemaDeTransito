@@ -32,7 +32,7 @@ namespace DireccionGeneralDeTránsito
 
         public VentanaPrincipalAdministrativo()
         {
-
+            InitializeComponent();
         }
         private void btn_verReportes_Click(object sender, RoutedEventArgs e)
         {
