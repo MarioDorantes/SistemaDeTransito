@@ -24,7 +24,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                 if (conn != null)
                 {
                     SqlCommand command;
-                    String query = "INSERT INTO REPORTEPRUEBA VALUES (@idDelegacion, @rpt_fecha, @rpt_estatus, " +
+                    String query = "INSERT INTO REPORTE VALUES (@idDelegacion, @rpt_fecha, @rpt_estatus, " +
                         "@rpt_direccion, @rpt_imagen1, @rpt_imagen2, @rpt_imagen3, @rpt_imagen4, @rpt_imagen5, @rpt_imagen6, @rpt_imagen7, @rpt_imagen8)";
                     command = new SqlCommand(query, conn);
 
@@ -70,7 +70,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                     SqlCommand command;
                     SqlDataReader dataReader;
 
-                    String query = "SELECT * FROM reportePrueba;";
+                    String query = "SELECT * FROM reporte;";
                     Console.WriteLine(query);
 
                     command = new SqlCommand(query, conn);
@@ -110,6 +110,48 @@ namespace SistemaDeTransitoMunicipal.DAO
                 }
             }
             return reportes;
+        }
+
+
+        public static int obtenerIdReporteMax()
+        {
+            SqlConnection conn = null;
+            int reporteMaximo = 0;
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+
+                    String query = "SELECT MAX(rpt_idReporte) FROM REPORTE;";
+
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        Reporte reporte = new Reporte();
+                        reporteMaximo = reporte.IdReporte = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
+                    }
+
+                    command.Dispose();
+                    dataReader.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("No hay conexión a la base de datos. Intente más tarde", "Error" + e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return reporteMaximo;
         }
 
 
