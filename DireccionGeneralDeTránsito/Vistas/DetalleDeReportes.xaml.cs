@@ -35,8 +35,6 @@ namespace DireccionGeneralDeTránsito
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            VentanaPrincipalAdministrativo inicio = new VentanaPrincipalAdministrativo(usuarioConectado);
-            inicio.Show();
             VerReportes ventanaVerReportes = new VerReportes();
             ventanaVerReportes.Show();
             this.Close();
