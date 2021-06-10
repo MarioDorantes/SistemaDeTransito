@@ -135,6 +135,11 @@ namespace SistemaDeTransitoMunicipal
                     fileUri8 = new Uri(openFileDialog.FileName);
                     img_num8.Source = new BitmapImage(fileUri8);
                 }
+                else if (img_num1.Source != null && img_num2.Source != null && img_num3.Source != null && img_num4.Source != null &&
+                img_num5.Source != null && img_num6.Source != null && img_num7.Source != null && img_num8.Source != null)
+                {
+                    MessageBox.Show("Solo máximo 8 fotografías", "Máximo de fotos");
+                }
             }
         }
 
@@ -169,7 +174,7 @@ namespace SistemaDeTransitoMunicipal
             {
                 camposLlenos = false;
             }
-
+            
             if (camposLlenos)
             {
                 int idDelegacion = MainWindow.idDelegacionLoggeada;

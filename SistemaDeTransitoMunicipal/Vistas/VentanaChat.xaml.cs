@@ -16,25 +16,25 @@ using System.Windows.Shapes;
 
 namespace SistemaDeTransitoMunicipal.vistas
 {
-    
+    /// <summary>
+    /// Lógica de interacción para VentanaChat.xaml
+    /// </summary>
     public partial class VentanaChat : Window
     {
-        String usuarioConectado = MainWindow.nombreUsuario;
+        String usuarioConectado = "";
         TcpClient clientSocket = new TcpClient();
         NetworkStream serverStream = default(NetworkStream);
         string msjServidor = "";
         public VentanaChat()
         {
             InitializeComponent();
-            ConectarAlServidor();
-            Tb_Contenido.IsReadOnly = true;
-
         }
 
         public void ConectarAlServidor()
         {
             try
             {
+                Console.WriteLine("Conectando al servidor...");
                 clientSocket.Connect("127.0.0.1", 1234);
                 serverStream = clientSocket.GetStream();
                 string nombreChat = usuarioConectado;
@@ -48,7 +48,7 @@ namespace SistemaDeTransitoMunicipal.vistas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al conectarse con el servidor, inténtelo más tarde", ex.Message);
+                MessageBox.Show("Erro al conectarse con el servidor, inténtelo más tarde", ex.Message);
             }
         }
 
@@ -83,7 +83,6 @@ namespace SistemaDeTransitoMunicipal.vistas
 
         private void Btn_regresar_Click(object sender, RoutedEventArgs e)
         {
-
             VentanaPrincipalMunicipal ventanaAdmin = new VentanaPrincipalMunicipal();
             ventanaAdmin.Show();
             this.Close();
