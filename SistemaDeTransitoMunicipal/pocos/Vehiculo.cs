@@ -23,6 +23,17 @@ namespace SistemaDeTransitoMunicipal.pocos
         private String conductorApellidoPaterno;
         private String conductorApellidoMaterno;
 
+        public Vehiculo()
+        {
+
+        }
+
+        public Vehiculo(string numeroLicencia, int idVehiculo)
+        {
+            this.numeroLicencia = numeroLicencia;
+            this.idVehiculo = idVehiculo;
+        }
+
         public string NumeroLicencia { get => numeroLicencia; set => numeroLicencia = value; }
         public int IdVehiculo { get => idVehiculo; set => idVehiculo = value; }
         public string Marca { get => marca; set => marca = value; }

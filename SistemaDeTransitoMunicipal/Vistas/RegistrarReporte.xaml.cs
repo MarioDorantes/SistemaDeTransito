@@ -242,8 +242,9 @@ namespace SistemaDeTransitoMunicipal
 
                 foreach (Vehiculo vehiculoAReporte in vehiculosReporte)
                 {
-                    
-                    resultado2 = ReporteConductorVehiculoDAO.agregarReporteConductorVehiculo(reporteMax, vehiculoAReporte.NumeroLicencia, vehiculoAReporte.IdVehiculo);
+                    Vehiculo vehiculoAux = new Vehiculo(vehiculoAReporte.NumeroLicencia, vehiculoAReporte.IdVehiculo);
+
+                    resultado2 = ReporteConductorVehiculoDAO.agregarReporteConductorVehiculo(reporteMax, vehiculoAux);
                     
                 }
 

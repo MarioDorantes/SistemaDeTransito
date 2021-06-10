@@ -74,7 +74,7 @@ namespace SistemaDeTransitoMunicipal.DAO
                     SqlCommand command;
                     SqlDataReader dataReader;
 
-                    String query = "SELECT v.vhc_idVehiculo, v.vhc_marca, v.vhc_modelo, v.vhc_color, " +
+                    String query = "SELECT v.cn_numLicencia, v.vhc_idVehiculo, v.vhc_marca, v.vhc_modelo, v.vhc_color, " +
                         "v.vhc_numPlacas, c.cn_nombre AS conductorNomnbre, c.cn_apellido_Paterno AS conductorApellidoPaterno, " +
                         "c.cn_apellidoMaterno AS conductorApellidoMaterno FROM dbo.vehiculo v " +
                         "INNER JOIN dbo.conductor c ON v.cn_numLicencia = c.cn_numLicencia;";
@@ -85,14 +85,15 @@ namespace SistemaDeTransitoMunicipal.DAO
                     while (dataReader.Read())
                     {
                         Vehiculo vehiculo = new Vehiculo();
-                        vehiculo.IdVehiculo = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
-                        vehiculo.Marca = (!dataReader.IsDBNull(1)) ? dataReader.GetString(1) : "";
-                        vehiculo.Modelo = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
-                        vehiculo.Color = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
-                        vehiculo.NumeroPlacas = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
-                        vehiculo.ConductorNombre = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
-                        vehiculo.ConductorApellidoPaterno = (!dataReader.IsDBNull(6)) ? dataReader.GetString(6) : "";
-                        vehiculo.ConductorApellidoMaterno = (!dataReader.IsDBNull(7)) ? dataReader.GetString(7) : "";
+                        vehiculo.NumeroLicencia = (!dataReader.IsDBNull(0)) ? dataReader.GetString(0) : "";
+                        vehiculo.IdVehiculo = (!dataReader.IsDBNull(1)) ? dataReader.GetInt32(1) : 0;
+                        vehiculo.Marca = (!dataReader.IsDBNull(2)) ? dataReader.GetString(2) : "";
+                        vehiculo.Modelo = (!dataReader.IsDBNull(3)) ? dataReader.GetString(3) : "";
+                        vehiculo.Color = (!dataReader.IsDBNull(4)) ? dataReader.GetString(4) : "";
+                        vehiculo.NumeroPlacas = (!dataReader.IsDBNull(5)) ? dataReader.GetString(5) : "";
+                        vehiculo.ConductorNombre = (!dataReader.IsDBNull(6)) ? dataReader.GetString(6) : "";
+                        vehiculo.ConductorApellidoPaterno = (!dataReader.IsDBNull(7)) ? dataReader.GetString(7) : "";
+                        vehiculo.ConductorApellidoMaterno = (!dataReader.IsDBNull(8)) ? dataReader.GetString(8) : "";
                         vehiculos.Add(vehiculo);
                     }
                     command.Dispose();

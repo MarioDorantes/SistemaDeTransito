@@ -1,4 +1,5 @@
 ﻿using SistemaDeTransitoMunicipal.conexionBD;
+using SistemaDeTransitoMunicipal.pocos;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,8 +12,11 @@ namespace SistemaDeTransitoMunicipal.DAO
 {
     class ReporteConductorVehiculoDAO
     {
-        public static int agregarReporteConductorVehiculo(int idReporte, String numLicencia, int idVehiculo)
+        public static int agregarReporteConductorVehiculo(int idReporte, Vehiculo vehiculo)
         {
+            String numLicencia = vehiculo.NumeroLicencia;
+            int idVehiculo = vehiculo.IdVehiculo;
+
             SqlConnection conn = null;
             int resultado = 0;
 
