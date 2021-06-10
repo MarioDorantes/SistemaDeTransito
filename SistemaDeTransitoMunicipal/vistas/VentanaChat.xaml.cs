@@ -48,7 +48,7 @@ namespace SistemaDeTransitoMunicipal.vistas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro al conectarse con el servidor, inténtelo más tarde");
+                MessageBox.Show("Erro al conectarse con el servidor, inténtelo más tarde", ex.Message);
             }
         }
 

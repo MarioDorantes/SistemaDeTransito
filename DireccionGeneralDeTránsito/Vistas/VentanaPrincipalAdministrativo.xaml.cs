@@ -29,6 +29,11 @@ namespace DireccionGeneralDeTránsito
             nombre = nombreUsuario;
             
         }
+
+        public VentanaPrincipalAdministrativo()
+        {
+
+        }
         private void btn_verReportes_Click(object sender, RoutedEventArgs e)
         {
             VerReportes ventanaVerReportes = new VerReportes(nombre);

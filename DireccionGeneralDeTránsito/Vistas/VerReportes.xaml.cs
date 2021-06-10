@@ -3,6 +3,7 @@ using DireccionGeneralDeTránsito.Interfaz;
 using DireccionGeneralDeTránsito.pocos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,16 +18,16 @@ using System.Windows.Shapes;
 
 namespace DireccionGeneralDeTránsito
 {
-    
-    public partial class VerReportes : Window
     /// <summary>
     /// Lógica de interacción para VerReportes.xaml
     /// </summary>
-    public partial class VerReportes : Window, Observer
+    /// 
+    public partial class VerReportes : Window
     {
         String usuarioConectado = "";
         List<Reporte> reportes;
         public static int idReporte;
+        public static DetalleDeReportes ventanaDetalle;
         public VerReportes()
         {
             InitializeComponent();
@@ -61,7 +62,7 @@ namespace DireccionGeneralDeTránsito
             if (posicionSeleccionada >= 0)
             {
                 idReporte = reportes[posicionSeleccionada].IdReporte;
-                DetalleDeReportes ventanaDetalle = new DetalleDeReportes();
+                ventanaDetalle = new DetalleDeReportes();
                 ventanaDetalle.Show();
                 this.Close();
             }
@@ -69,11 +70,6 @@ namespace DireccionGeneralDeTránsito
             {
                 MessageBox.Show("Para ver un reporte, primero debe seleccionarlo", "ATENCIÓN");
             }
-        }
-
-        public void actualizaInformación(string operacion)
-        {
-            cargarReportes();
         }
     }
 }

@@ -29,12 +29,15 @@ namespace DireccionGeneralDeTránsito
             usuarioConectado = usuario;
         }
 
+        public DictaminarReporte()
+        {
+            InitializeComponent();
+        }
+
         private void btn_cancelar_Click(object sender, RoutedEventArgs e)
         {
             VerReportes ventanaVerReportes = new VerReportes(usuarioConectado);
             ventanaVerReportes.Show();
-            this.Close();
-        }
             this.Close();
         }
 
@@ -42,25 +45,26 @@ namespace DireccionGeneralDeTránsito
         {
             string descripcionDictamen = txt_Dictamen.Text;
 
-            if(descripcionDictamen.Length > 0)
+            if (descripcionDictamen.Length > 0)
             {
-                string userNamePerito = MainWindow.nombreUsuario;
+                string userNamePerito = MainWindow.userName;
                 DateTime fechaYHora = DateTime.Now;
                 int idReporte = VerReportes.idReporte;
                 int resultadoInsercion = DictamenDAO.agregarDictamen(userNamePerito, fechaYHora, descripcionDictamen, idReporte);
-                if(resultadoInsercion > 0)
+                if (resultadoInsercion > 0)
                 {
                     int resultadoActualizacion = ReporteDAO.cambiarEstadoReporte(idReporte);
-                    if(resultadoActualizacion > 0)
+                    if (resultadoActualizacion > 0)
                     {
                         MessageBox.Show("Se dictaminó correctamente", "Reporte dictaminado");
-                        this.Close();
+                        abrirVentanaVerReportes();
+                        
                     }
                     else
                     {
                         MessageBox.Show("Error al cambiar el estado del reporte", "Error");
                     }
-                    
+
                 }
                 else
                 {
@@ -71,6 +75,14 @@ namespace DireccionGeneralDeTránsito
             {
                 MessageBox.Show("Favor de llenar el campo", "ATENCIÓN");
             }
+        }
+
+        private void abrirVentanaVerReportes()
+        {
+            VerReportes.ventanaDetalle.Close();
+            VerReportes ventanaReportes = new VerReportes();
+            ventanaReportes.Show();
+            this.Close();
         }
     }
 }

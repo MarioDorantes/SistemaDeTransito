@@ -20,14 +20,17 @@ namespace DireccionGeneralDeTránsito
     /// </summary>
     public partial class DetalleDeReportes : Window
     {
+        
         String usuarioConectado = "";
         public DetalleDeReportes(String usuario)
-
-        DictaminarReporte ventanaDictaminar = new DictaminarReporte();
+        {
+            InitializeComponent();
+            this.usuarioConectado = usuario;
+        }
         public DetalleDeReportes()
         {
             InitializeComponent();
-            usuarioConectado = usuario;
+
         }
 
         private void btn_Cancelar_Click(object sender, RoutedEventArgs e)
@@ -41,6 +44,7 @@ namespace DireccionGeneralDeTránsito
         
         private void btn_dictaminar_Click(object sender, RoutedEventArgs e)
         {
+            DictaminarReporte ventanaDictaminar = new DictaminarReporte();
             ventanaDictaminar.Show();
         }
     }
