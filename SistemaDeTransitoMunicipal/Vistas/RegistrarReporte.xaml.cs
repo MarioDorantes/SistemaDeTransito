@@ -55,6 +55,8 @@ namespace SistemaDeTransitoMunicipal
         }
 
 
+        Vehiculo vehiculoAAgregar;
+
         private void btn_agregarADataGrid_Click(object sender, RoutedEventArgs e)
         {
             int seleccion = dg_listaConductores.SelectedIndex;
@@ -62,7 +64,7 @@ namespace SistemaDeTransitoMunicipal
             if (seleccion >= 0)
             {
 
-                Vehiculo vehiculoAAgregar = vehiculos[seleccion];
+                vehiculoAAgregar = vehiculos[seleccion];
 
                 vehiculosReporte.Add(vehiculoAAgregar);
                 dg_agregados.AutoGenerateColumns = false;
@@ -233,7 +235,19 @@ namespace SistemaDeTransitoMunicipal
 
                 int resultado = ReporteDAO.agregarReporte(idDelegacion, fecha, estatus, direccion, imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8);
 
-                if (resultado > 0)
+                int resultado2 = 0;
+                int reporteMax = ReporteDAO.obtenerIdReporteMax();
+
+                Console.WriteLine("El reporte max es: " + reporteMax);
+
+                foreach (Vehiculo vehiculoAReporte in vehiculosReporte)
+                {
+                    
+                    resultado2 = ReporteConductorVehiculoDAO.agregarReporteConductorVehiculo(reporteMax, vehiculoAReporte.NumeroLicencia, vehiculoAReporte.IdVehiculo);
+                    
+                }
+
+                if (resultado > 0 && resultado2 > 0)
                 {
                     MessageBox.Show("El Reporte se registro exitosamente", "Registro exitoso");
 

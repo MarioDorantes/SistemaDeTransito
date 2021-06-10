@@ -113,6 +113,48 @@ namespace SistemaDeTransitoMunicipal.DAO
         }
 
 
+        public static int obtenerIdReporteMax()
+        {
+            SqlConnection conn = null;
+            int reporteMaximo = 0;
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+
+                    String query = "SELECT MAX(rpt_idReporte) FROM REPORTEPRUEBA;";
+
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        Reporte reporte = new Reporte();
+                        reporteMaximo = reporte.IdReporte = (!dataReader.IsDBNull(0)) ? dataReader.GetInt32(0) : 0;
+                    }
+
+                    command.Dispose();
+                    dataReader.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("No hay conexión a la base de datos. Intente más tarde", "Error" + e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return reporteMaximo;
+        }
+
+
 
     }
 }
