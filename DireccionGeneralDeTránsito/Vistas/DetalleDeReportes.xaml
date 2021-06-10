@@ -5,22 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito"
         mc:Ignorable="d"
-        Title="Detalle De Reportes" Height="562" Width="829">
-    <Grid>
-        <Label Content="Reportes disponibles:" HorizontalAlignment="Left" Margin="25,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="btn_dictaminar" Content="Dictaminar" HorizontalAlignment="Left" Margin="40,460,0,0" VerticalAlignment="Top" Width="135" Height="40" FontWeight="Bold" Background="#FF75F654" Click="btn_dictaminar_Click"/>
-        <Button x:Name="btn_cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="655,460,0,0" VerticalAlignment="Top" Width="135" Height="40" FontWeight="Bold" Background="#FFF72E15" Click="btn_Cancelar_Click"/>
-        <Label Content="Conductor involucrado" HorizontalAlignment="Left" Margin="371,43,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Vehículo involucrado" HorizontalAlignment="Left" Margin="605,43,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Lugar del siniestro" HorizontalAlignment="Left" Margin="371,122,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Observaciones" HorizontalAlignment="Left" Margin="605,122,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Fecha" HorizontalAlignment="Left" Margin="371,204,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Fotografias" HorizontalAlignment="Left" Margin="371,254,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txt_conductor_involucrado" HorizontalAlignment="Left" Height="31" Margin="371,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="txt_vehiculo_involucrado" HorizontalAlignment="Left" Height="31" Margin="605,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
-        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Height="29" Margin="371,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="txt_observaciones" HorizontalAlignment="Left" Height="29" Margin="605,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194"/>
-        <TextBox x:Name="txt_fecha" HorizontalAlignment="Left" Height="26" Margin="425,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="374"/>
-
+        Title="Detalle De Reportes" Height="562" Width="889">
+    <Grid Background="#FF9E1616">
+        <Image HorizontalAlignment="Left" Height="476" Margin="239,25,0,0" VerticalAlignment="Top" Width="567" Source="Escudo_Veracruz.png"/>
+        <Label Content="Conductores y vehículos involucrados" HorizontalAlignment="Left" Margin="31,29,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
+        <DataGrid x:Name="dg_listaInvolucrados" HorizontalAlignment="Left" Height="165" Margin="31,65,0,0" VerticalAlignment="Top" Width="409" SelectionMode="Single" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding ConductorNombre}"/>
+                <DataGridTextColumn Header="Apellido Paterno" Binding="{Binding ConductorApellidoPaterno}"/>
+                <DataGridTextColumn Header="Apellido Materno" Binding="{Binding ConductorApellidoMaterno}"/>
+                <DataGridTextColumn Header="Placas" Binding="{Binding NumeroPlacas}"/>
+                <DataGridTextColumn Header="Marca" Binding="{Binding Marca}"/>
+                <DataGridTextColumn Header="Color" Binding="{Binding Color}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Dirección del Siniestro" HorizontalAlignment="Left" Margin="672,49,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
+        <TextBox x:Name="txt_direccionDetalle" HorizontalAlignment="Left" Height="40" Margin="500,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="360"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="797,150,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
+        <TextBox x:Name="txt_fechaDetalle" HorizontalAlignment="Left" Height="39" Margin="500,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="360"/>
+        <Label Content="Fotografías" HorizontalAlignment="Left" Margin="31,260,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
+        <Image x:Name="img_1Detalle" HorizontalAlignment="Left" Height="100" Margin="34,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="682,439,0,0" VerticalAlignment="Top" Width="168" FontWeight="Bold" Background="#FF15FFCA" Foreground="Black" Height="51" Click="btn_regresar_Click" FontSize="16"/>
+        <Image x:Name="img_2Detalle" HorizontalAlignment="Left" Height="100" Margin="139,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_3Detalle" HorizontalAlignment="Left" Height="100" Margin="244,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_4Detalle" HorizontalAlignment="Left" Height="100" Margin="349,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_5Detalle" HorizontalAlignment="Left" Height="100" Margin="454,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_6Detalle" HorizontalAlignment="Left" Height="100" Margin="559,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_7Detalle" HorizontalAlignment="Left" Height="100" Margin="664,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_8Detalle" HorizontalAlignment="Left" Height="100" Margin="769,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btn_dictaminar" Content="Dictaminar" HorizontalAlignment="Left" Margin="40,439,0,0" VerticalAlignment="Top" Width="163" Height="51" FontWeight="Bold" Background="#FF75F654" Click="btn_dictaminar_Click"/>
     </Grid>
 </Window>

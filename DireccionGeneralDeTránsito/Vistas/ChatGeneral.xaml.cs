@@ -29,7 +29,7 @@ namespace DireccionGeneralDeTránsito.vistas
         public ChatGeneral(String usuario)
         {
             InitializeComponent();
-            Tb_Contenido.IsEnabled = false;
+            Tb_Contenido.IsReadOnly = true;
             usuarioConectado = usuario;
             ConectarAlServidor();
         }
@@ -52,7 +52,7 @@ namespace DireccionGeneralDeTránsito.vistas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro al conectarse con el servidor, inténtelo más tarde");
+                MessageBox.Show("Error al conectarse con el servidor, inténtelo más tarde");
             }
         }
 
@@ -67,14 +67,13 @@ namespace DireccionGeneralDeTránsito.vistas
                     serverStream.Read(inStream, 0, clientSocket.ReceiveBufferSize);
 
                     string returndata = Encoding.ASCII.GetString(inStream);
-                    msjServidor += returndata + " ";
-
-                    Console.WriteLine("Msj del servidor: " + returndata);
+                    msjServidor += returndata;
 
                     Tb_Contenido.Dispatcher.Invoke((ThreadStart)delegate
                     {
                         Tb_Contenido.Clear();
                         Tb_Contenido.Text = msjServidor;
+
                     });
                 }
             }
@@ -82,11 +81,12 @@ namespace DireccionGeneralDeTránsito.vistas
             {
                 MessageBox.Show("Error de conexión con el servidor");
             }
-            
+
         }
 
         private void Btn_Regresar_Click(object sender, RoutedEventArgs e)
         {
+
             VentanaPrincipalAdministrativo ventanaPrincipal = new VentanaPrincipalAdministrativo(usuarioConectado);
             ventanaPrincipal.Show();
             this.Close();

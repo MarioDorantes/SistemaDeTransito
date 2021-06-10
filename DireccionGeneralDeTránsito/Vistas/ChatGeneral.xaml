@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito.vistas"
         mc:Ignorable="d"
-        Title="ChatGeneral" Height="450" Width="800">
+        Title="ChatGeneral" Height="450" Width="802">
     <Grid Background="#FF9E1616">
         <Label Content="CHAT DIRECCIÓN GENERAL&#xD;&#xA;" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
         <Image HorizontalAlignment="Left" Height="400" Margin="433,10,0,0" VerticalAlignment="Top" Width="349" Source="Escudo_Veracruz.png"/>
