@@ -9,7 +9,7 @@
     <Grid Background="#FF9E1616">
         <Image HorizontalAlignment="Left" Height="476" Margin="239,25,0,0" VerticalAlignment="Top" Width="567" Source="Escudo_Veracruz.png"/>
         <Label Content="Conductores y vehículos involucrados" HorizontalAlignment="Left" Margin="31,29,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
-        <DataGrid x:Name="dg_listaInvolucrados" HorizontalAlignment="Left" Height="165" Margin="31,65,0,0" VerticalAlignment="Top" Width="384" SelectionMode="Single" IsReadOnly="True">
+        <DataGrid x:Name="dg_listaInvolucrados" HorizontalAlignment="Left" Height="165" Margin="31,65,0,0" VerticalAlignment="Top" Width="409" SelectionMode="Single" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding ConductorNombre}"/>
                 <DataGridTextColumn Header="Apellido Paterno" Binding="{Binding ConductorApellidoPaterno}"/>

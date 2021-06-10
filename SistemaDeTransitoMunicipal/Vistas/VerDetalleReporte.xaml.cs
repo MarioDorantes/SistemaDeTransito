@@ -1,4 +1,5 @@
-﻿using SistemaDeTransitoMunicipal.pocos;
+﻿using SistemaDeTransitoMunicipal.DAO;
+using SistemaDeTransitoMunicipal.pocos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,6 +25,7 @@ namespace SistemaDeTransitoMunicipal.vistas
 
         Reporte reporteVisualizar;
         int idReporte = 0;
+        List<Vehiculo> vehiculosYConductoresInvolucrados;
 
         public VerDetalleReporte()
         {
@@ -34,7 +36,19 @@ namespace SistemaDeTransitoMunicipal.vistas
         {
             InitializeComponent();
             this.reporteVisualizar = reporteVisualizar;
+            vehiculosYConductoresInvolucrados = new List<Vehiculo>();
+
+            //Cargar conductores y vehiculos involucrados
+            CargarCyVInvolucrados(reporteVisualizar.IdReporte);
             CargarInformacionReporte();
+        }
+
+        private void CargarCyVInvolucrados(int idReporte)
+        {
+            vehiculosYConductoresInvolucrados = ReporteConductorVehiculoDAO.obtenerConductoresVehiculosReporte(idReporte);
+            Console.WriteLine("Regreso al llenado de la tabla");
+            dg_listaInvolucrados.AutoGenerateColumns = false;
+            dg_listaInvolucrados.ItemsSource = vehiculosYConductoresInvolucrados;
         }
 
         private void CargarInformacionReporte()
