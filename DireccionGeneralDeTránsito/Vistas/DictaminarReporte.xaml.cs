@@ -47,7 +47,7 @@ namespace DireccionGeneralDeTránsito
 
             if (descripcionDictamen.Length > 0)
             {
-                string userNamePerito = MainWindow.nombreUsuario;
+                string userNamePerito = MainWindow.userName;
                 DateTime fechaYHora = DateTime.Now;
                 int idReporte = VerReportes.idReporte;
                 int resultadoInsercion = DictamenDAO.agregarDictamen(userNamePerito, fechaYHora, descripcionDictamen, idReporte);

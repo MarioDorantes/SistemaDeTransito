@@ -30,6 +30,12 @@ namespace DireccionGeneralDeTránsito.Vistas
             usuarioConectado = usuario;
             delegaciones = new List<Delegacion>();
             CargarDelegaciones();
+            if (!MainWindow.tipoUsuario.Equals("Administrativo"))
+            {
+                btn_editarDelegacion.IsEnabled = false;
+                btn_eliminarDelegacion.IsEnabled = false;
+                btn_registroDelegacion.IsEnabled = false;
+            }
         }
         public void CargarDelegaciones()
         {
@@ -84,6 +90,7 @@ namespace DireccionGeneralDeTránsito.Vistas
                         if (resultadoEliminar == 1)
                         {
                             MessageBox.Show("Delegacion eliminada correctamente");
+                            CargarDelegaciones();
                         }
                         else
                         {

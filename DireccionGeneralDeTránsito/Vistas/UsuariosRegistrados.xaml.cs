@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace DireccionGeneralDeTránsito.Vistas
 {
-    /// <summary>
-    /// Lógica de interacción para UsuariosRegistrados.xaml
-    /// </summary>
     public partial class UsuariosRegistrados : Window, Observer
     {
         List<Usuario> usuarios;
@@ -30,6 +27,12 @@ namespace DireccionGeneralDeTránsito.Vistas
             InitializeComponent();
             usuarios = new List<Usuario>();
             cargarUsuarios();
+            if (!MainWindow.tipoUsuario.Equals("Administrativo"))
+            {
+                btn_eliminarUsuario.IsEnabled = false;
+                btn_modificarUsuario.IsEnabled = false;
+                btn_registrarUsuario.IsEnabled = false;
+            }
         }
         public UsuariosRegistrados(String usuario)
         {
@@ -37,6 +40,12 @@ namespace DireccionGeneralDeTránsito.Vistas
             usuarioConectado = usuario;
             usuarios = new List<Usuario>();
             cargarUsuarios();
+            if (!MainWindow.tipoUsuario.Equals("Administrativo"))
+            {
+                btn_eliminarUsuario.IsEnabled = false;
+                btn_modificarUsuario.IsEnabled = false;
+                btn_registrarUsuario.IsEnabled = false;
+            }
         }
 
         private void cargarUsuarios()
@@ -73,7 +82,9 @@ namespace DireccionGeneralDeTránsito.Vistas
                     if(resultadoEliminar == 1)
                     {
                         MessageBox.Show("Usuario eliminado correctamente");
-                    }else
+                        cargarUsuarios();
+                    }
+                    else
                     {
                         MessageBox.Show("Error al eliminar el usuario");
                     }

@@ -22,7 +22,8 @@ namespace DireccionGeneralDeTránsito
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string nombreUsuario = "";
+        public static string userName = "";
+        public static string tipoUsuario = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace DireccionGeneralDeTránsito
                 Usuario usuarioLogin = UsuarioDAOcs.obtenerLogin(usuario, contraseña);
                 if(usuarioLogin != null)
                 {
-                    nombreUsuario = usuarioLogin.NombreUsuario;
+                    tipoUsuario = usuarioLogin.TipoUsuario;
                     userName = usuarioLogin.NombreUsuario;
                     MessageBox.Show("Bienvenido al sistema " + usuarioLogin.NombreUsuario);
                     VentanaPrincipalAdministrativo ventanaPrincipalAdministrativo = new VentanaPrincipalAdministrativo(usuarioLogin.NombreUsuario);
