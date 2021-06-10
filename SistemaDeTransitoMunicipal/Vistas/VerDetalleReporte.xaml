@@ -24,7 +24,14 @@
         <Label Content="Fecha" HorizontalAlignment="Left" Margin="797,150,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
         <TextBox x:Name="txt_fechaDetalle" HorizontalAlignment="Left" Height="39" Margin="500,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="360"/>
         <Label Content="Fotografías" HorizontalAlignment="Left" Margin="31,260,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
-        <Image x:Name="img_1Detalle" HorizontalAlignment="Left" Height="100" Margin="31,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_1Detalle" HorizontalAlignment="Left" Height="100" Margin="34,296,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="682,439,0,0" VerticalAlignment="Top" Width="168" FontWeight="Bold" Background="#FF15FFCA" Foreground="Black" Height="51" Click="btn_regresar_Click" FontSize="16"/>
+        <Image x:Name="img_2Detalle" HorizontalAlignment="Left" Height="100" Margin="139,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_3Detalle" HorizontalAlignment="Left" Height="100" Margin="244,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_4Detalle" HorizontalAlignment="Left" Height="100" Margin="349,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_5Detalle" HorizontalAlignment="Left" Height="100" Margin="454,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_6Detalle" HorizontalAlignment="Left" Height="100" Margin="559,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_7Detalle" HorizontalAlignment="Left" Height="100" Margin="664,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="img_8Detalle" HorizontalAlignment="Left" Height="100" Margin="769,296,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>

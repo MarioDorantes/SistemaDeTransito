@@ -77,6 +77,13 @@ namespace SistemaDeTransitoMunicipal
         }
 
         Uri fileUri1;
+        Uri fileUri2;
+        Uri fileUri3;
+        Uri fileUri4;
+        Uri fileUri5;
+        Uri fileUri6;
+        Uri fileUri7;
+        Uri fileUri8;
 
         private void btn_foto1_Click(object sender, RoutedEventArgs e)
         {
@@ -93,37 +100,37 @@ namespace SistemaDeTransitoMunicipal
                 }
                 else if (img_num2.Source == null)
                 {
-                    Uri fileUri2 = new Uri(openFileDialog.FileName);
+                    fileUri2 = new Uri(openFileDialog.FileName);
                     img_num2.Source = new BitmapImage(fileUri2);
                 }
                 else if (img_num3.Source == null)
                 {
-                    Uri fileUri3 = new Uri(openFileDialog.FileName);
+                    fileUri3 = new Uri(openFileDialog.FileName);
                     img_num3.Source = new BitmapImage(fileUri3);
                 }
                 else if (img_num4.Source == null)
                 {
-                    Uri fileUri4 = new Uri(openFileDialog.FileName);
+                    fileUri4 = new Uri(openFileDialog.FileName);
                     img_num4.Source = new BitmapImage(fileUri4);
                 }
                 else if (img_num5.Source == null)
                 {
-                    Uri fileUri5 = new Uri(openFileDialog.FileName);
+                    fileUri5 = new Uri(openFileDialog.FileName);
                     img_num5.Source = new BitmapImage(fileUri5);
                 }
                 else if (img_num6.Source == null)
                 {
-                    Uri fileUri6 = new Uri(openFileDialog.FileName);
+                    fileUri6 = new Uri(openFileDialog.FileName);
                     img_num6.Source = new BitmapImage(fileUri6);
                 }
                 else if (img_num7.Source == null)
                 {
-                    Uri fileUri7 = new Uri(openFileDialog.FileName);
+                    fileUri7 = new Uri(openFileDialog.FileName);
                     img_num7.Source = new BitmapImage(fileUri7);
                 }
                 else if (img_num8.Source == null)
                 {
-                    Uri fileUri8 = new Uri(openFileDialog.FileName);
+                    fileUri8 = new Uri(openFileDialog.FileName);
                     img_num8.Source = new BitmapImage(fileUri8);
                 }
             }
@@ -152,20 +159,79 @@ namespace SistemaDeTransitoMunicipal
             {
                 camposLlenos = false;
             }
+            if (img_num2.Source == null)
+            {
+                camposLlenos = false;
+            }
+            if (img_num3.Source == null)
+            {
+                camposLlenos = false;
+            }
 
             if (camposLlenos)
             {
                 int idDelegacion = MainWindow.idDelegacionLoggeada;
 
-                //PRUEBA PARA PASAR IMAGEN A BYTE
-                /*
-                String imag1Aux = img_num1.Source.ToString();
-                byte[] imagen1 = Encoding.ASCII.GetBytes(imag1Aux);
-                */
+                byte[] imagen1;
+                byte[] imagen2;
+                byte[] imagen3;
+                byte[] imagen4;
+                byte[] imagen5;
+                byte[] imagen6;
+                byte[] imagen7;
+                byte[] imagen8;
 
-                byte[] imagen1 = System.IO.File.ReadAllBytes(fileUri1.AbsoluteUri);
+                imagen1 = System.IO.File.ReadAllBytes(fileUri1.LocalPath);
+                imagen2 = System.IO.File.ReadAllBytes(fileUri2.LocalPath);
+                imagen3 = System.IO.File.ReadAllBytes(fileUri3.LocalPath);
 
-                int resultado = ReporteDAO.agregarReporte(idDelegacion, fecha, estatus, direccion, imagen1);
+                if (img_num4.Source == null)
+                {
+                    imagen4 = new byte [0];
+                }
+                else
+                {
+                    imagen4 = System.IO.File.ReadAllBytes(fileUri4.LocalPath);
+                }
+
+                if (img_num5.Source == null)
+                {
+                    imagen5 = new byte[0];
+                }
+                else
+                {
+                    imagen5 = System.IO.File.ReadAllBytes(fileUri5.LocalPath);
+                }
+
+                if (img_num6.Source == null)
+                {
+                    imagen6 = new byte[0];
+                }
+                else
+                {
+                    imagen6 = System.IO.File.ReadAllBytes(fileUri6.LocalPath);
+                }
+
+                if (img_num7.Source == null)
+                {
+                    imagen7 = new byte[0];
+                }
+                else
+                {
+                    imagen7 = System.IO.File.ReadAllBytes(fileUri7.LocalPath);
+                }
+
+                if (img_num8.Source == null)
+                {
+                    imagen8 = new byte[0];
+                }
+                else
+                {
+                    imagen8 = System.IO.File.ReadAllBytes(fileUri8.LocalPath);
+                }
+
+
+                int resultado = ReporteDAO.agregarReporte(idDelegacion, fecha, estatus, direccion, imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8);
 
                 if (resultado > 0)
                 {
@@ -182,7 +248,7 @@ namespace SistemaDeTransitoMunicipal
             }
             else
             {
-                MessageBox.Show("Favor de llenar todos los campos", "Campos vacíos");
+                MessageBox.Show("Favor de llenar todos los campos e ingresar mínimo 3 fotografías", "Campos vacíos");
             }
 
 
