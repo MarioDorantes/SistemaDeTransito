@@ -58,12 +58,14 @@
     <Compile Include="conexionBD\ConexionBD.cs" />
     <Compile Include="DAO\DelegacionDAO.cs" />
     <Compile Include="DAO\DictamenDAO.cs" />
+    <Compile Include="DAO\ReporteConductorVehiculoDAO.cs" />
     <Compile Include="DAO\ReporteDAO.cs" />
     <Compile Include="DAO\UsuarioDAOcs.cs" />
     <Compile Include="interfaz\Observer.cs" />
     <Compile Include="pocos\Delegacion.cs" />
     <Compile Include="pocos\Reporte.cs" />
     <Compile Include="pocos\Usuario.cs" />
+    <Compile Include="pocos\Vehiculo.cs" />
     <Compile Include="vistas\ChatGeneral.xaml.cs">
       <DependentUpon>ChatGeneral.xaml</DependentUpon>
     </Compile>
