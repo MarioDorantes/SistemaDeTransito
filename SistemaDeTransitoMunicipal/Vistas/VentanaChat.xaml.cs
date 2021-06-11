@@ -21,13 +21,14 @@ namespace SistemaDeTransitoMunicipal.vistas
     /// </summary>
     public partial class VentanaChat : Window
     {
-        String usuarioConectado = "";
         TcpClient clientSocket = new TcpClient();
         NetworkStream serverStream = default(NetworkStream);
         string msjServidor = "";
         public VentanaChat()
         {
             InitializeComponent();
+            ConectarAlServidor();
+            Console.WriteLine(MainWindow.nombreUsuario);
         }
 
         public void ConectarAlServidor()
@@ -37,7 +38,7 @@ namespace SistemaDeTransitoMunicipal.vistas
                 Console.WriteLine("Conectando al servidor...");
                 clientSocket.Connect("127.0.0.1", 1234);
                 serverStream = clientSocket.GetStream();
-                string nombreChat = usuarioConectado;
+                string nombreChat = MainWindow.nombreUsuario;
                 byte[] outStream = Encoding.ASCII.GetBytes(nombreChat + "$");
                 serverStream.Write(outStream, 0, outStream.Length);
                 serverStream.Flush();
@@ -48,7 +49,8 @@ namespace SistemaDeTransitoMunicipal.vistas
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro al conectarse con el servidor, inténtelo más tarde", ex.Message);
+                MessageBox.Show("Error al conectarse con el servidor, inténtelo más tarde", ex.Message);
+                Btn_Enviar.IsEnabled = false;
             }
         }
 
@@ -77,6 +79,7 @@ namespace SistemaDeTransitoMunicipal.vistas
             catch (Exception)
             {
                 MessageBox.Show("Error de conexión con el servidor");
+               
             }
 
         }
@@ -92,10 +95,11 @@ namespace SistemaDeTransitoMunicipal.vistas
         {
             if (Tb_mensaje.Text.Length > 0)
             {
-                byte[] outStream = Encoding.ASCII.GetBytes(Tb_mensaje.Text + "$");
-                serverStream.Write(outStream, 0, outStream.Length);
-                serverStream.Flush();
-                Tb_mensaje.Text = "";
+                    byte[] outStream = Encoding.ASCII.GetBytes(Tb_mensaje.Text + "$");
+                    serverStream.Write(outStream, 0, outStream.Length);
+                    serverStream.Flush();
+                    Tb_mensaje.Text = "";
+                
             }
             else
             {
