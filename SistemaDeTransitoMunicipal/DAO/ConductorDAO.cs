@@ -211,7 +211,8 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Ha ocurrido un error");
+                MessageBox.Show("No se puede eliminar al conductor, debido a que esta relacionado a un vehículo y/o reporte", "Error");
+                Console.WriteLine(e.Message);
             }
             finally
             {
