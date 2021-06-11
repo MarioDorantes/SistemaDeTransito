@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DireccionGeneralDeTránsito"
         mc:Ignorable="d"
-        Title="Ventana Principal de Administrativo" Height="450" Width="800">
+        Title="Ventana Principal de Administrativo" Height="499.26" Width="800">
     <Grid>
         <Button x:Name="btn_verReportes" Content="Ver Reportes" HorizontalAlignment="Left" Margin="397,250,0,0" VerticalAlignment="Top" Width="385" Height="159" FontFamily="Arial" FontWeight="Bold" FontSize="22" BorderBrush="Black" Background="#FF9E1616" Click="btn_verReportes_Click" BorderThickness="5,1,1,1" Foreground="White"/>
         <Button x:Name="btn_chatGeneral" Content="Chat" HorizontalAlignment="Left" Margin="397,88,0,0" VerticalAlignment="Top" Width="385" Height="157" FontWeight="Bold" Background="#FF9E1616" Click="btn_DetalleDeReportes_Click" FontSize="22" BorderThickness="5,1,1,1" BorderBrush="Black" RenderTransformOrigin="0,0" Foreground="White"/>
@@ -15,6 +15,7 @@
             <Label Content="DIRECCIÓN GENERAL DE TRÁNSITO" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Foreground="White"/>
             <Image HorizontalAlignment="Left" Height="74" Margin="730,4,0,0" VerticalAlignment="Top" Width="52" Source="Escudo_Veracruz.png"/>
         </Grid>
+        <Button x:Name="btn_CerrarSesion" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="349,438,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" BorderBrush="Black" Background="#FFE60808" Foreground="White" Click="btn_CerrarSesion_Click"/>
 
     </Grid>
 </Window>

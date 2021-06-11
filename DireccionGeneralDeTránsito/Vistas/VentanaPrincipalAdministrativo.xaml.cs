@@ -61,5 +61,12 @@ namespace DireccionGeneralDeTránsito
             ventanaDelegaciones.Show();
             this.Close();
         }
+
+        private void btn_CerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow login = new MainWindow();
+            login.Show();
+            this.Close();
+        }
     }
 }
