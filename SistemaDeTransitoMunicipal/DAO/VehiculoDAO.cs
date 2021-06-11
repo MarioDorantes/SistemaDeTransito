@@ -228,7 +228,43 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             return resultado;
         }
-        
+
+        public static Boolean verificarPlacasRegistradas(string numeroPlacas)
+        {
+            Boolean placasObtenidas = false;
+            SqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnection();
+                if (conn != null)
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+
+                    String query = String.Format("SELECT vhc_numPlacas FROM vehiculo WHERE vhc_numPlacas = '{0}' ", numeroPlacas);
+
+                    command = new SqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    if (dataReader.Read())
+                    {
+                        placasObtenidas = true;
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message + "No se estableció conexión con la BD", "Ocurrió un error");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return placasObtenidas;
+        }
+
 
 
     }

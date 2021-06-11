@@ -106,6 +106,9 @@ namespace SistemaDeTransitoMunicipal
             
 
             Boolean camposLlenos = true;
+            Boolean placasRepetida = false;
+
+            placasRepetida = VehiculoDAO.verificarPlacasRegistradas(numPlacas);
 
             if (marca.Length == 0)
             {
@@ -159,19 +162,30 @@ namespace SistemaDeTransitoMunicipal
 
                 if (isNuevo)
                 {
-                    resultado = VehiculoDAO.agregarVehiculo(numLicencia, marca, modelo, año, color, aseguradora, numPoliza, numPlacas);
 
-                    if (resultado > 0)
+                    if (!placasRepetida)
                     {
-                        MessageBox.Show("El vehiculo se registro exitosamente", "Registro exitoso");
+                        resultado = VehiculoDAO.agregarVehiculo(numLicencia, marca, modelo, año, color, aseguradora, numPoliza, numPlacas);
 
+                        if (resultado > 0)
+                        {
+                            MessageBox.Show("El vehiculo se registro exitosamente", "Registro exitoso");
+                            notificacion.actualizaInformacion("Registrar");
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
+                        }
+
+                       
                     }
                     else
                     {
-                        MessageBox.Show("No fue posible hacer el registro", "Ocurrió un error");
+                        MessageBox.Show("Este numero de placas han sido registradas anteriormente.", "Atención");
                     }
 
-                    notificacion.actualizaInformacion("Registrar");
+                    
                 }
                 else
                 {
@@ -180,15 +194,17 @@ namespace SistemaDeTransitoMunicipal
                     if (resultado > 0)
                     {
                         MessageBox.Show("Vehiculo actualizado exitosamente", "Mensaje de confirmación");
+                        notificacion.actualizaInformacion("Editar");
+                        this.Close();
                     }
                     else
                     {
                         MessageBox.Show("Error, intente más tarde", "Error");
                     }
-                    notificacion.actualizaInformacion("Editar");
+                    
                     
                 }
-                this.Close();
+                
 
             }
             else
