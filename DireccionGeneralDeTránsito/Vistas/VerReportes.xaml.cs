@@ -63,8 +63,8 @@ namespace DireccionGeneralDeTránsito
             {
                 idReporte = reportes[posicionSeleccionada].IdReporte;
                 Reporte reporteVisualizar = reportes[posicionSeleccionada];
-                DetalleDeReportes detalleReporte = new DetalleDeReportes(reporteVisualizar);
-                detalleReporte.Show();
+                ventanaDetalle = new DetalleDeReportes(reporteVisualizar);
+                ventanaDetalle.Show();
                 this.Close();
             }
             else
