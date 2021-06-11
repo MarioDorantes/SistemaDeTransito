@@ -34,5 +34,6 @@
         <Image x:Name="img_7Detalle" HorizontalAlignment="Left" Height="100" Margin="664,296,0,0" VerticalAlignment="Top" Width="100"/>
         <Image x:Name="img_8Detalle" HorizontalAlignment="Left" Height="100" Margin="769,296,0,0" VerticalAlignment="Top" Width="100"/>
         <Button x:Name="btn_dictaminar" Content="Dictaminar" HorizontalAlignment="Left" Margin="40,439,0,0" VerticalAlignment="Top" Width="163" Height="51" FontWeight="Bold" Background="#FF75F654" Click="btn_dictaminar_Click"/>
+        <Label x:Name="lb_mensaje" Content="" HorizontalAlignment="Left" Margin="40,490,0,0" VerticalAlignment="Top" Width="284" FontWeight="Bold" FontFamily="Arial" Foreground="White" Visibility="Hidden" />
     </Grid>
 </Window>
