@@ -42,6 +42,12 @@ namespace DireccionGeneralDeTránsito
             //Cargar conductores y vehiculos involucrados
             CargarCyVInvolucrados(reporteVisualizar.IdReporte);
             CargarInformacionReporte();
+            string tipoUsuario = MainWindow.tipoUsuario;
+            Console.WriteLine(tipoUsuario);
+            if (!tipoUsuario.Equals("Perito"))
+            {
+                btn_dictaminar.IsEnabled = false;
+            }
 
         }
 
