@@ -81,5 +81,10 @@ namespace DireccionGeneralDeTránsito
                 MessageBox.Show("Para ver un reporte, primero debe seleccionarlo", "ATENCIÓN");
             }
         }
+
+        private void btn_actualizar_Click(object sender, RoutedEventArgs e)
+        {
+            cargarReportes();
+        }
     }
 }

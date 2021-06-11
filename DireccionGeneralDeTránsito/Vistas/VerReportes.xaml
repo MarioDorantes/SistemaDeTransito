@@ -17,6 +17,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btn_verDetalle" Content="Ver detalle" HorizontalAlignment="Left" Margin="543,36,0,0" VerticalAlignment="Top" Width="105" Height="32" Background="#FF72E9FA" FontFamily="Arial" FontSize="14" FontWeight="Bold" RenderTransformOrigin="1.369,0.443" Click="btn_verDetalle_Click" />
+        <Button x:Name="btn_actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="413,36,0,0" VerticalAlignment="Top" Width="108" Height="32" Background="#FFF1D56A" FontFamily="Arial" FontSize="14" FontWeight="Bold" Click="btn_actualizar_Click"/>
 
     </Grid>
 </Window>
