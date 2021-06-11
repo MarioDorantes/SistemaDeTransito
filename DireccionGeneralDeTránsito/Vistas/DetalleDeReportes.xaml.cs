@@ -47,6 +47,14 @@ namespace DireccionGeneralDeTránsito
             if (!tipoUsuario.Equals("Perito"))
             {
                 btn_dictaminar.IsEnabled = false;
+                lb_mensaje.Content = "Solo un périto puede dictaminar";
+                lb_mensaje.Visibility = Visibility.Visible;
+            }
+            if (reporteVisualizar.Estatus.ToLower().Equals("dictaminado"))
+            {
+                btn_dictaminar.IsEnabled = false;
+                lb_mensaje.Content = "El reporte ya cuenta con un dictamen";
+                lb_mensaje.Visibility = Visibility.Visible;
             }
 
         }
