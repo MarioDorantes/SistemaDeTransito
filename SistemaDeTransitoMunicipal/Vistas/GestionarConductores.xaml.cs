@@ -37,6 +37,14 @@ namespace SistemaDeTransitoMunicipal.Vistas
             conductores = ConductorDAO.obtenerConductores(idDelegacionLoggeada);
             dg_conductores.AutoGenerateColumns = false;
             dg_conductores.ItemsSource = conductores;
+
+            if (!MainWindow.rolUsuario.ToLower().Equals("administrativo"))
+            {
+                btn_registrar.IsEnabled = false;
+                btn_editar.IsEnabled = false;
+                btn_eliminar.IsEnabled = false;
+                lb_mensaje.Visibility = Visibility.Visible;
+            }
         }
 
         private void btn_registrar_Click(object sender, RoutedEventArgs e)

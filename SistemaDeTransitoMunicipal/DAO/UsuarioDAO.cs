@@ -47,7 +47,8 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             catch (Exception e)
             {
-               MessageBox.Show(e.Message, "Ocurrió un error");
+               MessageBox.Show("Error en la Base de Datos", "Ocurrió un error");
+               Console.WriteLine(e.Message);
             }
             finally
             {

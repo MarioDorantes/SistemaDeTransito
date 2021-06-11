@@ -45,7 +45,8 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Ha ocurrido un error");
+                MessageBox.Show("Error en la Base de Datos", "Ha ocurrido un error");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -100,7 +101,8 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             catch (SqlException e)
             {
-                MessageBox.Show("No hay conexión a la base de datos. Intente más tarde", "Error" + e.Message);
+                MessageBox.Show("Error en la Base de datos", "Error");
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -142,7 +144,8 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             catch (SqlException e)
             {
-                MessageBox.Show("No hay conexión a la base de datos. Intente más tarde", "Error" + e.Message);
+                MessageBox.Show("Error en la Base de datos", "Error");
+                Console.WriteLine(e.Message);
             }
             finally
             {

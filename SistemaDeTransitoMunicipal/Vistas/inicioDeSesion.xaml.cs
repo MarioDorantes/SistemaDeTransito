@@ -21,7 +21,7 @@ namespace SistemaDeTransitoMunicipal
     public partial class MainWindow : Window
     {
         public static string nombreUsuario = "";
-
+        public static string rolUsuario = "";
         public static int idDelegacionLoggeada = 0;
         public MainWindow()
         {
@@ -39,6 +39,7 @@ namespace SistemaDeTransitoMunicipal
                 if (userRespuesta != null && userRespuesta.NombreUsuario != null)
                 {
                     nombreUsuario = userRespuesta.NombreUsuario;
+                    rolUsuario = userRespuesta.Rol;
                     idDelegacionLoggeada = userRespuesta.IdDelegacion;
                     MessageBox.Show("Bienvenido al sistema : " + userRespuesta.NombreUsuario, "Usuario encontrado");
                     irVentanaAdministrador();
