@@ -175,7 +175,8 @@ namespace SistemaDeTransitoMunicipal.DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Error en la base de datos. Intente más tarde");
+                MessageBox.Show("No se puede eliminar el vehículo, debido a que esta relacionado a un reporte", "Error");
+                Console.WriteLine(e.Message);
             }
             finally
             {
