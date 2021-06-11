@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaDeTransitoMunicipal.vistas"
         mc:Ignorable="d"
-        Title="Ver Detalle del Reporte" Height="542" Width="899">
+        Title="Ver Detalle del Reporte" Height="600" Width="899">
     <Grid Background="#FF9E1616">
         <Image HorizontalAlignment="Left" Height="476" Margin="239,25,0,0" VerticalAlignment="Top" Width="567" Source="Escudo_Veracruz.png"/>
         <Label Content="Conductores y vehículos involucrados" HorizontalAlignment="Left" Margin="31,29,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
@@ -25,7 +25,7 @@
         <TextBox x:Name="txt_fechaDetalle" HorizontalAlignment="Left" Height="39" Margin="500,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="360"/>
         <Label Content="Fotografías" HorizontalAlignment="Left" Margin="31,260,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="16"/>
         <Image x:Name="img_1Detalle" HorizontalAlignment="Left" Height="100" Margin="34,296,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="682,439,0,0" VerticalAlignment="Top" Width="168" FontWeight="Bold" Background="#FF15FFCA" Foreground="Black" Height="51" Click="btn_regresar_Click" FontSize="16"/>
+        <Button x:Name="btn_regresar" Content="Regresar" HorizontalAlignment="Left" Margin="692,501,0,0" VerticalAlignment="Top" Width="168" FontWeight="Bold" Background="#FF15FFCA" Foreground="Black" Height="51" Click="btn_regresar_Click" FontSize="16"/>
         <Image x:Name="img_2Detalle" HorizontalAlignment="Left" Height="100" Margin="139,296,0,0" VerticalAlignment="Top" Width="100"/>
         <Image x:Name="img_3Detalle" HorizontalAlignment="Left" Height="100" Margin="244,296,0,0" VerticalAlignment="Top" Width="100"/>
         <Image x:Name="img_4Detalle" HorizontalAlignment="Left" Height="100" Margin="349,296,0,0" VerticalAlignment="Top" Width="100"/>
@@ -33,5 +33,7 @@
         <Image x:Name="img_6Detalle" HorizontalAlignment="Left" Height="100" Margin="559,296,0,0" VerticalAlignment="Top" Width="100"/>
         <Image x:Name="img_7Detalle" HorizontalAlignment="Left" Height="100" Margin="664,296,0,0" VerticalAlignment="Top" Width="100"/>
         <Image x:Name="img_8Detalle" HorizontalAlignment="Left" Height="100" Margin="769,296,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lb_dictamen" Content="" HorizontalAlignment="Left" Margin="34,401,0,0" VerticalAlignment="Top" Width="251" FontWeight="Bold" FontFamily="Arial" FontSize="14" Foreground="White"/>
+        <TextBox x:Name="txt_dictamen" HorizontalAlignment="Left" Height="120" Margin="31,432,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="604" Visibility="Hidden"/>
     </Grid>
 </Window>

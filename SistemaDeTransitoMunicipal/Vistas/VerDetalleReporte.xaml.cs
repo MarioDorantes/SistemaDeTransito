@@ -56,8 +56,23 @@ namespace SistemaDeTransitoMunicipal.vistas
             idReporte = reporteVisualizar.IdReporte;
             txt_direccionDetalle.Text = reporteVisualizar.Direccion;
             txt_fechaDetalle.Text = reporteVisualizar.Fecha;
-
             cargarImagenes();
+
+            Dictamen dictamen = DictamenDAO.obtenerDictamen(idReporte);
+            if (reporteVisualizar.Estatus.ToLower().Equals("dictaminado"))
+            {
+                lb_dictamen.Content = "Dictamen: ";
+                txt_dictamen.Text = dictamen.Descripcion;
+                txt_dictamen.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lb_dictamen.Content = "Aún no hay dictamen";
+            }
+        }
+
+        private void cargarDictamen(int idReporte)
+        {
 
         }
 
