@@ -105,13 +105,17 @@ namespace DireccionGeneralDeTránsito
                     idDelegacion, tipoUsuario, nombreUsuarioViejo);
                     
                     if (resultadoActualizar == 1)
-                        {
+                    {
                             MessageBox.Show("Información actualizada correctamente");
-                        }
-                        else
-                        {
+                        UsuariosRegistrados ventanaUsuariosRegistrados = new UsuariosRegistrados(usuarioConectado);
+                        ventanaUsuariosRegistrados.Show();
+                        this.Close();
+
+                    }
+                    else
+                    {
                             MessageBox.Show("Error al actualizar la información, inténtelo de nuevo más tarde");
-                        }
+                    }
                 }    
             }
             else
@@ -132,6 +136,10 @@ namespace DireccionGeneralDeTránsito
                             if (seRegistro == 1)
                             {
                                 MessageBox.Show("Usuario registrado correctamente");
+                                UsuariosRegistrados ventanaUsuariosRegistrados = new UsuariosRegistrados(usuarioConectado);
+                                ventanaUsuariosRegistrados.Show();
+                                this.Close();
+
                             }
                             else
                             {

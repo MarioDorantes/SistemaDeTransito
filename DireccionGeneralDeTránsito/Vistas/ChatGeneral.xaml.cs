@@ -53,6 +53,7 @@ namespace DireccionGeneralDeTránsito.vistas
             catch (Exception ex)
             {
                 MessageBox.Show("Error al conectarse con el servidor, inténtelo más tarde");
+                Btn_EnviarMensaje.IsEnabled = false;
             }
         }
 

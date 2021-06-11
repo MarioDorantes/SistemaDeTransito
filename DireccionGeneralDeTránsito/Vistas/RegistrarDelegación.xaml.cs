@@ -112,6 +112,9 @@ namespace DireccionGeneralDeTránsito
                     if (DelegacionDAO.RegistrarDelegacion(nombreDelegacion, codigoPostal, colonia, municipio, calleNum, email, numeroTel) == 1)
                     {
                         MessageBox.Show("Delegación registrada correctamente");
+                        DelegacionesRegistradas ventanaDelegaciones = new DelegacionesRegistradas(usuarioConectado);
+                        ventanaDelegaciones.Show();
+                        this.Close();
                     }
                     else
                     {
@@ -131,7 +134,10 @@ namespace DireccionGeneralDeTránsito
                     int idDelegacion = DelegacionDAO.cargarIdDelecacion(nombreDelegacion);
                     if (DelegacionDAO.ActualizarDelegacion(nombreDelegacion,colonia,codigoPostal,email,calleNum,numeroTel,municipio,idDelegacion) == 1)
                     {
-                        MessageBox.Show("Delegación registrada correctamente");
+                        MessageBox.Show("Delegación modificada correctamente");
+                        DelegacionesRegistradas ventanaDelegaciones = new DelegacionesRegistradas(usuarioConectado);
+                        ventanaDelegaciones.Show();
+                        this.Close();
                     }
                     else
                     {

@@ -61,6 +61,21 @@ namespace DireccionGeneralDeTránsito
             int posicionSeleccionada = dg_reportes.SelectedIndex;
             if (posicionSeleccionada >= 0)
             {
+                try
+                {
+                    idReporte = reportes[posicionSeleccionada].IdReporte;
+                    Reporte reporteVisualizar = reportes[posicionSeleccionada];
+                    DetalleDeReportes detalleReporte = new DetalleDeReportes(reporteVisualizar);
+                    detalleReporte.Show();
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("No existen reportes registrados", "ATENCIÓN");
+
+                }
+                
+            }
                 idReporte = reportes[posicionSeleccionada].IdReporte;
                 Reporte reporteVisualizar = reportes[posicionSeleccionada];
                 ventanaDetalle = new DetalleDeReportes(reporteVisualizar);
