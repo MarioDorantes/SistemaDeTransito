@@ -40,6 +40,7 @@ namespace DireccionGeneralDeTránsito.DAO
             }
             catch (Exception e)
             {
+                
                 Console.WriteLine(e.Message);
                 infoActualizada = 0;
             }

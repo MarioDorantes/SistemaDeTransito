@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DireccionGeneralDeTránsito.DAO
 {
@@ -33,6 +34,7 @@ namespace DireccionGeneralDeTránsito.DAO
             }
             catch (Exception e)
             {
+                MessageBox.Show("Error en la Base de Datos", "Ha ocurrido un error");
                 Console.WriteLine(e.Message);
             }
             finally
